@@ -2,9 +2,14 @@ import 'package:flutter/material.dart';
 import 'SampleScreen.dart';
 import 'Sample2_SFW.dart';
 import 'package:sample1/ImageViewDescriptipons.dart';
+import 'package:sample1/RulesList.dart';
+import 'package:sample1/AutoCompleteInput.dart';
+import 'package:sample1/Formfield.dart';
+import 'package:sample1/ColorContrast.dart';
+import 'package:sample1/ElementsAccessible.dart';
 
 void main() {
-  runApp(ImageViewDescription());
+  runApp(ElementsAccessible());
 }
 
 

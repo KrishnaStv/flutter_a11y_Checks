@@ -20,6 +20,12 @@ class ImageViewDescription extends StatelessWidget {
       home:Scaffold(
           appBar: AppBar(
             title: Text('Hello'),
+            leading: BackButton(
+              color: Colors.white,
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
           body: SafeArea(
             child: SingleChildScrollView(
@@ -55,6 +61,11 @@ class ImageViewDescription extends StatelessWidget {
                     Semantics(
                       child: imgObject,
                       excludeSemantics: true,
+                    ),
+                    SizedBox(height: 16,),
+                    HeaderSemanticWithText('No Semantic Label value'),
+                    Semantics(
+                      child: imgObject,
                     ),
                   ],
                 ),
