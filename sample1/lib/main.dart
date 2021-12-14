@@ -7,9 +7,20 @@ import 'package:sample1/AutoCompleteInput.dart';
 import 'package:sample1/Formfield.dart';
 import 'package:sample1/ColorContrast.dart';
 import 'package:sample1/ElementsAccessible.dart';
+import 'package:sample1/Cupertino/alertDialogue.dart';
+import 'package:sample1/Cupertino/ActionSheet.dart';
+import 'FocusCheck.dart';
+import 'package:sample1/MergeScemantics.dart';
+import 'package:sample1/ContainerFocus.dart';
+import 'package:sample1/AlertModelDialogue.dart';
+import 'SliderExample.dart';
+import 'PageController.dart';
+import 'package:sample1/SegmentedControolerExample.dart';
+import 'package:sample1/TabBarExample.dart';
+import 'package:sample1/PickerExamples.dart';
 
 void main() {
-  runApp(ElementsAccessible());
+  runApp(MaterialApp(home:DefaultPickerExample()));
 }
 
 
