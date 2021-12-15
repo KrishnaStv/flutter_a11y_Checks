@@ -36,6 +36,8 @@ class AlertModelDialogue extends State<ModelFocusTest> {
                 focusNode: actionButton,
                 child: Text('Show Login Alert'),
                 onPressed: () {
+                  SemanticsService.announce("Hello world", TextDirection.ltr);
+                  return;
                   showDialog(context: context, builder: (context) {
                     return AlertDialog(
                       title: Semantics(
@@ -54,7 +56,10 @@ class AlertModelDialogue extends State<ModelFocusTest> {
                             ),
                             CupertinoButton(child: Text('Submit'), onPressed: () {
                               Navigator.pop(context);
-                              actionButton.requestFocus();
+                              // SemanticsService.tooltip('Hello world');
+                              // SemanticsService.announce("Hello world", TextDirection.ltr);
+                              // FocusScope.of(context).requestFocus(actionButton);
+                              // actionButton.requestFocus();
                             }),
                           ],
                         ),

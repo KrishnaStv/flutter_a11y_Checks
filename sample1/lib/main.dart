@@ -18,9 +18,14 @@ import 'PageController.dart';
 import 'package:sample1/SegmentedControolerExample.dart';
 import 'package:sample1/TabBarExample.dart';
 import 'package:sample1/PickerExamples.dart';
+import 'package:sample1/StatusMessagesExample.dart';
+import 'package:sample1/AnnouncementExample.dart';
+import 'package:sample1/ConstraintsDocument.dart';
+import 'ReadingOrderExample.dart';
+import 'FocusChecks.dart';
 
 void main() {
-  runApp(MaterialApp(home:DefaultPickerExample()));
+  runApp(MaterialApp(home:FocusChecksApp()));
 }
 
 

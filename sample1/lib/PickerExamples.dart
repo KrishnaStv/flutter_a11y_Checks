@@ -65,8 +65,6 @@ class DefPickerSelectionState extends State<DefPickerSelection> {
               selecteddatetime = value;
             },
             initialDateTime: DateTime.now(),
-
-
           ),
         ),
     );
