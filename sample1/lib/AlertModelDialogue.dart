@@ -33,11 +33,11 @@ class AlertModelDialogue extends State<ModelFocusTest> {
           body: Center(
             child: FocusScope(
               child: MaterialButton(
+                autofocus: true,
                 focusNode: actionButton,
                 child: Text('Show Login Alert'),
                 onPressed: () {
                   SemanticsService.announce("Hello world", TextDirection.ltr);
-                  return;
                   showDialog(context: context, builder: (context) {
                     return AlertDialog(
                       title: Semantics(
@@ -55,6 +55,8 @@ class AlertModelDialogue extends State<ModelFocusTest> {
                               initialValue: 'Enter Email',
                             ),
                             CupertinoButton(child: Text('Submit'), onPressed: () {
+                              FocusScope.of(context).unfocus();
+                              FocusScope.of(context).requestFocus(actionButton);
                               Navigator.pop(context);
                               // SemanticsService.tooltip('Hello world');
                               // SemanticsService.announce("Hello world", TextDirection.ltr);

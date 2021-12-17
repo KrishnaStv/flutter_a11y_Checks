@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class ReadingOrderExample extends StatelessWidget {
 
@@ -19,11 +20,17 @@ class ReadingOrderExample extends StatelessWidget {
                   Expanded(
                       child:  Column(
                         children: [
-                          Text("Enter Email Id"),
-                          TextField(
-                            decoration: InputDecoration(
-                              hintText: 'Email Id'
+                          Semantics(
+                            child: Text("Enter Email Id"),
+                            sortKey: OrdinalSortKey(1),
+                          ),
+                          Semantics(
+                            child: TextField(
+                              decoration: InputDecoration(
+                                  hintText: 'Email Id'
+                              ),
                             ),
+                            sortKey: OrdinalSortKey(2),
                           ),
                         ],
                       ),
@@ -31,21 +38,30 @@ class ReadingOrderExample extends StatelessWidget {
                  Expanded(child:
                  Column(
                    children: [
-                     Text("Enter Phone number"),
-                     TextField(
-                       decoration: InputDecoration(
-                           hintText: 'Phone Number'
-                       ),
+                     Semantics(
+                       child: Text("Enter Phone number"),
+                       sortKey: OrdinalSortKey(3),
                      ),
+                     Semantics(
+                       child: TextField(
+                         decoration: InputDecoration(
+                             hintText: 'Phone Number'
+                         ),
+                       ),
+                       sortKey: OrdinalSortKey(4),
+                     ) ,
                    ],
                   ),
                  ),
                 ],
               ),
               SizedBox(height: 25,),
-              ElevatedButton(onPressed: () {
-                debugPrint('Submit Clicked');
-              }, child: Text('Submit'))
+              Semantics(
+                child: ElevatedButton(onPressed: () {
+                  debugPrint('Submit Clicked');
+                }, child: Text('Submit')),
+                sortKey: OrdinalSortKey(5),
+              ),
             ],
           ),
         ),
