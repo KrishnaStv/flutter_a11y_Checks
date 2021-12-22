@@ -55,7 +55,6 @@ class AlertModelDialogue extends State<ModelFocusTest> {
                               initialValue: 'Enter Email',
                             ),
                             CupertinoButton(child: Text('Submit'), onPressed: () {
-                              FocusScope.of(context).unfocus();
                               FocusScope.of(context).requestFocus(actionButton);
                               Navigator.pop(context);
                               // SemanticsService.tooltip('Hello world');

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'SampleScreen.dart';
 import 'Sample2_SFW.dart';
-import 'package:sample1/ImageViewDescriptipons.dart';
-import 'package:sample1/RulesList.dart';
+import 'package:sample1/RulesList/ImageViewDescriptipons.dart';
+import 'package:sample1/RulesList/RulesList.dart';
 import 'package:sample1/AutoCompleteInput.dart';
 import 'package:sample1/Formfield.dart';
-import 'package:sample1/ColorContrast.dart';
+import 'package:sample1/RulesList/ColorContrast.dart';
 import 'package:sample1/ElementsAccessible.dart';
 import 'package:sample1/Cupertino/alertDialogue.dart';
 import 'package:sample1/Cupertino/ActionSheet.dart';
@@ -19,9 +19,9 @@ import 'package:sample1/SegmentedControolerExample.dart';
 import 'package:sample1/TabBarExample.dart';
 import 'package:sample1/PickerExamples.dart';
 import 'package:sample1/StatusMessagesExample.dart';
-import 'package:sample1/AnnouncementExample.dart';
+import 'package:sample1/RulesList/AnnouncementExample.dart';
 import 'package:sample1/ConstraintsDocument.dart';
-import 'ReadingOrderExample.dart';
+import 'RulesList/ReadingOrderExample.dart';
 import 'FocusChecks.dart';
 import 'package:sample1/MotionSensorExample.dart';
 import 'package:sample1/LiatviewExample.dart';
@@ -34,9 +34,12 @@ import 'package:sample1/SimpleDialogueFlowExample.dart';
 import 'package:sample1/TableViewExample.dart';
 import 'GridViewSampleExample.dart';
 import 'package:sample1/CheckboxExample.dart';
+import 'package:sample1/UnderstandableSCExamples.dart';
+import 'ImageViewAnimationExample.dart';
+import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
 
 void main() {
-  runApp(MaterialApp(home:CheckBoxSampleExample()));
+  runApp(MaterialApp(home:RulesList()));
 }
 
 
