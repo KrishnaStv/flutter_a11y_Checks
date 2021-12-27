@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample1/AlertModelDialogue.dart';
+import 'package:sample1/Samples/AlertModelDialogue.dart';
 
 class UnderstandableSCExample extends StatelessWidget {
 

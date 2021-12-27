@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample1/Extensions.dart';
+import 'package:sample1/Samples/Extensions.dart';
 
 class ImageViewDescription extends StatelessWidget {
   @override

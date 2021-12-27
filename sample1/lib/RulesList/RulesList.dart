@@ -3,15 +3,17 @@ import 'package:sample1/RulesList/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/AnnouncementExample.dart';
 import 'package:sample1/RulesList/ColorContrast.dart';
 import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
-import 'package:sample1/ElementsAccessible.dart';
+import 'package:sample1/RulesList/InfoTextNotReadable.dart';
+import 'package:sample1/RulesList/ProgrammaticLabels.dart';
+import 'package:sample1/RulesList/ReadHiddencontent.dart';
+import 'package:sample1/RulesList/VisibileTextSRAnnouncement.dart';
+import 'package:sample1/RulesList/VisualCues.dart';
+import 'package:sample1/Samples/ElementsAccessible.dart';
 import 'ReadingOrderExample.dart';
 import 'SemanticHeadingExample.dart';
+import 'package:sample1/Extensions/SuccessCriterias.dart';
 
 class RulesList extends StatelessWidget {
-
-  final List<String> ruleSet = <String>["Text Alternative", "Announcements",
-    "ColorContrast","Custom Accessibility Actions","Elements Accessible",
-  "Swipe Reading Order", "Heading Trait"];
 
   @override
   Widget build(BuildContext context) {
@@ -40,27 +42,43 @@ class RulesList extends StatelessWidget {
       onTap: () {
         print('index is ${index}');
         Navigator.push(context, new MaterialPageRoute(builder: (context) {
+
           switch(ruleSet[index]) {
-            case 'Text Alternative': {
+            case SCs.TextAlternative: {
               return new ImageViewDescription();
             }
-            case 'Announcements': {
+            case SCs.Announcements: {
               return new AnnouncementMyApp();
             }
-            case 'ColorContrast': {
+            case SCs.ColorContrast: {
               return new Colorconstart();
             }
-            case 'Custom Accessibility Actions': {
+            case SCs.CustomAccessibilityActions: {
               return new CustomAccessibilityActionsSample();
             }
-            case 'Elements Accessible': {
+            case SCs.ElementsAccessible: {
               return new ElementsAccessible();
             }
-            case 'Swipe Reading Order': {
+            case SCs.SwipeReadingOrder: {
               return new ReadingOrderExample();
             }
-            case 'Heading Trait': {
+            case SCs.HeadingTrait: {
               return new SemanticHeadingSample();
+            }
+            case SCs.StaticTextNotReadable: {
+              return new StaticInfoTextNotReadable();
+            }
+            case SCs.VisibilityWidget: {
+              return new ReadHiddenContentSample();
+            }
+            case SCs.VisibleTextAndVOTextAreDiff: {
+              return VisibleTextAndVOTextAreDiff();
+            }
+            case SCs.ProgrammaticLabelSample: {
+              return ProgrammaticLabelSample();
+            }
+            case SCs.VisualCues: {
+              return VisualCues();
             }
             default:{
               return new ImageViewDescription();
@@ -75,7 +93,8 @@ class RulesList extends StatelessWidget {
         child: Center(
           child: Semantics(
             button: true,
-              child:Text('${ruleSet[index]}',style: TextStyle(color: Colors.white),),
+              child:Text('${ruleSet[index].name}',
+                style: TextStyle(color: Colors.white),),
           ),
         ),
       ),

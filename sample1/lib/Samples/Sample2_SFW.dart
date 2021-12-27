@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample1/SampleScreen.dart';
+import 'SampleScreen.dart';
 
 class Sample2SFW extends StatelessWidget {
 
