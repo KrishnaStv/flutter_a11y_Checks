@@ -36,9 +36,11 @@ import 'package:sample1/Samples/UnderstandableSCExamples.dart';
 import 'Samples/ImageViewAnimationExample.dart';
 import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
 import 'package:sample1/RulesList/ProgrammaticLabels.dart';
+import 'package:sample1/RulesList/SoundCues.dart';
+import 'package:sample1/Samples/SampleofAddRemoveWidgets.dart';
 
 void main() {
-  runApp(MaterialApp(home:ProgrammaticLabelSample()));
+  runApp(MaterialApp(home:RulesList()));
 }
 
 
