@@ -75,44 +75,13 @@ class _SoundCuesGEState extends State<SoundCuesGE> {
   bool visibleStatusLabel = false;
   int selectedOption = 0;
 
-  // late AudioPlayer? advancedPlayer;
-  // late AudioCache? audioCache;
-
   bool visibleTheLabel = false;
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    // initPlayers();
   }
-
-  // void initPlayers() {
-  //   advancedPlayer = new AudioPlayer();
-  //   audioCache = new AudioCache(fixedPlayer: advancedPlayer);
-  //
-  //   // advancedPlayer.durationHandler = (d) => setState(() {
-  //   //   // _duration = d;
-  //   // });
-  //   //
-  //   // advancedPlayer.positionHandler = (p) => setState(() {
-  //   //   // _position = p;
-  //   // });
-  // }
-
-  // playLocal() async {
-  //   // int result = await audioPlayer.play('assets/Sounds/1sec.mp3', isLocal: true);
-  //   // debugPrint(result.toString());
-  //
-  //
-  //
-  //   await audioPlayer.setUrl('1sec.mp3'); // prepare the player with this audio but do not start playing
-  //   await audioPlayer.setReleaseMode(ReleaseMode.STOP); // set release mode so that it never releases
-  //
-  //   // on button click
-  //   await audioPlayer.resume(); // quickly plays the sound, will not release
-  //
-  // }
 
   void playAudio() {
     // audioPlayer.play('Sounds/1sec.mp3');

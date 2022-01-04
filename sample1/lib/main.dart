@@ -38,9 +38,11 @@ import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
 import 'package:sample1/RulesList/ProgrammaticLabels.dart';
 import 'package:sample1/RulesList/SoundCues.dart';
 import 'package:sample1/Samples/SampleofAddRemoveWidgets.dart';
+import 'package:sample1/Samples/SampleofReadingTxt.dart';
+import 'package:sample1/Samples/VideoPlayerSample.dart';
 
 void main() {
-  runApp(MaterialApp(home:SoundCues()));
+  runApp(MaterialApp(home:MyApp22()));
 }
 
 

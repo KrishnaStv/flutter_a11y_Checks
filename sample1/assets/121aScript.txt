@@ -1,0 +1,138 @@
+00:04
+INDIA is notorious for its complex tax system
+00:08
+Its almost impossible for new businesses and startups to understand the direct and indirect tax systems
+00:15
+this problem gets even more aggravated when constant changes are made to taxes with each financial year.
+00:22
+But things change with the new Goods and Services Tax
+00:26
+commonly known as GST.
+00:29
+Lets take an example,
+00:31
+Aditya would like to start a business in Delhi for which he needs raw materials from Beijing in China.
+00:38
+While importing, it would first land at a port
+00:42
+and then from there it would travel to the manufacturing centre
+00:46
+at Delhi via road passing through various states.
+00:52
+Now, when Aditya starts analysing the various taxes,
+00:56
+he needs to pay in the process of just transporting the material to his center,
+01:02
+he will loose his mind
+01:05
+In fact this happens with many budding entrepreneurs
+01:09
+who want to give shape to their dreams , but fail to, because
+01:14
+the complex tax structure in India is the biggest hindrance
+01:19
+First he needs to pay a customs duty along with the shipping charges
+01:24
+its fine up until this point
+01:26
+But to comprehend the complexity in the tax structure after this stage would drive any one crazy
+01:33
+He would have to pay central and state governments
+01:37
+Ten different Taxes
+01:39
+like central excise duty, Service Tax, VAT , Central Sales Tax, Octroi etc.
+01:46
+And not only this.
+01:48
+he also would have to pay tax on taxes already collected by the government
+01:54
+To understand this lets take a very simple example under the present tax system
+01:59
+A seller in Mumbai sells a product to a buyer in Nagpur.
+02:03
+On top of the price of the product Vat is being charged.
+02:07
+Now the same product is to be sold from Nagpur to Chennai
+02:11
+The seller in Nagpur increases the price to gain profit
+02:15
+Now on top of the new price including his profit
+02:19
+Central Sales Tax that is CST is added
+02:23
+The price of the product for the buyer in Chennai will comprise of
+02:27
+Cost of the product+VAT+profit+CST
+02:33
+Don’t you see the cascading effect of taxes here?
+02:37
+So how does GST affect the taxation system.
+02:40
+The Goods and Services Tax promises to alleviate this problem among many others.
+02:47
+GST is a consumption based tax which is levied on sale,
+02:52
+manufacture and consumption of goods & services at a National Level.
+02:57
+Only one indirect tax has to be paid by the trade and industry
+03:02
+and all the other indirect taxes like sales tax, purchase tax, service tax, octroi etc. will be absorbed in GST
+03:12
+Exports and direct tax like income tax, corporate tax and capital gain will not be affected by GST
+03:20
+GST would apply to all goods other than
+03:23
+crude petroleum, motor spirit, diesel, aviation, turbine fuel and natural gas
+03:30
+It would apply to all services barring a few to be specified in the future
+03:36
+The proposed tax system will take the form of dual GST
+03:40
+which is concurrently levied by Central and State Government
+03:44
+This will comprise of, Central GST (CGST) which will be levied by centre
+03:52
+State GST (SGST) which will be levied by State
+03:57
+Integrated GST (IGST)- which will be levied by Central Government on Inter-state supply of goods and services.
+04:05
+So who is going to pocket the taxes?
+04:08
+In case of Intra state transactions seller collects both CGST and SGST from the buyer
+04:16
+CGST goes to central government and SGST goes to state government
+04:22
+And in case of Inter state transactions IGST will be levied on Inter State Transactions of goods and services
+04:30
+and the tax get transferred to the importing State
+04:34
+what would be the cost of the same product under GST system?
+04:39
+Product sold from a seller in Mumbai to a buyer in Nagpur
+04:43
+CGST and SGST is to be added
+04:47
+Now again the same product is being sold from Nagpur to Chennai
+04:52
+This is an inter state transaction, so IGST is applicable now
+04:57
+But wait a minute, isn't this tax on tax again?
+05:02
+So here is the twist
+05:04
+A tax has already been paid on the product in the form of CGST and SGST
+05:11
+so the buyer in Chennai gets a tax credit
+05:15
+And IGST gets reduced with the amount of CGST and SGST
+05:21
+this prevents the buyer from paying tax on tax
+05:25
+So under the GST system
+05:28
+the drawback faced by the manufacturers and business class
+05:32
+due to cascading effect of taxation and also complexity in comprehending indirect taxes
+05:38
+has been removed to some extent. 
