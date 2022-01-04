@@ -40,7 +40,7 @@ import 'package:sample1/RulesList/SoundCues.dart';
 import 'package:sample1/Samples/SampleofAddRemoveWidgets.dart';
 
 void main() {
-  runApp(MaterialApp(home:RulesList()));
+  runApp(MaterialApp(home:SoundCues()));
 }
 
 

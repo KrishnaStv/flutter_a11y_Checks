@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample1/Extensions/AppBarExtension.dart';
 import 'package:sample1/RulesList/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/AnnouncementExample.dart';
 import 'package:sample1/RulesList/ColorContrast.dart';
@@ -18,30 +19,24 @@ class RulesList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return MaterialApp(
-      title: 'Sample App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Rule List'),
+
+    return  Scaffold(
+        appBar: new AppBarExtension(
+            navdata: TopBarData(title: 'Rules List', enableBack: false)
         ),
         body: ListView.separated(
             scrollDirection: Axis.vertical,
             itemBuilder: _getListItemTile,
             separatorBuilder: (BuildContext context,int index) => const Divider(),
             itemCount: ruleSet.length),
-      ),
-    );
+      );
   }
-
 
   Widget _getListItemTile(BuildContext context, int index) {
     return GestureDetector(
       onTap: () {
         print('index is ${index}');
-        Navigator.push(context, new MaterialPageRoute(builder: (context) {
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
 
           switch(ruleSet[index]) {
             case SCs.TextAlternative: {

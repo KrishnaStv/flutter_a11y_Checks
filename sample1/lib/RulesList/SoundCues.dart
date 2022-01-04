@@ -1,4 +1,4 @@
-import 'package:audioplayers/audio_cache.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 
 class SoundCues extends StatelessWidget {
@@ -16,7 +16,7 @@ class SoundCues extends StatelessWidget {
     );
   }
 }
-
+/*
 class SoundCuesExample extends StatefulWidget {
 
   @override
@@ -29,7 +29,7 @@ class SoundCuesExample extends StatefulWidget {
 
 class SoundCueStates extends State<SoundCuesExample> {
 
-  final player = AudioCache();
+  final player = AudioPlayer();
    bool visibleTheLabel = false;
 
   void playAudio() {
@@ -61,26 +61,62 @@ class SoundCueStates extends State<SoundCuesExample> {
     );
   }
 }
-
+*/
 class SoundCuesGE extends StatefulWidget {
-  bool isforGood = false;
   @override
-  State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return _SoundCuesGEState();
-  }
+  State<StatefulWidget> createState() => new _SoundCuesGEState();
 }
 
 class _SoundCuesGEState extends State<SoundCuesGE> {
 
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
+
   bool visibleStatusLabel = false;
   int selectedOption = 0;
 
-  final player = AudioCache();
+  // late AudioPlayer? advancedPlayer;
+  // late AudioCache? audioCache;
+
   bool visibleTheLabel = false;
 
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // initPlayers();
+  }
+
+  // void initPlayers() {
+  //   advancedPlayer = new AudioPlayer();
+  //   audioCache = new AudioCache(fixedPlayer: advancedPlayer);
+  //
+  //   // advancedPlayer.durationHandler = (d) => setState(() {
+  //   //   // _duration = d;
+  //   // });
+  //   //
+  //   // advancedPlayer.positionHandler = (p) => setState(() {
+  //   //   // _position = p;
+  //   // });
+  // }
+
+  // playLocal() async {
+  //   // int result = await audioPlayer.play('assets/Sounds/1sec.mp3', isLocal: true);
+  //   // debugPrint(result.toString());
+  //
+  //
+  //
+  //   await audioPlayer.setUrl('1sec.mp3'); // prepare the player with this audio but do not start playing
+  //   await audioPlayer.setReleaseMode(ReleaseMode.STOP); // set release mode so that it never releases
+  //
+  //   // on button click
+  //   await audioPlayer.resume(); // quickly plays the sound, will not release
+  //
+  // }
+
   void playAudio() {
-    player.play('Sounds/1sec.mp3');
+    // audioPlayer.play('Sounds/1sec.mp3');
+    audioCache.play('Sounds/1sec.mp3');
   }
 
   Container updateContainerSelection() {

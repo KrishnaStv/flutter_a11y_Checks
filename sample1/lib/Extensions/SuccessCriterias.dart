@@ -17,7 +17,7 @@ extension SCsExtension on SCs {
   String get name {
     switch (this) {
       case SCs.TextAlternative:
-        return "Text Alternative";
+        return "1.1.1.Text Alternative";
       case SCs.Announcements:
         return "Announcements";
       case SCs.ColorContrast:
