@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/RulesList/ImageViewDescriptipons.dart';
+import 'package:sample1/RulesList/TextAlternatives/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/AnnouncementExample.dart';
 import 'package:sample1/RulesList/ColorContrast.dart';
 import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
@@ -8,7 +8,6 @@ import 'package:sample1/RulesList/InfoTextNotReadable.dart';
 import 'package:sample1/RulesList/ProgrammaticLabels.dart';
 import 'package:sample1/RulesList/ReadHiddencontent.dart';
 import 'package:sample1/RulesList/VisibileTextSRAnnouncement.dart';
-import 'package:sample1/RulesList/VisualCues.dart';
 import 'package:sample1/Samples/ElementsAccessible.dart';
 import 'ReadingOrderExample.dart';
 import 'SemanticHeadingExample.dart';
@@ -70,10 +69,10 @@ class RulesList extends StatelessWidget {
               return VisibleTextAndVOTextAreDiff();
             }
             case SCs.ProgrammaticLabelSample: {
-              return ProgrammaticLabelSample();
+              return ProgrammaticLabelSample2();
             }
             case SCs.VisualCues: {
-              return VisualCues();
+              return ProgrammaticLabelSample2();
             }
             default:{
               return new ImageViewDescription();

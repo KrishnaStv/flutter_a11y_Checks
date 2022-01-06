@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class HeaderSemanticWithText extends StatelessWidget {
+
   final String textIs;
   const HeaderSemanticWithText(this.textIs);
   @override

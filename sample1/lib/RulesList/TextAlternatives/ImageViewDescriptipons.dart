@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sample1/Extensions/AppBarExtension.dart';
 import 'package:sample1/Extensions/ModelDialogue.dart';
 import 'package:sample1/Samples/FoucsModelDialogue.dart';
-import 'package:sample1/Samples/Extensions.dart';
+import 'package:sample1/Extensions/Extensions.dart';
 import 'package:sample1/Extensions/AppBarExtension.dart';
 
 class ImageViewDescription extends StatelessWidget {

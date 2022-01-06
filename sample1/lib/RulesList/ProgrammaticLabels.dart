@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProgrammaticLabelSample extends StatelessWidget {
+class ProgrammaticLabelSample2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

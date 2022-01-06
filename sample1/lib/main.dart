@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'Samples/Sample2_SFW.dart';
-import 'package:sample1/RulesList/ImageViewDescriptipons.dart';
+import 'package:sample1/RulesList/TextAlternatives/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/RulesList.dart';
 import 'package:sample1/Samples/AutoCompleteInput.dart';
 import 'package:sample1/Samples/Formfield.dart';
@@ -36,13 +36,19 @@ import 'package:sample1/Samples/UnderstandableSCExamples.dart';
 import 'Samples/ImageViewAnimationExample.dart';
 import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
 import 'package:sample1/RulesList/ProgrammaticLabels.dart';
-import 'package:sample1/RulesList/SoundCues.dart';
 import 'package:sample1/Samples/SampleofAddRemoveWidgets.dart';
 import 'package:sample1/Samples/SampleofReadingTxt.dart';
 import 'package:sample1/Samples/VideoPlayerSample.dart';
+import 'package:sample1/RulesList/121/121aTextTransScriptAudio.dart';
+import 'package:sample1/RulesList/121/121bTextTranscriptVideo.dart';
+import 'package:sample1/RulesList/131/131cProgrammaticLabels.dart';
+import 'package:sample1/RulesList/131/131eHeadings.dart';
+import 'package:sample1/RulesList/133/133aVisualcues.dart';
+import 'package:sample1/RulesList/133/133bSoundCues.dart';
+import 'package:sample1/RulesList/141/141aColorasInformation.dart';
 
 void main() {
-  runApp(MaterialApp(home:MyApp22()));
+  runApp(MaterialApp(home:ColorasInfoSample()));
 }
 
 
