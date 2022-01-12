@@ -1,8 +1,61 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:sample1/Extensions/AppBarExtension.dart';
+import 'package:sample1/Extensions/Extensions.dart';
+
+class ColorContrastSample extends StatelessWidget {
+
+  final String ruleDescription =
+      'Regular text and images of regular text MUST have a contrast ratio of at least 4.5 to 1 with the background.';
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      appBar: new AppBarExtension(
+          navdata: TopBarData(title: 'ColorContrast', enableBack: true)),
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      HeaderSemanticWithText('Description'),
+                    ],
+                  ),
+                  Text(ruleDescription),
+                ],
+              ),
+              padding: EdgeInsets.all(15),
+              alignment: Alignment.centerLeft,
+            ),
+            SizedBox(height: 25,),
+            Text('Check Text color with background',style: TextStyle(
+                backgroundColor: Colors.red,
+                color: Colors.yellow
+            ),
+            ),
+            SizedBox(height: 25,),
+            Text('Check good Text color with background',style: TextStyle(
+                backgroundColor: Colors.white,
+                color: Colors.black
+            ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 class Colorconstart extends StatelessWidget {
+
+  final String ruleDescription =
+      'Regular text and images of regular text MUST have a contrast ratio of at least 4.5 to 1 with the background.';
 
   @override
   Widget build(BuildContext context) {
@@ -10,9 +63,8 @@ class Colorconstart extends StatelessWidget {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          appBar: AppBar(
-            title: Text('Color Constart'),
-          ),
+          appBar:  new AppBarExtension(
+              navdata: TopBarData(title: 'ColorContrast', enableBack: true)),
           body: Center(
             child: Column(
               children: [

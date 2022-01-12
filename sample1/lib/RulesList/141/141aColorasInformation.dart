@@ -5,15 +5,23 @@ import 'package:sample1/Extensions/Extensions.dart';
 class ColorasInfoSample extends StatelessWidget {
 
   final String ruleDescription =
-      'Information/instruction is presented to the user in a way that not just requires the'
-      ' ability to see, and there MUST be an alternate method to convey the information.';
-
+      'Color MUST NOT be used as the sole method of '
+      'conveying content or distinguishing visual elements.';
+  
+  Image getImageFromPath(String path) {
+    var assertImagePAth = new AssetImage(path);
+    return new Image(
+      image: assertImagePAth,
+      fit: BoxFit.cover,
+    );
+  }
+  
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Visual Cues', enableBack: true)),
+          navdata: TopBarData(title: 'Color as Information', enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -34,41 +42,88 @@ class ColorasInfoSample extends StatelessWidget {
             ),
             HeaderSemanticWithText('Good Example'),
             Container(
-              height: 45,
-              width: 130,
               color: Colors.red,
-              child:
-              MaterialButton(onPressed: () {
-
-              }, child: Text('STOP',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 21),
-              )
-              ),
+              child: getImageFromPath('assets/images/metachartgood.png'),
             ),
             SizedBox(height: 45,),
-            Semantics(
-              child: Text('BAD Example', style: TextStyle(
-                  fontWeight: FontWeight.bold
-              ),),
-            ),
             Container(
-              height: 45,
-              width: 130,
-              color: Colors.red,
-              child:
-              MaterialButton(onPressed: () {
-
-              }, child: Text('',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 21),
-              )
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text('Student marks representation based on color \nwith respective text'),
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Robert'),
+                      SizedBox(width: 15,),
+                      Text('Pass 60', style: TextStyle(
+                        color: Colors.green
+                      ),)
+                    ],
+                  ),
+                  SizedBox(height: 5,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Harvard'),
+                      SizedBox(width: 15,),
+                      Text('Fail 30', style: TextStyle(
+                          color: Colors.red
+                      ),)
+                    ],
+                  ),
+                ],
               ),
+              padding: EdgeInsets.only(left: 15,right: 15),
+              alignment: Alignment.centerLeft,
             ),
+            SizedBox(height: 25,),
+            HeaderSemanticWithText('Bad Example'),
+            Container(
+              color: Colors.red,
+              child: getImageFromPath('assets/images/metachartbad.png'),
+            ),
+            SizedBox(height: 45,),
+            Container(
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Text('Student marks representation based on color \nwith respective text'),
+                    ],
+                  ),
+                  SizedBox(height: 10,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Robert'),
+                      SizedBox(width: 15,),
+                      Text('60', style: TextStyle(
+                          color: Colors.green
+                      ),)
+                    ],
+                  ),
+                  SizedBox(height: 5,),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Harvard'),
+                      SizedBox(width: 15,),
+                      Text('30', style: TextStyle(
+                          color: Colors.red
+                      ),)
+                    ],
+                  ),
+                ],
+              ),
+              padding: EdgeInsets.only(left: 15,right: 15),
+              alignment: Alignment.centerLeft,
+            ),
+            SizedBox(height: 55,),
           ],
         ),
       ),

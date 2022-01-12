@@ -4,7 +4,7 @@ import 'package:sample1/RulesList/TextAlternatives/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/RulesList.dart';
 import 'package:sample1/Samples/AutoCompleteInput.dart';
 import 'package:sample1/Samples/Formfield.dart';
-import 'package:sample1/RulesList/ColorContrast.dart';
+import 'package:sample1/RulesList/143/ColorContrast.dart';
 import 'package:sample1/Samples/ElementsAccessible.dart';
 import 'package:sample1/Cupertino/alertDialogue.dart';
 import 'package:sample1/Cupertino/ActionSheet.dart';
@@ -46,9 +46,14 @@ import 'package:sample1/RulesList/131/131eHeadings.dart';
 import 'package:sample1/RulesList/133/133aVisualcues.dart';
 import 'package:sample1/RulesList/133/133bSoundCues.dart';
 import 'package:sample1/RulesList/141/141aColorasInformation.dart';
+import 'package:sample1/RulesList/141/141bLinkColorContrast.dart';
+import 'package:sample1/RulesList/143/ColorContrast.dart';
+import 'package:sample1/RulesList/145/ImageofText.dart';
+import 'RulesList/1411/NonTextContrastActiveUI.dart';
+import 'package:sample1/WCAG Principles/HomeScreen.dart';
 
 void main() {
-  runApp(MaterialApp(home:ColorasInfoSample()));
+  runApp(MaterialApp(home:HomeScreen()));
 }
 
 
