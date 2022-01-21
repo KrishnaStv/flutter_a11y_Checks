@@ -2,7 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:sample1/Extensions/AppBarExtension.dart';
 import 'package:sample1/Extensions/Extensions.dart';
 
-class ErrorIdentificationSample extends StatelessWidget {
+class ErrorIdentificationSample extends StatefulWidget {
+
+  @override
+  State<StatefulWidget> createState() {
+    // TODO: implement createState
+    return new ErrorIdentificationSampleState();
+  }
+}
+
+class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _badFormKey = GlobalKey<FormState>();
+
   final String ruleDescription = ' Efficient, intuitive and clearly '
       'identified text based alerts MUST be provided to users'
       ' for form validation cues and errors.';
@@ -51,12 +63,151 @@ class ErrorIdentificationSample extends StatelessWidget {
               child: Column(
                 children: [
                   Text('The sample below shows an error '
-                      'if  Username field for being blank.'
+                      'if  Username field for being blank. \n '
                       ' An error label will be visible.'),
                   SizedBox(
                     height: 10,
                   ),
+                  Form(
+                    key: _formKey,
+                      child: Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('Email',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                          ),
+                          TextFormField(
+                            keyboardType: TextInputType.emailAddress,
+                            maxLines: 1,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                              isDense: true,
+                                border: OutlineInputBorder(),
+                                hintText: 'Enter Email'
+                            ),
+                            validator: (String? value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter valid Email';
+                              } else {
+                                debugPrint('Value is $value');
+                              }
+                            },
+                          ),
+                          SizedBox(height: 20,),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text('Password',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                          ),
+                          TextFormField(
+                            obscureText: true,
+                            maxLines: 1,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                                isDense: true,
+                                border: OutlineInputBorder(),
+                                hintText: 'Enter Password'
+                            ),
+                            validator: (String? value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter valid password';
+                              } else {
+                                debugPrint('Value is $value');
+                              }
+                            },
+                          ),
+                          ElevatedButton (
+                            onPressed: () {
+                              debugPrint('Clicked');
+                              if(_formKey.currentState!.validate()) {
 
+                              }
+                            },
+                            child: Text('Submit'),
+                          ),
+                        ],
+                      ),
+                  ),
+                ],
+              ),
+            ),
+            Semantics(
+              child: Container(
+                alignment: Alignment.topLeft,
+                child: HeaderSemanticWithText('  Bad Example'),
+              ),
+            ),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Text('The sample below makes it difficult for '
+                      'assistive technology users to identify'
+                      ' errors in the field. Error messages are'
+                      ' not associated with the field and the'
+                      ' focus is not moved to the first '
+                      'erroneous field.'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Form(
+                    key: _badFormKey,
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text('User Name',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          maxLines: 1,
+                          minLines: 1,
+                          decoration: InputDecoration(
+                              isDense: true,
+                              border: OutlineInputBorder(),
+                              hintText: 'Enter User Name'
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            } else {
+                              debugPrint('Value is $value');
+                            }
+                          },
+                        ),
+                        SizedBox(height: 20,),
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text('Password',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                        ),
+                        TextFormField(
+                          obscureText: true,
+                          maxLines: 1,
+                          minLines: 1,
+                          decoration: InputDecoration(
+                              isDense: true,
+                              border: OutlineInputBorder(),
+                              hintText: 'Enter Password'
+                          ),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return '';
+                            } else {
+                              debugPrint('Value is $value');
+                            }
+                          },
+                        ),
+                        ElevatedButton (
+                          onPressed: () {
+                            debugPrint('Clicked');
+                            if(_badFormKey.currentState!.validate()) {
+
+                            }
+                          },
+                          child: Text('Submit'),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),
