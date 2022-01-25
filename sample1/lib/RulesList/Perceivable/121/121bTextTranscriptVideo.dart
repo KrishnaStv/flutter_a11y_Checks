@@ -1,8 +1,5 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
-
 import 'package:video_player/video_player.dart';
+import 'package:sample1/importFiles.dart';
 
 class TextTranscriptVideoSample extends StatefulWidget {
   @override
@@ -22,17 +19,8 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
     super.initState();
     _controller = VideoPlayerController.asset('assets/Videos/121bGEVideo.mp4');
     _beController = VideoPlayerController.asset('assets/Videos/121bBEVideo.mp4');
-
-    // _controller.addListener(() {
-    //   setState(() {
-    //
-    //   });
-    // });
-    // _controller.setLooping(false);
     _controller.initialize().then((_) => setState(() {}));
     _beController.initialize().then((_) => setState(() {}));
-
-    // _controller.play();
   }
 
   @override
@@ -49,7 +37,7 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
     return Scaffold(
         appBar: new AppBarExtension(
             navdata: TopBarData(
-                title: 'Text Transcripts for Video', enableBack: true)),
+                title: SCs.TranscriptPrerecordedVideo.pageTitle, enableBack: true)),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -59,7 +47,7 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                   children: [
                     Row(
                       children: [
-                        HeaderSemanticWithText('Description'),
+                        HeaderSemanticWithText(SCs.TranscriptPrerecordedVideo.name),
                       ],
                     ),
                     Text(ruleDescription),

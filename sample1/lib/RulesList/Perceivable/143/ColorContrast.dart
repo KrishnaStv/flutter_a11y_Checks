@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class ColorContrastSample extends StatelessWidget {
 
@@ -14,7 +12,7 @@ class ColorContrastSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'ColorContrast', enableBack: true)),
+          navdata: TopBarData(title: SCs.ColorContrastRegularText.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -24,7 +22,7 @@ class ColorContrastSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ColorContrastRegularText.name),
                     ],
                   ),
                   Text(ruleDescription),

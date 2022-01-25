@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class ColorasInfoSample extends StatelessWidget {
 
@@ -21,7 +19,7 @@ class ColorasInfoSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Color as Information', enableBack: true)),
+          navdata: TopBarData(title: SCs.ColorAsInformation.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -31,7 +29,7 @@ class ColorasInfoSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ColorAsInformation.name),
                     ],
                   ),
                   Text(ruleDescription),

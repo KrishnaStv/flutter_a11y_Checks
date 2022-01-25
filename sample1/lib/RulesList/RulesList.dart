@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/RulesList/111/ImageViewDescriptipons.dart';
+import 'package:sample1/RulesList/Perceivable/111/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/AnnouncementExample.dart';
-import 'package:sample1/RulesList/143/ColorContrast.dart';
+import 'package:sample1/RulesList/Perceivable/143/ColorContrast.dart';
 import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
 import 'package:sample1/RulesList/InfoTextNotReadable.dart';
 import 'package:sample1/RulesList/ProgrammaticLabels.dart';

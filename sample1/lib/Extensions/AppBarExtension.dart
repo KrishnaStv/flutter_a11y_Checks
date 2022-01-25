@@ -28,3 +28,22 @@ class AppBarExtension extends StatelessWidget implements PreferredSizeWidget {
     );
   }
 }
+
+class TextReturnWidget extends StatelessWidget implements PreferredSizeWidget {
+
+  final String checkPoint;
+  TextReturnWidget({required this.checkPoint});
+
+  @override
+  // TODO: implement preferredSize
+  Size get preferredSize => Size.fromHeight(45);
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Container(
+      padding: EdgeInsets.only(left: 20),
+      alignment: Alignment.topLeft,
+      child: Text('${checkPoint}', style: TextStyle(fontWeight: FontWeight.normal),),
+    );
+  }
+}

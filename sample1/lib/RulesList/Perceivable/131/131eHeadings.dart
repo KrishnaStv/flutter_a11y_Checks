@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
-class AltTextActiveImages extends StatelessWidget {
+class HeadingsSample extends StatelessWidget {
 
   final String ruleDescription =
       'All headings must be marked up to be identifiable'
@@ -15,7 +13,7 @@ class AltTextActiveImages extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Text Alts(Active Images)', enableBack: true)),
+          navdata: TopBarData(title: SCs.Headings.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -25,7 +23,7 @@ class AltTextActiveImages extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.Headings.name),
                     ],
                   ),
                   Text(ruleDescription),
@@ -53,30 +51,30 @@ class AltTextActiveImages extends StatelessWidget {
               alignment: Alignment.center,
             ),
             Semantics(
-                header: true,
-                child: Container(
-                  height: 65,
-                  width: 250,
-                  color: Colors.blue,
-                  child: Column(
-                    children: [
-                      Text('Using CustomView as App Bar',style: TextStyle(color: Colors.white),),
-                      SizedBox(height: 15,),
-                      Container(
-                        alignment: Alignment.center,
-                        height: 25,
-                        color: Colors.blueAccent,
-                        child:  Semantics(
-                          child: Text('Custom View Example',style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold
-                          ),),
-                          header: true,
-                        ),
-                      ),
-                    ],
-                  ),
-                )
+              header: true,
+              child: Container(
+                height: 65,
+                width: 250,
+                color: Colors.blue,
+                child: Column(
+                  children: [
+                    Text('Using CustomView as App Bar',style: TextStyle(color: Colors.white),),
+                   SizedBox(height: 15,),
+                   Container(
+                     alignment: Alignment.center,
+                     height: 25,
+                     color: Colors.blueAccent,
+                     child:  Semantics(
+                       child: Text('Custom View Example',style: TextStyle(
+                           color: Colors.white,
+                           fontWeight: FontWeight.bold
+                       ),),
+                       header: true,
+                     ),
+                   ),
+                  ],
+                ),
+              )
             ),
           ],
         ),

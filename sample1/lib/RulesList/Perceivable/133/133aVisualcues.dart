@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class VisualCues extends StatelessWidget {
 
@@ -13,7 +11,7 @@ class VisualCues extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Visual Cues', enableBack: true)),
+          navdata: TopBarData(title: SCs.VisualCues.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -23,7 +21,7 @@ class VisualCues extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.VisualCues.name),
                     ],
                   ),
                   Text(ruleDescription),

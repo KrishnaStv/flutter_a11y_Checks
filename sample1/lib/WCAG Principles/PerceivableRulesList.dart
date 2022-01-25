@@ -1,0 +1,51 @@
+import 'package:sample1/RulesList/Perceivable/121/121aTextTransScriptAudio.dart';
+import 'package:sample1/importFiles.dart';
+
+class PerceivableRulesList extends StatelessWidget {
+  final String Description =
+      'Information and user interface components must be '
+      'presented to users in ways that they can perceive, '
+      'regardless of the user’s impairment.';
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+        appBar: new AppBarExtension(
+            navdata: TopBarData(title: 'PERCEIVABLE', enableBack: true)),
+        body: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(children: [
+              Container(
+                child: Text(Description),
+                padding: EdgeInsets.all(15),
+                alignment: Alignment.centerLeft,
+              ),
+              TextReturnWidget(checkPoint: '1.1.1'),
+              AltTextActiveImagesButton(),
+              AltTextInformativeImagesButton(),
+              AltTextComplexImagesButton(),
+              AltTextDecorativeImagesButton(),
+              AltTextCAPTCHAImagesButton(),
+              AltTextAudioVideoImagesButton(),
+              TextReturnWidget(checkPoint: '1.2.1'),
+              TranscriptPrerecordedAudioButton(),
+              TranscriptPrerecordedVideoButton(),
+              TextReturnWidget(checkPoint: '1.3.1'),
+              ProgrammaticLabelSampleButton(),
+              HeadingsSampleButton(),
+              TextReturnWidget(checkPoint: '1.3.3'),
+              VisualCuesSampleButton(),
+              SoundCuesSampleButton(),
+              TextReturnWidget(checkPoint: '1.4.1'),
+              ColorasInfoSampleButton(),
+              LinkcolorContrastSampleButton(),
+              TextReturnWidget(checkPoint: '1.4.2'),
+              AudioControlsSampleButton(),
+              TextReturnWidget(checkPoint: '1.4.3'),
+              ColorContrastRegularTextgSampleButton(),
+
+
+            ])));
+  }
+}

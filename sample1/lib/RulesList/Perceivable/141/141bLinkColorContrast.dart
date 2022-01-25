@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LinkColorContrastSample extends StatelessWidget {

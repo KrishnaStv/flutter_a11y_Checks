@@ -1,55 +1,11 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Samples/SliderExample.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 import 'package:audioplayers/audioplayers.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class TextTranscriptAudioSample extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => new TextTranscriptState();
-}
-
-Widget buildSlider() {
-  double _currentSliderValue = 20;
-  return Container(
-    child: Column(
-      children: [
-        // Slider(
-        //   value: _currentSliderValue,
-        //   max: 100,
-        //   divisions: 5,
-        //   label: _currentSliderValue.round().toString(),
-        //   onChanged: (double value) {
-        //     // setState(() {
-        //     //   _currentSliderValue = value;
-        //     // });
-        //   },
-        // ),
-
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MaterialButton(
-              onPressed: () {},
-              child: Text('Play'),
-            ),
-            MaterialButton(
-              onPressed: () {},
-              child: Text('Pause'),
-            ),
-            ElevatedButton(
-                onPressed: () {},
-                child: Text(
-                  'Show text Transcript',
-                  style: TextStyle(fontWeight: FontWeight.normal),
-                ))
-          ],
-        )
-      ],
-    ),
-  );
 }
 
 class TextTranscriptState extends State<TextTranscriptAudioSample> {
@@ -108,7 +64,7 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
     return Scaffold(
       appBar: new AppBarExtension(
           navdata: TopBarData(
-              title: 'Text Transcripts for Audio', enableBack: true)),
+              title: SCs.TranscriptPrerecordedAudio.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -118,7 +74,7 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
                   children: [
                     Row(
                       children: [
-                        HeaderSemanticWithText('Description'),
+                        HeaderSemanticWithText(SCs.TranscriptPrerecordedAudio.name),
                       ],
                     ),
                     Text(ruleDescription),

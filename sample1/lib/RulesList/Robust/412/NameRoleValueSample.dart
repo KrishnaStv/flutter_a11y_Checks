@@ -4,6 +4,7 @@ import 'package:sample1/Extensions/Extensions.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:async';
+import 'package:sample1/RulesList/Robust/412/TabBarControllerSample.dart';
 
 class NameRoleValueSample extends StatefulWidget {
   @override
@@ -35,13 +36,20 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
   var isGESwitchSelected = false;
   double gecurrentValue = 0;
   late Timer geProgresstimer;
-  double geProgresscurrentValue = 0;
+  double geProgresscurrentValue = 0.00;
+  var selectedSegment = 0;
+
+  final Map<int, Widget> logoWidgets = const <int, Widget> {
+    0: Text(' Segment 1 '),
+    1: Text(' Segment 2 '),
+    2: Text(' Segment 3 ')
+  };
 
   void startFlashingTimer() {
     const oneSec = const Duration(seconds: 1);
     geProgresstimer = new Timer.periodic(oneSec, (Timer timer) {
       setState(() {
-        if(geProgresscurrentValue < 1) {
+        if(geProgresscurrentValue < 1.0) {
           geProgresscurrentValue += 0.1;
         } else {
           geProgresstimer.cancel();
@@ -61,6 +69,32 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
   void dispose() {
     // TODO: implement dispose
     super.dispose();
+  }
+
+  Future<void> _showDialog(bool enableOutSideTap,
+      String title,
+      String description) async {
+    List<Widget> widgets = [];
+
+    return showDialog(context: context,
+        barrierDismissible: enableOutSideTap,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(title),
+            content: SingleChildScrollView(
+              child: ListBody(
+                children: [
+                  Text(description),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(onPressed: (){
+                Navigator.of(context).pop();
+              }, child: Text('Okay')),
+            ],
+          );
+        });
   }
 
   @override
@@ -220,7 +254,9 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               padding: EdgeInsets.only(left: 15),
               alignment: Alignment.topLeft,
               child: Text('Set Volume',
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
+              style: TextStyle(
+                  fontWeight: FontWeight.normal,
+                  fontSize: 15),),
             ),
             Container(
               child: Slider(
@@ -316,7 +352,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               padding: EdgeInsets.only(left: 15,right: 15),
               child: LinearProgressIndicator(
                 semanticsLabel: 'Download Progress',
-                semanticsValue: geProgresscurrentValue.toString(),
+                semanticsValue: geProgresscurrentValue.toStringAsFixed(2),
                 backgroundColor: Colors.grey,
                 valueColor: AlwaysStoppedAnimation<Color>(Colors.blue,),
                 value: geProgresscurrentValue,
@@ -346,9 +382,103 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               alignment: Alignment.center,
             ),
             Divider(),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: EdgeInsets.only(left: 15,right: 15),
+              child: Text('Filter Selection', style: TextStyle(fontWeight: FontWeight.normal),),
+            ),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              alignment: Alignment.topLeft,
+              padding: EdgeInsets.only(left: 15,right: 15),
+              child: CupertinoSegmentedControl(
+                padding: EdgeInsets.all(5),
+                  children: logoWidgets,
+                  onValueChanged: (int val) {
+                      setState(() {
+                        selectedSegment = val;
+                      });
+              },
+                groupValue: selectedSegment,
+              ),
+            ),
+            SizedBox(height: 25,),
+            Container(
+              padding: EdgeInsets.only(left: 15,right: 15),
+              child: Text('VoiceOver will announce as \'Segment 1, Button, \'(Current Value)\''),
+            ),
+            SizedBox(height: 20,),
+            Container(
+              padding: EdgeInsets.only(left: 15,right: 15),
+              child:Column(
+                children: [
+                  Row(
+                    children: [
+                      HeaderSemanticWithText('Code Snippet'),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.black,
+                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
+                  ),
+                ],
+              ),
+              alignment: Alignment.center,
+            ),
+            Divider(),
+            ElevatedButton(child: Text('Tab Bar Example'), onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return TabbarControllerSample();
+              })
+              );
+            },),
+            Divider(),
+            Container(
+              alignment: Alignment.topLeft,
+              padding: EdgeInsets.only(left: 15,right: 15),
+              child: Text('Custom Actions', style: TextStyle(fontWeight: FontWeight.normal),),
+            ),
+            Semantics(
+              child: ElevatedButton(child: Text('Tap to Sound'), onPressed: () {
+                debugPrint("default action performed");
+                _showDialog(false, 'Alert', 'Its Default Action');
+              },),
+              customSemanticsActions: {
+              CustomSemanticsAction(label: "Do Action"): () {
+                debugPrint("custom action performed");
+                _showDialog(false, 'Alert', 'Its Custom Action');
+              },
+            },
+            ),
+            SizedBox(height: 20,),
+            Container(
+              padding: EdgeInsets.only(left: 15,right: 15),
+              child:Column(
+                children: [
+                  Row(
+                    children: [
+                      HeaderSemanticWithText('Code Snippet'),
+                    ],
+                  ),
+                  Container(
+                    color: Colors.black,
+                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
+                  ),
+                ],
+              ),
+              alignment: Alignment.center,
+            ),
+            Divider(),
+            ElevatedButton(child: Text('Value Examples'), onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return TabbarControllerSample();
+              })
+              );
+            },),
           ],
         ),
       ),
     );
   }
 }
+

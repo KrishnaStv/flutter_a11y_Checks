@@ -1,62 +1,9 @@
 import 'package:flutter/material.dart';
-import 'Samples/Sample2_SFW.dart';
-import 'package:sample1/RulesList/111/ImageViewDescriptipons.dart';
-import 'package:sample1/RulesList/RulesList.dart';
-import 'package:sample1/Samples/AutoCompleteInput.dart';
-import 'package:sample1/Samples/Formfield.dart';
-import 'package:sample1/RulesList/143/ColorContrast.dart';
-import 'package:sample1/Samples/ElementsAccessible.dart';
-import 'package:sample1/Cupertino/alertDialogue.dart';
-import 'package:sample1/Cupertino/ActionSheet.dart';
-import 'Samples/FocusCheck.dart';
-import 'package:sample1/Samples/MergeScemantics.dart';
-import 'package:sample1/Samples/ContainerFocus.dart';
-import 'package:sample1/Samples/AlertModelDialogue.dart';
-import 'Samples/SliderExample.dart';
-import 'Samples/PageController.dart';
-import 'package:sample1/Samples/SegmentedControolerExample.dart';
-import 'package:sample1/Samples/TabBarExample.dart';
-import 'package:sample1/Samples/PickerExamples.dart';
-import 'package:sample1/Samples/StatusMessagesExample.dart';
-import 'package:sample1/RulesList/AnnouncementExample.dart';
-import 'package:sample1/Samples/ConstraintsDocument.dart';
-import 'RulesList/ReadingOrderExample.dart';
-import 'Samples/FocusChecks.dart';
-import 'package:sample1/Samples/MotionSensorExample.dart';
-import 'package:sample1/Samples/LiatviewExample.dart';
-import 'package:sample1/Samples/FocusTraversalGroup%5BWidgetExample.dart';
-import 'package:sample1/Samples/RequestFocusCheckExample.dart';
-import 'package:sample1/Samples/DocFocusTraversalGroup.dart';
-import 'package:sample1/Samples/VerticalfocusOrderExample.dart';
-import 'package:sample1/Samples/TextFieldFocusExample.dart';
-import 'package:sample1/Samples/SimpleDialogueFlowExample.dart';
-import 'package:sample1/Samples/TableViewExample.dart';
-import 'package:sample1/Samples/CheckboxExample.dart';
-import 'package:sample1/Samples/UnderstandableSCExamples.dart';
-import 'Samples/ImageViewAnimationExample.dart';
-import 'package:sample1/RulesList/AccessibilityActionsExample.dart';
-import 'package:sample1/RulesList/ProgrammaticLabels.dart';
-import 'package:sample1/Samples/SampleofAddRemoveWidgets.dart';
-import 'package:sample1/Samples/SampleofReadingTxt.dart';
-import 'package:sample1/Samples/VideoPlayerSample.dart';
-import 'package:sample1/RulesList/121/121aTextTransScriptAudio.dart';
-import 'package:sample1/RulesList/121/121bTextTranscriptVideo.dart';
-import 'package:sample1/RulesList/131/131cProgrammaticLabels.dart';
-import 'package:sample1/RulesList/131/131eHeadings.dart';
-import 'package:sample1/RulesList/133/133aVisualcues.dart';
-import 'package:sample1/RulesList/133/133bSoundCues.dart';
-import 'package:sample1/RulesList/141/141aColorasInformation.dart';
-import 'package:sample1/RulesList/141/141bLinkColorContrast.dart';
-import 'package:sample1/RulesList/143/ColorContrast.dart';
-import 'package:sample1/RulesList/145/ImageofText.dart';
-import 'RulesList/1411/NonTextContrastStatesofUI.dart';
-import 'package:sample1/WCAG Principles/HomeScreen.dart';
-import 'package:sample1/RulesList/Robust/412/NameRoleValueSample.dart';
+import 'WCAG Principles/PerceivableRulesList.dart';
 
 void main() {
-  runApp(MaterialApp(home:NameRoleValueSample()));
+  runApp(MaterialApp(home:PerceivableRulesList()));
 }
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
