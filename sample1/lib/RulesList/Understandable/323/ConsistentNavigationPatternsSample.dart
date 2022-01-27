@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class ConsistentNavigationPatternsSample extends StatelessWidget {
 
@@ -23,7 +21,7 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Consistent Navigation Patterns', enableBack: true)),
+          navdata: TopBarData(title: SCs.ConsistentNavigationPatterns.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -33,7 +31,7 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ConsistentNavigationPatterns.name),
                     ],
                   ),
                   Text(ruleDescription),

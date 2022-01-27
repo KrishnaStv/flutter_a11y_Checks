@@ -10,9 +10,12 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
       ' announce as \' Play the Video of cartoon wakeup, button.\' '
       '(For this example, we took button as the file representation,'
       ' we can take other familiar UIelements)';
-  final String codeSnippet = ' Semantics( \n '
+  final String codeSnippet = '//for Audio \n Semantics( \n '
       'child: Container( \n child: ImageWidget'
-      'label: \'Play the Alphabets of first four\',';
+      'label: \'Play the Alphabets of first four\',\n //for Video \n '
+      'Semantics( \n '
+      'child: Container( \n child: ImageWidget'
+      'label: \'Play the video of cartoon wakeup\',';
   final String beRuleDescription = 'When focused on the ImageView,'
       ' because an accessibilityLabel attribute '
       'is not assigned, VoiceOver will announce'
@@ -25,19 +28,25 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var audassertImagePAth = new AssetImage('assets/images/1.1.1.h.audio.png');
-    var audimgObject = new Image(
-      image: audassertImagePAth,
-      fit: BoxFit.cover,
-      width: 150,
-      height: 150,
+    var audimgObject = new Semantics(
+      child: Image(
+        image: audassertImagePAth,
+        fit: BoxFit.cover,
+        width: 150,
+        height: 150,
+      ),
+      excludeSemantics: true,
     );
 
     var vidassertImagePAth = new AssetImage('assets/images/1.1.1.h.video.png');
-    var vidimgObject = new Image(
-      image: vidassertImagePAth,
-      fit: BoxFit.cover,
-      width: 150,
-      height: 150,
+    var vidimgObject = new Semantics(
+      child: Image(
+        image: vidassertImagePAth,
+        fit: BoxFit.cover,
+        width: 150,
+        height: 150,
+      ),
+      excludeSemantics: true,
     );
 
     // TODO: implement build
@@ -83,6 +92,7 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Semantics(
+                  button: true,
                   label: 'Play the Alphabets of first four',
                   child: Container(
                     width: 60,
@@ -92,6 +102,7 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
                 ),
                 SizedBox(width: 25,),
                 Semantics(
+                  button: true,
                   label: 'Play the Video of cartoon wakeup',
                   child: Container(
                     width: 90,
@@ -101,6 +112,7 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
                 ),
               ],
             ),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
             Divider(),
             Semantics(
               child: Container(
@@ -120,19 +132,26 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                    width: 60,
-                    height: 60,
-                    child: audimgObject,
-                  ),
+               Semantics(
+                 button: true,
+                 child:  Container(
+                   width: 60,
+                   height: 60,
+                   child: audimgObject,
+                 ),
+               ),
                 SizedBox(width: 25,),
-                Container(
+                Semantics(
+                  child: Container(
                     width: 90,
                     height: 75,
                     child: vidimgObject,
                   ),
+                  button: true,
+                ),
               ],
             ),
+            SizedBox(height: 45,),
           ],
         ),
       ),

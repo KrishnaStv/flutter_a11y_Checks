@@ -71,16 +71,19 @@ class _SoundCuesGEState extends State<SoundCuesSample> {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 30,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Good Example'),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Good Example: Using proper '
+                        'instructions more than just sound cues.'),
+                  ],
+                )
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             Text('Choose an option to move forward'),
-            SizedBox(height: 10,),
             visibleStatusLabel ? updateContainerSelection() : new Container(),
-            SizedBox(height: 15,),
             ElevatedButton(onPressed: () {
               updateOption(1);
               visibleStatusLabel = true;
@@ -93,14 +96,18 @@ class _SoundCuesGEState extends State<SoundCuesSample> {
 
             }, child: Text('Option Two', style: TextStyle(fontSize: 12),),),
             SizedBox(height: 30,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Bad Example'),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Bad Example: Using just sound '
+                        'cues and no alternative methods.'),
+                  ],
+                )
             ),
-            SizedBox(height: 10,),
+            SizedBox(height: 20,),
             Text('Choose an option to move forward'),
-            SizedBox(height: 10,),
-            SizedBox(height: 15,),
             ElevatedButton(onPressed: () {
               playAudio();
             }, child: Text('Option One', style: TextStyle(fontSize: 12),),),

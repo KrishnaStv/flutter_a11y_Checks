@@ -1,16 +1,14 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
-class MissingInstructionsSample extends StatefulWidget {
+class RequiredFormFieldsSample extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
-    return new MissingInstructionsSampleState();
+    return new RequiredFormFieldsSampleState();
   }
 }
 
-class MissingInstructionsSampleState extends State<MissingInstructionsSample> {
+class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _badformKey = GlobalKey<FormState>();
 
@@ -26,7 +24,7 @@ class MissingInstructionsSampleState extends State<MissingInstructionsSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Required Form Fields', enableBack: true)),
+          navdata: TopBarData(title: SCs.RequiredFormFields.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -36,7 +34,7 @@ class MissingInstructionsSampleState extends State<MissingInstructionsSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.RequiredFormFields.name),
                     ],
                   ),
                   Text(ruleDescription),

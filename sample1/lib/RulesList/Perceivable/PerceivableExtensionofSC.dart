@@ -5,29 +5,19 @@ import 'package:sample1/RulesList/Perceivable/121/121aTextTransScriptAudio.dart'
 import 'package:sample1/RulesList/Perceivable/121/121bTextTranscriptVideo.dart';
 import 'package:sample1/RulesList/Perceivable/131/131cProgrammaticLabels.dart';
 import 'package:sample1/RulesList/Perceivable/131/131eHeadings.dart';
+import 'package:sample1/RulesList/Perceivable/133/133aVisualcues.dart';
 import 'package:sample1/RulesList/Perceivable/133/133bSoundCues.dart';
 import 'package:sample1/RulesList/Perceivable/141/141aColorasInformation.dart';
 import 'package:sample1/RulesList/Perceivable/141/141bLinkColorContrast.dart';
+import 'package:sample1/RulesList/Perceivable/1411/NonTextContrastActiveUI.dart';
+import 'package:sample1/RulesList/Perceivable/1411/NonTextContrastStatesofUI.dart';
 import 'package:sample1/RulesList/Perceivable/142/AudioControlSample.dart';
 import 'package:sample1/RulesList/Perceivable/143/ColorContrast.dart';
-import 'package:sample1/RulesList/VisualCues.dart';
+import 'package:sample1/RulesList/Perceivable/145/ImageofText.dart';
 import 'package:sample1/importFiles.dart';
 import 'package:sample1/RulesList/Perceivable/111/111aAltTextActiveImage.dart';
 import 'package:sample1/RulesList/Perceivable/111/111bAltInformativeImage.dart';
 import 'package:sample1/RulesList/Perceivable/111/111gCaptchaTextImages.dart';
-
-
-class GlobalImages {
-  static final GlobalImages _instance = GlobalImages.sharedInstance();
-
-  factory GlobalImages() => _instance;
-
-  Image get rightArrow => Image.asset('assets/images/details_right_arrow.png');
-
-  GlobalImages.sharedInstance() {
-
-  }
-}
 
 class AltTextActiveImagesButton extends StatelessWidget {
 
@@ -43,9 +33,9 @@ class AltTextActiveImagesButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AltTextActiveImages.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AltTextActiveImages.name),
         Spacer(),
-        GlobalImages.sharedInstance().rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -65,9 +55,9 @@ class AltTextInformativeImagesButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AltTextInformativeImages.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AltTextInformativeImages.name),
         Spacer(),
-        GlobalImages.sharedInstance().rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -87,9 +77,9 @@ class AltTextComplexImagesButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AltTextComplexImages.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AltTextComplexImages.name),
         Spacer(),
-        GlobalImages.sharedInstance().rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -110,9 +100,9 @@ class AltTextDecorativeImagesButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AltTextDecorativeImages.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AltTextDecorativeImages.name),
         Spacer(),
-        GlobalImages.sharedInstance().rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -132,9 +122,9 @@ class AltTextCAPTCHAImagesButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AltTextCaptchaImages.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AltTextCaptchaImages.name),
         Spacer(),
-        GlobalImages.sharedInstance().rightArrow,
+         RightArrowImageWidget(),
       ],
     ),);
   }
@@ -154,11 +144,9 @@ class AltTextAudioVideoImagesButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AltTextAudioVideoImages.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AltTextAudioVideoImages.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+         RightArrowImageWidget(),
       ],
     ),);
   }
@@ -178,11 +166,9 @@ class TranscriptPrerecordedAudioButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.TranscriptPrerecordedAudio.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.TranscriptPrerecordedAudio.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+         RightArrowImageWidget(),
       ],
     ),);
   }
@@ -196,21 +182,64 @@ class TranscriptPrerecordedVideoButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialButton(onPressed: () {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
-        return TextTranscriptVideoSample();
+        return TextTranscriptVideoSample(pageTitle: SCs.TranscriptPrerecordedVideo.pageTitle,topname: SCs.TranscriptPrerecordedVideo.name,);
       })
       );
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.TranscriptPrerecordedVideo.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.TranscriptPrerecordedVideo.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+         RightArrowImageWidget(),
       ],
     ),);
   }
 }
+
+class TextorAudioPrereordedVideoButton extends StatelessWidget {
+
+  String identifier = SCs.TextOrAudioPreRecordedVideoWithDialogue.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return TextTranscriptVideoSample(pageTitle: SCs.TextOrAudioPreRecordedVideoWithDialogue.pageTitle,topname: SCs.TextOrAudioPreRecordedVideoWithDialogue.name,);
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.TextOrAudioPreRecordedVideoWithDialogue.name),
+        Spacer(),
+         RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+class AudioDescriptionsPrereordedVideoButton extends StatelessWidget {
+
+  String identifier = SCs.AudioDescriptions.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return TextTranscriptVideoSample(pageTitle: SCs.AudioDescriptions.pageTitle,topname: SCs.AudioDescriptions.name,);
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.AudioDescriptions.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
 //ProgrammaticLabelSample
 
 class ProgrammaticLabelSampleButton extends StatelessWidget {
@@ -227,11 +256,9 @@ class ProgrammaticLabelSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.InfoRelationShipProgrammaticLabels.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.InfoRelationShipProgrammaticLabels.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -251,11 +278,9 @@ class HeadingsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.Headings.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.Headings.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -275,11 +300,9 @@ class VisualCuesSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.VisualCues.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.VisualCues.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -299,11 +322,9 @@ class SoundCuesSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.SoundCues.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.SoundCues.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -323,11 +344,9 @@ class ColorasInfoSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ColorAsInformation.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.ColorAsInformation.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -347,11 +366,9 @@ class LinkcolorContrastSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.LinkColorContrast.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.LinkColorContrast.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
@@ -371,17 +388,15 @@ class AudioControlsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AudioControl.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.AudioControl.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
 }
 
-class ColorContrastRegularTextgSampleButton extends StatelessWidget {
+class ColorContrastRegularTextSampleButton extends StatelessWidget {
 
   String identifier = SCs.ColorContrastRegularText.identifier;
 
@@ -395,13 +410,77 @@ class ColorContrastRegularTextgSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ColorContrastRegularText.name),
+        TextReturnSCLabelWidget(checkPoint: SCs.ColorContrastRegularText.name),
         Spacer(),
-        GlobalImages
-            .sharedInstance()
-            .rightArrow,
+        RightArrowImageWidget(),
       ],
     ),);
   }
 }
 
+
+class ImageofTextSampleButton extends StatelessWidget {
+
+  String identifier = SCs.ImageOfText.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ImageofTextSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ImageOfText.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+class NonTextContextActiveUISampleButton extends StatelessWidget {
+
+  String identifier = SCs.NonTextContrastActiveUI.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return NonTextContrastActiveUI();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.NonTextContrastActiveUI.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+class NonTextContextStateUISampleButton extends StatelessWidget {
+
+  String identifier = SCs.NonTextContrastStateofUI.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return NonTextContrastStatesActiveUI();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.NonTextContrastStateofUI.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}

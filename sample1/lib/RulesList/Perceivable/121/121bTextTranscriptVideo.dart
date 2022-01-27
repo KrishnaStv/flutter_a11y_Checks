@@ -2,11 +2,23 @@ import 'package:video_player/video_player.dart';
 import 'package:sample1/importFiles.dart';
 
 class TextTranscriptVideoSample extends StatefulWidget {
+
+  final String pageTitle;
+  final String topname;
+
+  TextTranscriptVideoSample({required this.pageTitle, required this.topname });
+
+
   @override
-  State<StatefulWidget> createState() => new TextTranscriptVideoState();
+  State<StatefulWidget> createState() => new TextTranscriptVideoState(pageTitle: pageTitle, topname: topname);
 }
 
 class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
+
+  final String pageTitle;
+  final String topname;
+
+  TextTranscriptVideoState({required this.pageTitle, required this.topname });
 
   late VideoPlayerController _controller;
   late VideoPlayerController _beController;
@@ -37,7 +49,7 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
     return Scaffold(
         appBar: new AppBarExtension(
             navdata: TopBarData(
-                title: SCs.TranscriptPrerecordedVideo.pageTitle, enableBack: true)),
+                title: pageTitle, enableBack: true)),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -47,7 +59,7 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                   children: [
                     Row(
                       children: [
-                        HeaderSemanticWithText(SCs.TranscriptPrerecordedVideo.name),
+                        HeaderSemanticWithText(topname),
                       ],
                     ),
                     Text(ruleDescription),
@@ -57,18 +69,21 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                 EdgeInsets.all(15),
                 alignment: Alignment.centerLeft,
               ),
-              SizedBox(
-                height: 25,
-              ),
+
               Container(
                 child: Column(
                   children: [
-                    Semantics(
-                      child: Text('Good Example', style: TextStyle(
-                        fontWeight: FontWeight.bold
-                      ),),
-                      header: true,
+                    Container(
+                      padding: EdgeInsets.only(left: 15),
+                      alignment: Alignment.topLeft,
+                      child: Semantics(
+                        child: Text('Good Example', style: TextStyle(
+                            fontWeight: FontWeight.bold
+                        ),),
+                        header: true,
+                      ),
                     ),
+                    SizedBox(height: 10,),
                     AspectRatio(aspectRatio: _controller.value.aspectRatio,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
@@ -95,13 +110,18 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 30,),
-                    Semantics(
-                      child: Text('Bad Example', style: TextStyle(
-                          fontWeight: FontWeight.bold
-                      ),),
-                      header: true,
+                    SizedBox(height: 10,),
+                    Container(
+                      padding: EdgeInsets.only(left: 15),
+                      child: Semantics(
+                        child: Text('Bad Example', style: TextStyle(
+                            fontWeight: FontWeight.bold
+                        ),),
+                        header: true,
+                      ),
+                      alignment: Alignment.topLeft,
                     ),
+                    SizedBox(height: 15,),
                     AspectRatio(aspectRatio: _beController.value.aspectRatio,
                       child: Stack(
                         alignment: Alignment.bottomCenter,

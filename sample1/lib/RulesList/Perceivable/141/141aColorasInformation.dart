@@ -5,6 +5,8 @@ class ColorasInfoSample extends StatelessWidget {
   final String ruleDescription =
       'Color MUST NOT be used as the sole method of '
       'conveying content or distinguishing visual elements.';
+  final String geDesc1 = 'Pie chart depicting Recommended Diet. Fruit 30%, '
+      'Protein 23%, Vegetables 18%, Dairy 15%, Grains 9% and Others 5%.';
   
   Image getImageFromPath(String path) {
     var assertImagePAth = new AssetImage(path);
@@ -38,12 +40,26 @@ class ColorasInfoSample extends StatelessWidget {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            HeaderSemanticWithText('Good Example'),
             Container(
-              color: Colors.red,
-              child: getImageFromPath('assets/images/metachartgood.png'),
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Good Example: Using alternative'
+                        ' information associated with information '
+                        'conveyed through color.'),
+                    Text(geDesc1),
+                  ],
+                )
             ),
-            SizedBox(height: 45,),
+            Semantics(
+              child: Container(
+                color: Colors.red,
+                child: getImageFromPath('assets/images/metachartgood.png'),
+              ),
+              label: geDesc1,
+            ),
+            SizedBox(height: 10,),
             Container(
               child: Column(
                 children: [
@@ -80,12 +96,26 @@ class ColorasInfoSample extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             SizedBox(height: 25,),
-            HeaderSemanticWithText('Bad Example'),
             Container(
-              color: Colors.red,
-              child: getImageFromPath('assets/images/metachartbad.png'),
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Bad Example: the Only color '
+                        'used to convey information and no '
+                        'alternatives provided.'),
+                    Text(geDesc1),
+                  ],
+                )
             ),
-            SizedBox(height: 45,),
+            Semantics(
+              child: Container(
+                color: Colors.red,
+                child: getImageFromPath('assets/images/metachartbad.png'),
+              ),
+              label: geDesc1,
+            ),
+            SizedBox(height: 10,),
             Container(
               child: Column(
                 children: [

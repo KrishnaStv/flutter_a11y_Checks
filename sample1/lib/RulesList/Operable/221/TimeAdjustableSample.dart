@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class TimeAdjustableSample extends StatelessWidget {
 
@@ -58,7 +56,7 @@ class TimeAdjustableSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Time Adjustable', enableBack: true)),
+          navdata: TopBarData(title: SCs.TimeAdjustable.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -68,21 +66,21 @@ class TimeAdjustableSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.TimeAdjustable.name),
                     ],
                   ),
+                  SizedBox(height: 5),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 30,),
             Semantics(
               child:
                 Container(
                 alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('   Good Example'),
+                child: HeaderSemanticWithText('Good Example'),
                 ),
             ),
             Semantics(
@@ -99,7 +97,6 @@ class TimeAdjustableSample extends StatelessWidget {
                       alignment: Alignment.topLeft,
                       child: Text('Email Id'),
                     ),
-                    SizedBox(height: 5,),
                     TextField(
                       decoration: InputDecoration(
                           hintText: "Enter Email Id",
@@ -131,7 +128,7 @@ class TimeAdjustableSample extends StatelessWidget {
                           child: ElevatedButton(
                             child: const Text("Tap to Update"),
                             onPressed: () {
-                              _showDialog(false, '', 'Profile updated successfully', false, 'Okay', 'Yes', false);
+                              _showDialog(false, 'Alert', 'Profile updated successfully', false, 'Okay', 'Yes', false);
                             },
                           ),
                         ),
@@ -142,15 +139,13 @@ class TimeAdjustableSample extends StatelessWidget {
               ),
             ),
             SizedBox(height: 25,),
-            Semantics(
-              child:
               Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
                 alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('   Bad Example: No option to adjust or extend time limit.'),
+                child: HeaderSemanticWithText('Bad Example: No option to'
+                    ' adjust or extend time limit.'),
               ),
-            ),
-            Semantics(
-              child: Container(
+             Container(
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
@@ -193,7 +188,7 @@ class TimeAdjustableSample extends StatelessWidget {
                           child: ElevatedButton(
                             child: const Text("Tap to Update"),
                             onPressed: () {
-                              _showDialog(false, '', 'Profile updated successfully', false, 'Okay', 'Yes', true);
+                              _showDialog(false, 'Alert', 'Profile updated successfully', false, 'Okay', 'Yes', true);
                             },
                           ),
                         ),
@@ -202,7 +197,7 @@ class TimeAdjustableSample extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            SizedBox(height: 45,),
           ],
         ),
       ),

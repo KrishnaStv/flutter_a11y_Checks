@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
+import 'package:sample1/Extensions/AppExtension.dart';
 import 'package:sample1/RulesList/Perceivable/111/ImageViewDescriptipons.dart';
 import 'package:sample1/RulesList/AnnouncementExample.dart';
 import 'package:sample1/RulesList/Perceivable/143/ColorContrast.dart';

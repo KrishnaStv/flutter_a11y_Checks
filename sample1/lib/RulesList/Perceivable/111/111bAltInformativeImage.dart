@@ -32,7 +32,7 @@ class AltTextInformativeImages extends StatelessWidget {
       image: assertImagePAth,
       fit: BoxFit.cover,
       width: 150,
-      height: 150,
+      height: 100,
     );
 
     // TODO: implement build
@@ -76,23 +76,7 @@ class AltTextInformativeImages extends StatelessWidget {
               ),
               label: 'sunset as a sea',
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(codeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
             Divider(),
             Semantics(
               child: Container(
@@ -112,23 +96,7 @@ class AltTextInformativeImages extends StatelessWidget {
                 child: imgObject
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(becodeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: becodeSnippet),
             SizedBox(height: 45,)
           ],
         ),

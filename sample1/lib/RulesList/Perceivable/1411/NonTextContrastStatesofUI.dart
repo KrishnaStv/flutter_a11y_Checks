@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class NonTextContrastStatesActiveUI extends StatelessWidget {
 
@@ -14,7 +12,7 @@ class NonTextContrastStatesActiveUI extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Non-Text Contrast - States of \n User Interface Components', enableBack: true)),
+          navdata: TopBarData(title: SCs.NonTextContrastStateofUI.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -24,7 +22,7 @@ class NonTextContrastStatesActiveUI extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.NonTextContrastStateofUI.name),
                     ],
                   ),
                   Text(ruleDescription),
@@ -33,10 +31,11 @@ class NonTextContrastStatesActiveUI extends StatelessWidget {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 30,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Good Example'),
+            SizedBox(height: 5,),
+            Container(
+              padding: EdgeInsets.only(left: 15),
+              alignment: Alignment.centerLeft,
+              child: HeaderSemanticWithText('Good Example'),
             ),
             Semantics(
               child: Container(
@@ -46,14 +45,18 @@ class NonTextContrastStatesActiveUI extends StatelessWidget {
                     Text('For any input action buttons, maintain boundaries to detect the tap area'),
                     Row(
                       children: [
-                        Checkbox(value: true,
-                            side: const BorderSide(
-                              // set border color here
-                              width: 2,
-                              color: Colors.blue,
-                            ),
-                            onChanged: (bool? value)  {
-                            }),
+                        Semantics(
+                          child: Checkbox(value: true,
+                              side: const BorderSide(
+                                // set border color here
+                                width: 2,
+                                color: Colors.blue,
+                              ),
+                              onChanged: (bool? value)  {
+                              }),
+                          label: 'I Accept Terms and Conditions',
+                          value: 'Selected',
+                        ),
                         Text('I Accept Terms and Conditions')
                       ],
                     ),
@@ -62,9 +65,10 @@ class NonTextContrastStatesActiveUI extends StatelessWidget {
               ),
             ),
             SizedBox(height: 25,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Bad Example'),
+            Container(
+              padding: EdgeInsets.only(left: 15),
+              alignment: Alignment.centerLeft,
+              child: HeaderSemanticWithText('Bad Example'),
             ),
             Semantics(
               child: Container(
@@ -74,16 +78,20 @@ class NonTextContrastStatesActiveUI extends StatelessWidget {
                     Text('For any input action buttons, maintain boundaries to detect the tap area'),
                     Row(
                       children: [
-                        Checkbox(value: true,
-                            checkColor: Colors.white,
-                            activeColor: Colors.black12,
-                            side: const BorderSide(
-                              // set border color here
-                              width: 2,
-                              color: Colors.black12,
-                            ),
-                            onChanged: (bool? value)  {
-                            }),
+                        Semantics(
+                          child: Checkbox(value: true,
+                              checkColor: Colors.white,
+                              activeColor: Colors.black12,
+                              side: const BorderSide(
+                                // set border color here
+                                width: 2,
+                                color: Colors.black12,
+                              ),
+                              onChanged: (bool? value)  {
+                              }),
+                          value: 'Selected',
+                          label: 'I Accept Terms and Conditions',
+                        ),
                         Text('I Accept Terms and Conditions')
                       ],
                     ),

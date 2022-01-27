@@ -1,10 +1,9 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/cupertino.dart';
 import 'dart:async';
 import 'package:sample1/RulesList/Robust/412/TabBarControllerSample.dart';
+
 
 class NameRoleValueSample extends StatefulWidget {
   @override
@@ -45,7 +44,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
     2: Text(' Segment 3 ')
   };
 
-  void startFlashingTimer() {
+  void startProgressTimer() {
     const oneSec = const Duration(seconds: 1);
     geProgresstimer = new Timer.periodic(oneSec, (Timer timer) {
       setState(() {
@@ -62,12 +61,13 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    startFlashingTimer();
+    startProgressTimer();
   }
 
   @override
   void dispose() {
     // TODO: implement dispose
+    geProgresstimer.cancel();
     super.dispose();
   }
 
@@ -102,7 +102,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Name, Role, Value', enableBack: true)),
+          navdata: TopBarData(title: SCs.NameRoleValue.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -112,7 +112,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.NameRoleValue.name),
                     ],
                   ),
                   Text(ruleDescription),

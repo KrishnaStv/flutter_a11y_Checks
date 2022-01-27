@@ -6,6 +6,18 @@ class ColorContrastSample extends StatelessWidget {
 
   final String ruleDescription =
       'Regular text and images of regular text MUST have a contrast ratio of at least 4.5 to 1 with the background.';
+  final String colorText = 'Wikipedia is a multilingual online '
+      'encyclopedia created and maintained as '
+      'an open collaboration project by a community'
+      ' of volunteer editors using a wiki-based editing system.';
+  final String geRatios = ' \n Color Contrast Details: \n '
+      'Foreground: #FFEB3B \n'
+      'Background: #F44236 \n'
+      'The Contrast Ratio: 3.0:1\n';
+  final String beRatios = ' \n Color Contrast Details: \n '
+      'Foreground: #212121 \n'
+      'Background: #FEFEFE \n'
+      'The Contrast Ratio: 16.0:1\n';
 
   @override
   Widget build(BuildContext context) {
@@ -31,17 +43,44 @@ class ColorContrastSample extends StatelessWidget {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
+            SizedBox(height: 5,),
+           Container(
+                  padding: EdgeInsets.only(left: 15,right: 15),
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    children: [
+                      HeaderSemanticWithText('Good Example: Maintaining a '
+                          'contrast ratio of 4.5:1 between text color'
+                          ' and its background color.'),
+                      Text(colorText,style: TextStyle(
+                          backgroundColor: Colors.red,
+                          color: Colors.yellow
+                      ),
+                      ),
+                      Text(geRatios),
+                    ],
+                  )
+              ),
+
             SizedBox(height: 25,),
-            Text('Check Text color with background',style: TextStyle(
-                backgroundColor: Colors.red,
-                color: Colors.yellow
-            ),
-            ),
-            SizedBox(height: 25,),
-            Text('Check good Text color with background',style: TextStyle(
-                backgroundColor: Colors.white,
-                color: Colors.black
-            ),
+            Semantics(
+              child: Container(
+                  padding: EdgeInsets.only(left: 15,right: 15),
+                  alignment: Alignment.topLeft,
+                  child: Column(
+                    children: [
+                      HeaderSemanticWithText('Bad Example: Color contrast '
+                          'ratio text color and its background '
+                          'color is not atleast 4.5:1.'),
+                      Text(colorText,style: TextStyle(
+                          backgroundColor: Colors.white,
+                          color: Colors.black
+                      ),
+                      ),
+                      Text(beRatios),
+                    ],
+                  )
+              ),
             ),
           ],
         ),

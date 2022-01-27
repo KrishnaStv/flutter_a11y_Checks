@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class ErrorIdentificationSample extends StatefulWidget {
 
@@ -33,7 +31,7 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
     return Scaffold(
       appBar: new AppBarExtension(
           navdata:
-          TopBarData(title: 'Error Identification', enableBack: true)),
+          TopBarData(title: SCs.ErrorIdentification.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -43,7 +41,7 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ErrorIdentification.name),
                     ],
                   ),
                   Text(ruleDescription),

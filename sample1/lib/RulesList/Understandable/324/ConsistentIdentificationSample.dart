@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class ConsistentIdentificationSample extends StatelessWidget {
   final String ruleDescription = 'Elements such as labels, names, and text'
@@ -22,7 +20,7 @@ class ConsistentIdentificationSample extends StatelessWidget {
     return Scaffold(
       appBar: new AppBarExtension(
           navdata:
-              TopBarData(title: 'Consistent Identification', enableBack: true)),
+              TopBarData(title: SCs.ConsistentIdentification.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -32,7 +30,7 @@ class ConsistentIdentificationSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ConsistentIdentification.name),
                     ],
                   ),
                   Text(ruleDescription),

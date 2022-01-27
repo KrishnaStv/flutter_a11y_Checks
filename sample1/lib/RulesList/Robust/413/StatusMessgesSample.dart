@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 import 'package:flutter/semantics.dart';
 
 class StatusMessagesSample extends StatefulWidget {
@@ -66,7 +64,7 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Status Messages', enableBack: true)),
+          navdata: TopBarData(title: SCs.StatusMessages.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -76,7 +74,7 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.StatusMessages.name),
                     ],
                   ),
                   Text(ruleDescription),

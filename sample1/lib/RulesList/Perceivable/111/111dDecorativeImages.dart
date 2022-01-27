@@ -80,23 +80,7 @@ class AltTextDecorativeImages extends StatelessWidget {
                 child: imgObject,
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(codeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
             Divider(),
             Semantics(
               child: Container(
@@ -117,23 +101,7 @@ class AltTextDecorativeImages extends StatelessWidget {
                   child:beimgObject
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(becodeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: becodeSnippet),
             SizedBox(height: 45,)
           ],
         ),

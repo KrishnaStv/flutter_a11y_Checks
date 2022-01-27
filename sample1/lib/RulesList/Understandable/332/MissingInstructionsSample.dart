@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class MissingInstructionsSample extends StatelessWidget {
 
@@ -12,7 +10,7 @@ class MissingInstructionsSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Missing Instructions', enableBack: true)),
+          navdata: TopBarData(title: SCs.MissingInstructions.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -22,7 +20,7 @@ class MissingInstructionsSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.MissingInstructions.name),
                     ],
                   ),
                   Text(ruleDescription),

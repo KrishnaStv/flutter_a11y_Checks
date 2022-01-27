@@ -7,7 +7,10 @@ class HeadingsSample extends StatelessWidget {
       ' by screen readers to help users perceive'
       ' the structure of the screen content and to navigate between headings. \n '
       'Using Semantics header property we can update trait as header';
-
+  final String codeSnippet = 'Semantic Label : \n '
+      'Semantics('
+      'child: Text(\'Custom View Example\'),'
+      'header: true ,) \n';
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -31,24 +34,6 @@ class HeadingsSample extends StatelessWidget {
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
-            ),Container(
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Text(
-                      'Semantic Label : \n '
-                          'Semantics('
-                          'child: Text(\'Custom View Example\'),'
-                          'header: true ,) \n'
-                  ),
-                ],
-              ),
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
             ),
             Semantics(
               header: true,
@@ -76,6 +61,8 @@ class HeadingsSample extends StatelessWidget {
                 ),
               )
             ),
+            SizedBox(height: 15,),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
           ],
         ),
       ),

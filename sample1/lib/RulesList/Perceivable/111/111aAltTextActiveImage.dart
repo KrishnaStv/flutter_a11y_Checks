@@ -30,7 +30,17 @@ class AltTextActiveImages extends StatelessWidget {
   Widget build(BuildContext context) {
 
     var assertImagePAth = new AssetImage('assets/images/discount50pc.png');
-    var imgObject = new Image(
+    var imgObject = new Semantics(
+      child: Image(
+        image: assertImagePAth,
+        fit: BoxFit.cover,
+        width: 150,
+        height: 150,
+      ),
+      excludeSemantics: true,
+    );
+
+    var beimgObject = new Image(
       image: assertImagePAth,
       fit: BoxFit.cover,
       width: 150,
@@ -46,7 +56,6 @@ class AltTextActiveImages extends StatelessWidget {
             );
           });
     }
-
 
     // TODO: implement build
     return Scaffold(
@@ -93,23 +102,7 @@ class AltTextActiveImages extends StatelessWidget {
               button: true,
               label: '50% off shop now',
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(codeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
             Divider(),
             Semantics(
               child: Container(
@@ -128,27 +121,11 @@ class AltTextActiveImages extends StatelessWidget {
               child: Container(
                 child: GestureDetector(
                   onTap: activeImageTap,
-                  child: imgObject,
+                  child: beimgObject,
                 ),
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(becodeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: becodeSnippet),
             SizedBox(height: 45,)
           ],
         ),

@@ -2,7 +2,6 @@ import 'package:sample1/importFiles.dart';
 import 'package:audioplayers/audioplayers.dart';
 
 class AltTextCaptchaImages extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -56,7 +55,6 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
 
   @override
   Widget build(BuildContext context) {
-
     var assertImagePAth = new AssetImage('assets/images/captcha.jpeg');
     var imgObject = new Image(
       image: assertImagePAth,
@@ -64,6 +62,18 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
       width: 150,
       height: 150,
     );
+
+    var speakerpath = new AssetImage('assets/images/speaker.png');
+    var speakerimgObject = new Semantics(
+      child: Image(
+        image: speakerpath,
+        fit: BoxFit.cover,
+        width: 150,
+        height: 150,
+      ),
+      excludeSemantics: true,
+    );
+
 
     // TODO: implement build
     return Scaffold(
@@ -106,10 +116,11 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
             ),
             Row(
               children: [
-                SizedBox(width: 25,),
+                SizedBox(
+                  width: 25,
+                ),
                 Semantics(
-                  label:
-                      ' first two Capital, next two small alphabets. '
+                  label: ' first two Capital, next two small alphabets. '
                       'The audio clip also available',
                   child: Container(
                     width: 250,
@@ -118,14 +129,21 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
                   ),
                 ),
                 Semantics(
-                  child: IconButton(icon:Image.asset('assets/images/speaker.png'),
-                    onPressed: (){
-                      playAudio();
-                    },),
-                )
+                  child: Container(
+                    width: 50,
+                    height: 50,
+                    child: GestureDetector(
+                      onTap: playAudio,
+                      child: speakerimgObject,
+                    ),
+                  ),
+                  button: true,
+                  label: 'Play Captcha audio clip',
+                ),
               ],
             ),
             Divider(),
+
             Semantics(
               child: Container(
                   padding: EdgeInsets.only(left: 15, right: 15),
@@ -142,9 +160,8 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
               height: 15,
             ),
             Semantics(
-              child: Container(width: 250,
-                  height: 45,
-                  child: imgObject),
+              label: 'Captcha image',
+              child: Container(width: 250, height: 45, child: imgObject),
             ),
           ],
         ),

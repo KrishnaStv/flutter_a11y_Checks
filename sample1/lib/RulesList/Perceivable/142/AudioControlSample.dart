@@ -52,7 +52,7 @@ class AudioControlSampleState extends State<AudioControlSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Audio Control', enableBack: true)),
+          navdata: TopBarData(title: SCs.AudioControl.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -62,7 +62,7 @@ class AudioControlSampleState extends State<AudioControlSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.AudioControl.name),
                     ],
                   ),
                   Text(ruleDescription),
@@ -71,10 +71,20 @@ class AudioControlSampleState extends State<AudioControlSample> {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 30,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Good Example'),
+            SizedBox(height: 5,),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                   Container(
+                       alignment: Alignment.topLeft,
+                       child:  HeaderSemanticWithText('Good Example:'),
+                   ),
+                    Text('The sample below adds a button to pause '
+                        'or resume the audio that plays automatically.')
+                  ],
+                )
             ),
             SizedBox(height: 10,),
             Row(

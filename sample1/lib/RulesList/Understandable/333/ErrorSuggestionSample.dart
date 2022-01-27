@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class ErrorSuggestionSample extends StatefulWidget {
   @override
@@ -56,7 +54,7 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Error Suggestion', enableBack: true)),
+          navdata: TopBarData(title: SCs.ErrorSuggestions.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -66,7 +64,7 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ErrorSuggestions.name),
                     ],
                   ),
                   Text(ruleDescription),

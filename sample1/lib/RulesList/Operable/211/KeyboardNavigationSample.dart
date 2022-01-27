@@ -1,19 +1,17 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 
 class KeyboardNavigationSample extends StatelessWidget {
 
   final String ruleDescription =
       'All the elements/components on the screen and their functionalities '
       'MUST be available for screen reader users too as for a normal user.';
-
+final String becodeSnippet = '\n Semantics( \n child: widgetObject \n excludeSemantics: true \n)';
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Keyboard Navigation', enableBack: true)),
+          navdata: TopBarData(title: SCs.KayboardNavigation.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -23,29 +21,40 @@ class KeyboardNavigationSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.KayboardNavigation.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 30,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Good Example'),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Good Example: Making sure controls'
+                        ' and functionalities are available for '
+                        'a VoiceOver and screen reader users.'),
+                    Text('By default for all widgets excludeSemantics is false,'
+                        ' if we want to disable any widget for VoiceOver we can enable it.'),
+                    Text(' For the below example, all UIElements '
+                        'are accessible for VoiceOver.'),
+                  ],
+                )
             ),
-            Semantics(
-              child: Container(
+            Container(
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    Text('For input fields, maintain boundaries to detect the tap area'),
                     SizedBox(height: 15,),
-                    Text('Email Id'),
-                    SizedBox(height: 5,),
+                   Container(
+                     alignment: Alignment.topLeft,
+                     child: Text('Email Id'),
+                   ),
                     TextField(
                       decoration: InputDecoration(
                         hintText: "Enter Email Id",
@@ -59,7 +68,6 @@ class KeyboardNavigationSample extends StatelessWidget {
                           child: ElevatedButton(
                             child: const Text("UnSubscribe"),
                             onPressed: () {
-
                             },
                           ),
                         ),
@@ -68,7 +76,6 @@ class KeyboardNavigationSample extends StatelessWidget {
                           child: ElevatedButton(
                             child: const Text("Subscribe"),
                             onPressed: () {
-
                             },
                           ),
                         )
@@ -77,19 +84,28 @@ class KeyboardNavigationSample extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
             SizedBox(height: 25,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Bad Example'),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Bad Example: Controls and'
+                        ' functionality not available when VoiceOver is on.'),
+                    Text('For the below example,'
+                        ' UnSubscribe, is enabled Subscribe is'
+                        ' not accessible for VoiceOver.'),
+                  ],
+                )
             ),
-            Semantics(
-              child: Container(
+           Container(
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
-                    Text('For input fields, maintain boundaries to detect the tap area'),
-                    SizedBox(height: 15,),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: Text('Email Id'),
+                    ),
                     TextField(
                       decoration: InputDecoration(
                           hintText: "Enter Email Id",
@@ -103,7 +119,6 @@ class KeyboardNavigationSample extends StatelessWidget {
                           child: ElevatedButton(
                             child: const Text("UnSubscribe"),
                             onPressed: () {
-
                             },
                           ),
                         ),
@@ -112,7 +127,6 @@ class KeyboardNavigationSample extends StatelessWidget {
                           child: ElevatedButton(
                             child: const Text("Subscribe"),
                             onPressed: () {
-
                             },
                           ),
                           excludeSemantics: true,
@@ -122,7 +136,7 @@ class KeyboardNavigationSample extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
+            CodeSinppetWidget(codeSnippet: becodeSnippet),
           ],
         ),
       ),

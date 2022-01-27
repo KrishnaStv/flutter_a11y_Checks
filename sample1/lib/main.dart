@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'WCAG Principles/PerceivableRulesList.dart';
+import 'WCAG Principles/HomeScreen.dart';
 
 void main() {
-  runApp(MaterialApp(home:PerceivableRulesList()));
+  runApp(MaterialApp(home:HomeScreen()));
 }
 
 class MyApp extends StatelessWidget {

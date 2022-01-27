@@ -14,6 +14,10 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
   final String ruleDescription =
       'Labels MUST be programmatically associated with form '
       'input elements using Semantics label attribute.';
+  final String codeSnippet = '\n Semantic Label : \n '
+      'Semantics('
+      'child: widgetObject,'
+      ' label: \'I accept Terms and Conditions\',) \n ';
 
   bool isChecked = false;
 
@@ -40,24 +44,6 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
-            ),Container(
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Text(
-                      'Semantic Label : \n '
-                          'Semantics('
-                          'child: widgetObject,'
-                          ' label: \'I accept Terms and Conditions\',) \n\n'
-                         ),
-                ],
-              ),
-              padding: EdgeInsets.all(10),
-              alignment: Alignment.center,
             ),
             Container(
               child: Column (
@@ -93,22 +79,24 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
             SizedBox(
               height: 35,
             ),
-            Semantics(
-              child:  Row(
+           Row(
                 children: [
-                  Checkbox(value: isChecked,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          isChecked = isChecked ? false : true;
-                        });
-                      }),
+                 Semantics(
+                   label: 'I accept Terms and Conditions ',
+                   button: true,
+                   value: isChecked ? 'Selected' : 'Not selected',
+                   child:  Checkbox(value: isChecked,
+                       onChanged: (bool? value) {
+                         setState(() {
+                           isChecked = isChecked ? false : true;
+                         });
+                       }),
+                 ),
                   Text('I accept Terms and Conditions'),
                 ],
-              ),
-              button: true,
-              value: isChecked ? 'Selected' : 'Not selected',
             ),
-
+            SizedBox(height: 10,),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
           ],
         ),
       ),

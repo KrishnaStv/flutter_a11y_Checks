@@ -1,10 +1,7 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 import 'dart:async';
 
 class FlashingContentSample extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -13,7 +10,6 @@ class FlashingContentSample extends StatefulWidget {
 }
 
 class FlashingContentSampleState extends State<FlashingContentSample> {
-
   final String ruleDescription =
       'A screen MUST NOT contain content that flashes more than 3'
       ' times per second unless that flashing content is sufficiently '
@@ -35,7 +31,7 @@ class FlashingContentSampleState extends State<FlashingContentSample> {
     const oneSec = const Duration(seconds: 1);
     _timer = new Timer.periodic(oneSec, (Timer timer) {
       setState(() {
-        if(alphaValue == 1) {
+        if (alphaValue == 1) {
           alphaValue = 0;
         } else {
           alphaValue = 1;
@@ -52,11 +48,19 @@ class FlashingContentSampleState extends State<FlashingContentSample> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Flashing Content', enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.FlashingContent.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -66,8 +70,11 @@ class FlashingContentSampleState extends State<FlashingContentSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.FlashingContent.name),
                     ],
+                  ),
+                  SizedBox(
+                    height: 5,
                   ),
                   Text(ruleDescription),
                 ],
@@ -75,64 +82,65 @@ class FlashingContentSampleState extends State<FlashingContentSample> {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 30,),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
+            Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Good Example'),
+                  ),
+                  Text('The sample below avoids flash content and instead uses'
+                      ' an alternative label to replace a flashing content or '
+                      'in case the flashing is introduced using programmatically, '
+                      'then the duration is increased (second label below) to'
+                      ' make sure the rate is well in recommended limits.'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                 Semantics(
+                   label: 'Offers of Month',
+                   child:  getImageFromPath('assets/images/imagesoftext.png'),
+                 ),
+                ],
               ),
             ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Text('The sample below avoids flash content and instead uses'
-                        ' an alternative label to replace a flashing content or '
-                        'in case the flashing is introduced using programmatically, '
-                        'then the duration is increased (second label below) to'
-                        ' make sure the rate is well in recommended limits.'),
-                    SizedBox(height: 10,),
-                    getImageFromPath('assets/images/imagesoftext.png'),
-                  ],
-                ),
-              ),
+            SizedBox(
+              height: 25,
             ),
-            SizedBox(height: 25,),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Text('The sample below uses programmatic animation over a '
-                        'label to change the visibility to give a flashing effect.'
-                        ' Observe the duration of the animation cycle is so'
-                        ' low that it flashes faster.'),
-                    SizedBox(height: 10,),
-                    Container(
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('  Bad Example'),
+                  ),
+                  Text('The sample below uses programmatic animation over a '
+                      'label to change the visibility to give a flashing effect.'
+                      ' Observe the duration of the animation cycle is so'
+                      ' low that it flashes faster.'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Semantics(
+                    child: Container(
                       height: 90,
                       width: 280,
-                      decoration:BoxDecoration(
+                      decoration: BoxDecoration(
                         color: const Color(0xffffff),
                         image: new DecorationImage(
                           fit: BoxFit.fill,
-                          colorFilter:
-                          ColorFilter.mode(Colors.white.withOpacity(alphaValue),
+                          colorFilter: ColorFilter.mode(
+                              Colors.white.withOpacity(alphaValue),
                               BlendMode.srcOver),
-                          image:AssetImage('assets/images/imagesoftext.png'),
+                          image: AssetImage('assets/images/imagesoftext.png'),
                         ),
                       ),
                     ),
-                  ],
-                ),
+                    label: 'Offers of the month',
+                  ),
+                ],
               ),
             ),
           ],

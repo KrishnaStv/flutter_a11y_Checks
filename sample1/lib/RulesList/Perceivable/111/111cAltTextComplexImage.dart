@@ -35,7 +35,7 @@ class AltTextComplexImages extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    var assertImagePAth = new AssetImage('assets/images/graphfavouritefood.png');
+    var assertImagePAth = new AssetImage('assets/images/graphfavoritefood.png');
     var imgObject = new Image(
       image: assertImagePAth,
       fit: BoxFit.cover,
@@ -45,8 +45,8 @@ class AltTextComplexImages extends StatelessWidget {
 
     var beassertImagePAth = new AssetImage('assets/images/recommendeddietpiechart.png');
     var beimgObject = new Image(
-      image: assertImagePAth,
-      fit: BoxFit.cover,
+      image: beassertImagePAth,
+      fit: BoxFit.fill,
       width: 150,
       height: 150,
     );
@@ -96,23 +96,7 @@ class AltTextComplexImages extends StatelessWidget {
                   ' y-axis and shows 15 for pizza, 24 for a burger,'
                   ' and 11 for salad',
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(codeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
             Divider(),
             Semantics(
               child: Container(
@@ -132,23 +116,7 @@ class AltTextComplexImages extends StatelessWidget {
                 child:beimgObject
               ),
             ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(becodeSnippet, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: becodeSnippet),
             SizedBox(height: 45,)
           ],
         ),

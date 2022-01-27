@@ -1,6 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppBarExtension.dart';
-import 'package:sample1/Extensions/Extensions.dart';
+import 'package:sample1/importFiles.dart';
 import 'dart:async';
 
 class PauseStopHideContentSample extends StatefulWidget {
@@ -98,12 +96,20 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _timer.cancel();
+    _badTimer.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
 
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Pause, Stop, or Hide Content', enableBack: true)),
+          navdata: TopBarData(title: SCs.PauseStopHide.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -113,7 +119,7 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.PauseStopHide.name),
                     ],
                   ),
                   Text(ruleDescription),
@@ -140,9 +146,12 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
                         'ViewFlipper by default comes with a good set of '
                         'functions to autostart, stop, start a flipper.'),
                     SizedBox(height: 10,),
-                    Image(
-                    image: _imageToShow,
-                    fit: BoxFit.cover,
+                    Semantics(
+                      child: Image(
+                        image: _imageToShow,
+                        fit: BoxFit.cover,
+                      ),
+                      label: 'Birds Animation',
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -184,9 +193,12 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
                     Text('The sample below does not warn or allow users'
                         ' to extend/adjust the timing of the session time-outs.'),
                     SizedBox(height: 10,),
-                    Image(
-                      image: _badImageToShow,
-                      fit: BoxFit.cover,
+                    Semantics(
+                      child: Image(
+                        image: _badImageToShow,
+                        fit: BoxFit.cover,
+                      ),
+                      label: 'Birds Animation',
                     ),
                   ],
                 ),

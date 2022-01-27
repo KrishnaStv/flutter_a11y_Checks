@@ -3,8 +3,18 @@ import 'package:sample1/importFiles.dart';
 class VisualCues extends StatelessWidget {
 
   final String ruleDescription =
-      'Information/instruction is presented to the user in a way that not just requires the'
-      ' ability to see, and there MUST be an alternate method to convey the information.';
+      'Information/instruction is presented to the user in a way '
+      'that not just requires the'
+      ' ability to see, and there MUST be an alternate method to '
+      'convey the information.';
+  final String geDescription = 'We must need to provide alternative text'
+      ' for users, not just visual representation. In the example, for '
+      'the stopping exam, we were given the red color STOP button.';
+
+  final String beDescription = ' Without visual text only depend on the '
+      'color as information. In the example we didn\'t '
+      'provide STOP text for the button.';
+
 
   @override
   Widget build(BuildContext context) {
@@ -30,9 +40,16 @@ class VisualCues extends StatelessWidget {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Good Example'),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Good Example: Using proper instructions'
+                        ' more than just visual cues.'),
+                    Text(geDescription),
+                  ],
+                )
             ),
             Container(
               height: 45,
@@ -50,9 +67,16 @@ class VisualCues extends StatelessWidget {
               ),
             ),
             SizedBox(height: 45,),
-            Semantics(
-              child:
-              HeaderSemanticWithText('Bad Example'),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    HeaderSemanticWithText('Bad Example:An instruction to'
+                        ' users that requires the ability to see.'),
+                    Text(beDescription),
+                  ],
+                )
             ),
             Container(
               height: 45,
