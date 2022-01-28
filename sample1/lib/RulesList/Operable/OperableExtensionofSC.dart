@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sample1/RulesList/Operable/211/CustomGesturesSample.dart';
 import 'package:sample1/RulesList/Operable/211/KeyboardNavigationSample.dart';
 import 'package:sample1/RulesList/Operable/221/TimeAdjustableSample.dart';
 import 'package:sample1/RulesList/Operable/222/AutomaticallyUpdatingContentSample.dart';
@@ -230,4 +231,25 @@ class LabelInNameSampleButton extends StatelessWidget {
   }
 }
 
+//CustomGesturesSample
+class CustomGestureSampleButton extends StatelessWidget {
 
+  String identifier = SCs.CustomGestures.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return CustomGesturesSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.CustomGestures.name,),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}

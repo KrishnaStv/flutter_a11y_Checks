@@ -39,6 +39,7 @@ enum SCs {
   ErrorSuggestions, //333a
   NameRoleValue, //412a
   StatusMessages, //413a
+  CustomGestures, //211c
 
 
 
@@ -140,6 +141,8 @@ extension SCsExtension on SCs {
         return '4.1.2.a – Name, Role, Value';
       case SCs.StatusMessages:
         return '4.1.3.a - Status Messages';
+      case SCs.CustomGestures:
+        return '2.1.1.c – Custom Gestures';
 
 
 
@@ -254,6 +257,8 @@ extension SCsExtension_identifier on SCs {
         return '4.1.2.a';
       case SCs.StatusMessages:
         return '4.1.3.a';
+      case SCs.CustomGestures:
+        return '2.1.1.c';
 
 
       case SCs.TextAlternative:
@@ -367,6 +372,8 @@ extension SCsExtension_title on SCs {
         return 'Name, Role, Value';
       case SCs.StatusMessages:
         return 'Status Messages';
+      case SCs.CustomGestures:
+        return 'Custom Gestures';
 
 
 

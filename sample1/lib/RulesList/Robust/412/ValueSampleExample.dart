@@ -16,7 +16,6 @@ class ValueSampleExampleState extends State<ValuesSampleExample> {
       '// Selected state \n Semantics ( \n child : \n buttonWidget, \n selected : true) \n '
       '//Disabled state \n MaterialButton(onPressed: null, \n child: Text(\'Call\') \n ) \n';
 
-
   Image getImageFromPath(String path) {
     var assertImagePAth = new AssetImage(path);
     return new Image(
