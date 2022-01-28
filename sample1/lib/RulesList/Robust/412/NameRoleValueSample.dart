@@ -1,3 +1,5 @@
+import 'package:sample1/RulesList/Robust/412/NameRoleValueBadSample.dart';
+import 'package:sample1/RulesList/Robust/412/ValueSampleExample.dart';
 import 'package:sample1/importFiles.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/cupertino.dart';
@@ -37,6 +39,13 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
   late Timer geProgresstimer;
   double geProgresscurrentValue = 0.00;
   var selectedSegment = 0;
+
+  var geCs1 = '\n Semantics( \n child: \n Semantics( \n child:buttonWidget, \n excludeSemantics: true \n), \n button:true, \n label:\' Send me emails of existing offers\', \n)';
+  var geCs2 = '\n Semantics( \n child: \n buttonWidget, \n label:\' I agree to the terms and conditions\',) \n';
+  var geCs3 = '\n By default Button title will  \n read as Semantics label attribute \n';
+  var geCs4 = '\n By default Slider label will read as \n Semantics label attribute and value will \n  read as Semantics value attribute \n Slider(\n value: gecurrentValue, \n max: 100, \n divisions: 5,\n label: \'Set Volume\' ,\n onChanged: (double value) \n {setState(() \n {gecurrentValue = value; \n } \n ); \n } \n ) \n';
+  var geCs5 = '\n Semantics( \n child: \n switchWidget, \n label:\' Set Mute\', \n value: \' On\') \n';
+  var geCustomActionCS = '\n Using Semantics customSemanticsActions \n we can add custom rotor actions \n  for widgets.  Semantics( \n child: ElevatedButton(child: Text(\'Tap to Sound\'), onPressed: () { \n _showDialog(false, \'Alert\', \'Its Default Action\');\n },),\n customSemanticsActions: { \n CustomSemanticsAction(label: "Custom Action"): () { \n _showDialog(false, \'Alert\', \'Its Custom Action\'); \n }, \n }, \n ) \n';
 
   final Map<int, Widget> logoWidgets = const <int, Widget> {
     0: Text(' Segment 1 '),
@@ -115,6 +124,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
                       HeaderSemanticWithText(SCs.NameRoleValue.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
@@ -146,16 +156,20 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               child: Row(
                 children: [
                  Semantics(
+                   button: true,
                    label: isGERadioButtonSelected? "Selected" : "" + "Send Emails on exciting offer",
-                   child:  IconButton(
-                       onPressed: (){
-                     setState(() {
-                       isGERadioButtonSelected = !isGERadioButtonSelected;
-                     });
-                   },
-                       icon: isGERadioButtonSelected ?
-                       Image.asset('assets/images/radio_button_selected.png') :
-                       Image.asset('assets/images/radio_button.png')),
+                   child:  Semantics(
+                     excludeSemantics: true,
+                     child: IconButton(
+                         onPressed: (){
+                           setState(() {
+                             isGERadioButtonSelected = !isGERadioButtonSelected;
+                           });
+                         },
+                         icon: isGERadioButtonSelected ?
+                         Image.asset('assets/images/radio_button_selected.png') :
+                         Image.asset('assets/images/radio_button.png')),
+                   ),
                  ),
                   Text('Send me emails on exciting offers'),
                 ],
@@ -166,29 +180,13 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               child: Text('VoiceOver will announce as \'Send me emails on exciting offers, Button\''),
             ),
             SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: geCs1),
             Divider(),
             Container(
               child: Row(
                 children: [
                   Semantics(
-                    label: isGECheckboxButtonSelected? "Selected" : "" + "I agree to the terms and conditions",
+                    label: isGECheckboxButtonSelected? "Selected, I agree to the terms and conditions" : "I agree to the terms and conditions",
                     child: Checkbox(value: isGECheckboxButtonSelected,
                         onChanged: (bool? value) {
                           setState(() {
@@ -205,23 +203,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               child: Text('VoiceOver will announce as \'I agree to the terms and conditions, Button\''),
             ),
             SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: geCs2),
             Divider(),
             MaterialButton(onPressed: (){ },
               color: Colors.blue,
@@ -232,23 +214,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               child: Text('VoiceOver will announce as \'Create Account, Button\''),
             ),
             SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: geCs3),
             Divider(),
             Container(
               padding: EdgeInsets.only(left: 15),
@@ -278,23 +244,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
                   ' finger to adjust the value'),
             ),
             SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: geCs4),
             Divider(),
             Container(
               padding: EdgeInsets.only(left: 15,right: 15),
@@ -324,23 +274,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
                   ' Double-tap to toggle setting'),
             ),
             SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: geCs5),
             Divider(),
             Container(
               alignment: Alignment.topLeft,
@@ -362,24 +296,6 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
             Container(
               padding: EdgeInsets.only(left: 15,right: 15),
               child: Text('VoiceOver will announce as \'Download Progress $geProgresscurrentValue, \'(Current Value)\''),
-            ),
-            SizedBox(height: 10,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
             ),
             Divider(),
             Container(
@@ -408,23 +324,6 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               child: Text('VoiceOver will announce as \'Segment 1, Button, \'(Current Value)\''),
             ),
             SizedBox(height: 20,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
             Divider(),
             ElevatedButton(child: Text('Tab Bar Example'), onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -444,37 +343,29 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
                 _showDialog(false, 'Alert', 'Its Default Action');
               },),
               customSemanticsActions: {
-              CustomSemanticsAction(label: "Do Action"): () {
+              CustomSemanticsAction(label: "Custom Action"): () {
                 debugPrint("custom action performed");
                 _showDialog(false, 'Alert', 'Its Custom Action');
               },
             },
             ),
             SizedBox(height: 20,),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:Column(
-                children: [
-                  Row(
-                    children: [
-                      HeaderSemanticWithText('Code Snippet'),
-                    ],
-                  ),
-                  Container(
-                    color: Colors.black,
-                    child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                  ),
-                ],
-              ),
-              alignment: Alignment.center,
-            ),
+            CodeSinppetWidget(codeSnippet: geCustomActionCS),
             Divider(),
-            ElevatedButton(child: Text('Value Examples'), onPressed: () {
+            ElevatedButton(child: Text('Name Role Bad Examples'), onPressed: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return TabbarControllerSample();
+                return NameRoleValueBadSample();
               })
               );
             },),
+            Divider(),
+            ElevatedButton(child: Text('Value Examples'), onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ValuesSampleExample();
+              })
+              );
+            },),
+            SizedBox(height: 25,),
           ],
         ),
       ),

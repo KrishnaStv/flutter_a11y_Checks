@@ -37,6 +37,7 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
                       HeaderSemanticWithText(SCs.RequiredFormFields.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
@@ -44,22 +45,19 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
               alignment: Alignment.centerLeft,
             ),
             Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example'),
+                    ),
                     Text('The sample provided below includes instructions'
                         ' for the mandatory fields. The instruction is '
                         'provided as part of the associated visible label'
                         ' for the input fields.'),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 10,),
                     Form(
                       key: _formKey,
                       child:Column(
@@ -124,19 +122,15 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
                 ),
               ),
             ),
-            SizedBox(height: 25,),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
+            SizedBox(height: 15,),
+             Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example'),
+                    ),
                     Text('The sample below misses the additional '
                         'information as it\'s required data input.'),
                     SizedBox(height: 15,),
@@ -191,7 +185,6 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
                   ],
                 ),
               ),
-            ),
           ],
         ),
       ),

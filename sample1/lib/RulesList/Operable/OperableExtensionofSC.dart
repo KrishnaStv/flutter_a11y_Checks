@@ -24,7 +24,7 @@ class KeyboardNavigationSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.KayboardNavigation.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.KayboardNavigation.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -46,7 +46,7 @@ class TimeAdjustableSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.TimeAdjustable.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.TimeAdjustable.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -68,7 +68,7 @@ class PauseStopHideContentSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.PauseStopHide.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.PauseStopHide.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -90,7 +90,7 @@ class AutomaticUpdateContentSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.AutomaticUpdating.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.AutomaticUpdating.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -134,7 +134,7 @@ class FlashingContentSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.FlashingContent.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.FlashingContent.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -156,7 +156,7 @@ class TitlesofPageSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.TitlesOfPages.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.TitlesOfPages.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -178,7 +178,7 @@ class DescriptiveHeadingSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.DescriptiveHeading.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.DescriptiveHeading.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -200,7 +200,7 @@ class DescriptiveLabelSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.DescriptiveLabel.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.DescriptiveLabel.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -222,7 +222,7 @@ class LabelInNameSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.LabelInName.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.LabelInName.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],

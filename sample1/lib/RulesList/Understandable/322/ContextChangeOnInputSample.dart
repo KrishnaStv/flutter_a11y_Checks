@@ -36,6 +36,7 @@ class ContextChangeOnInputSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.ContextChangeOnInput.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
@@ -58,11 +59,11 @@ class ContextChangeOnInputSample extends StatelessWidget {
                         'the user entered the Email id to subscribe.'
                         ' Until user tap on subscribe, '
                         'no action can be performed.'),
+                    SizedBox(height: 10,),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text('Email Id'),
                     ),
-                    SizedBox(height: 5,),
                     TextField(
                       decoration: InputDecoration(
                           hintText: "Enter Email Id",
@@ -101,11 +102,11 @@ class ContextChangeOnInputSample extends StatelessWidget {
                         ' context (moves to a different screen) as soon as '
                         'the user starts typing in the edit text field '
                         'without any information.'),
+                    SizedBox(height: 10,),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text('Email Id'),
                     ),
-                    SizedBox(height: 5,),
                     TextField(
                       decoration: InputDecoration(
                           hintText: "Enter Email Id",

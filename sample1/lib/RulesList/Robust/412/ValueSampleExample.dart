@@ -11,6 +11,12 @@ class ValuesSampleExample extends StatefulWidget {
 
 class ValueSampleExampleState extends State<ValuesSampleExample> {
 
+  var geCs1 = '\n Semantics( \n child: \n buttonWidget, \n button:true, \n label:\' Available Colors\',value: isColorSelectionOpened ? \'Collapsed\' : \'Expanded\', \n) \n';
+  var geCS2 = '\n for normal button state - button \n title will read as semantics label \n attribute. For selected state update the \n semantics selection. For disabled state \n assign null to action block \n '
+      '// Selected state \n Semantics ( \n child : \n buttonWidget, \n selected : true) \n '
+      '//Disabled state \n MaterialButton(onPressed: null, \n child: Text(\'Call\') \n ) \n';
+
+
   Image getImageFromPath(String path) {
     var assertImagePAth = new AssetImage(path);
     return new Image(
@@ -93,23 +99,7 @@ class ValueSampleExampleState extends State<ValuesSampleExample> {
                     child: Text('VoiceOver will announce as \'Available Colors, Collapsed\''),
                   ),
                   SizedBox(height: 10,),
-                  Container(
-                    padding: EdgeInsets.only(left: 15,right: 15),
-                    child:Column(
-                      children: [
-                        Row(
-                          children: [
-                            HeaderSemanticWithText('Code Snippet'),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.black,
-                          child: Text('Code Snippet', style: TextStyle(color: Colors.white),),
-                        ),
-                      ],
-                    ),
-                    alignment: Alignment.center,
-                  ),
+                  CodeSinppetWidget(codeSnippet: geCs1),
                   Divider(),
                   SizedBox(height: 5,),
                   Container(
@@ -154,6 +144,7 @@ class ValueSampleExampleState extends State<ValuesSampleExample> {
                         )
                       ],
                     ),
+                  CodeSinppetWidget(codeSnippet: geCS2),
                   Divider(),
                   Container(
                     padding: EdgeInsets.only(left: 15,right: 15,top: 15),
@@ -220,23 +211,6 @@ class ValueSampleExampleState extends State<ValuesSampleExample> {
                     child: Text('VoiceOver will announce as \'Available Colors, Collapsed\''),
                   ),
                   SizedBox(height: 10,),
-                  Container(
-                    padding: EdgeInsets.only(left: 15,right: 15),
-                    child:Column(
-                      children: [
-                        Row(
-                          children: [
-                            HeaderSemanticWithText('Code Snippet'),
-                          ],
-                        ),
-                        Container(
-                          color: Colors.black,
-                          child: Text('Code Snippet', style: TextStyle(color: Colors.white),),
-                        ),
-                      ],
-                    ),
-                    alignment: Alignment.center,
-                  ),
                   Divider(),
                   SizedBox(height: 5,),
                   Container(
@@ -274,7 +248,6 @@ class ValueSampleExampleState extends State<ValuesSampleExample> {
                     ],
                   ),
                   SizedBox(height: 25,),
-
                 ]
             )
         )

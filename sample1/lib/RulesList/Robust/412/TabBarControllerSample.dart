@@ -20,6 +20,13 @@ class TabbarControllerSampleState extends State<TabbarControllerSample>
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: new AppBarExtension(
@@ -40,20 +47,31 @@ class TabbarControllerSampleState extends State<TabbarControllerSample>
                 Semantics(
                   selected: selectedTab == 0 ? true : false,
                   label: 'People',
-                  child: Tab(
-                    icon: Icon(Icons.people),
+                  child: Semantics(
+                    child: Tab(
+                      icon: Icon(Icons.people),
+                    ),
+                    excludeSemantics: true,
                   ),
                 ),
                 Semantics(
                   selected: selectedTab == 1 ? true : false,
                   label: 'Person',
-                  child: Tab(
-                    icon: Icon(Icons.person),
+                  child: Semantics(
+                    child: Tab(
+                      icon: Icon(Icons.person),
+                    ),
+                    excludeSemantics: true,
                   ),
                 )
               ],
               controller: _tabController,
               indicatorSize: TabBarIndicatorSize.tab,
+              onTap: (index) {
+                setState(() {
+                  selectedTab = index;
+                });
+              },
             ),
             Expanded(
               child: TabBarView(

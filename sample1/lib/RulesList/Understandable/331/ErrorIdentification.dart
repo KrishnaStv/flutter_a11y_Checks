@@ -44,22 +44,22 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                       HeaderSemanticWithText(SCs.ErrorIdentification.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            Semantics(
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
+
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 15,right: 15),
               child: Column(
                 children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Good Example'),
+                  ),
                   Text('The sample below shows an error '
                       'if  Username field for being blank. \n '
                       ' An error label will be visible.'),
@@ -128,16 +128,14 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                 ],
               ),
             ),
-            Semantics(
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 15,right: 15),
               child: Column(
                 children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Bad Example'),
+                  ),
                   Text('The sample below makes it difficult for '
                       'assistive technology users to identify'
                       ' errors in the field. Error messages are'

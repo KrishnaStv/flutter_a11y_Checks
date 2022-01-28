@@ -25,6 +25,7 @@ class VisualLabelsSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.VisibleLabels.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
@@ -32,17 +33,14 @@ class VisualLabelsSample extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example'),
+                    ),
                     Text('The sample below uses'
                         ' an explicitly visible label associated with each form field.\n '
                         'MUST need to add a Visible label for any input data.'),
@@ -115,13 +113,10 @@ class VisualLabelsSample extends StatelessWidget {
                     Row(
                       children: [
                         Semantics(
-                          button: true,
                           label: 'Phone Number',
-                          child: IconButton(
-                            icon: Image.asset('assets/images/phone-call.png'),
-                            onPressed: () {},
-                          ),
+                          child: Image.asset('assets/images/phone-call.png'),
                         ),
+                        SizedBox(width: 15,),
                         Container(
                           width: 250.0,
                           child: TextField(
@@ -142,17 +137,14 @@ class VisualLabelsSample extends StatelessWidget {
             ),
             SizedBox(height: 25,),
             Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example'),
+                    ),
                     Text('The sample below fails to use an explicitly '
                         'visible label for both group form fields '
                         'and Username fields.'),

@@ -33,22 +33,21 @@ class ConsistentIdentificationSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.ConsistentIdentification.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            Semantics(
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 15,right: 15),
               child: Column(
                 children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Good Example'),
+                  ),
                   Text('The sample below shows a navigation bar that contains '
                       'a button with a hamburger icon. The button is consistently'
                       ' labeled as \'Menu\' across the screens. '
@@ -70,15 +69,19 @@ class ConsistentIdentificationSample extends StatelessWidget {
                         Semantics(
                           button: true,
                           label: 'Menu',
-                          child: IconButton(
-                            icon: Image.asset('assets/images/menu.png'),
-                            onPressed: () {},
+                          child: Semantics(
+                            child: IconButton(
+                              icon: Image.asset('assets/images/menu.png'),
+                              onPressed: () {},
+                            ),
+                            excludeSemantics: true,
                           ),
                         ),
                         SizedBox(
                           width: 25,
                         ),
                         Semantics(
+                          header: true,
                           child: Text('Sample title',
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -121,16 +124,14 @@ class ConsistentIdentificationSample extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
-            Semantics(
-              child: Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
             Container(
-                 padding: EdgeInsets.all(10),
+                 padding: EdgeInsets.only(left: 15,right: 15),
                  child: Column(
                    children: [
+                     Container(
+                       alignment: Alignment.topLeft,
+                       child: HeaderSemanticWithText('Bad Example'),
+                     ),
                      Text('The sample below takes the above scenarios '
                          'and shows how labels can be inconsistent '
                          'when used on different screens.'),
@@ -145,13 +146,17 @@ class ConsistentIdentificationSample extends StatelessWidget {
                                Semantics(
                                  button: true,
                                  label: 'Hamburger Menu',
-                                 child: IconButton(
-                                   icon: Image.asset('assets/images/menu.png'),
-                                   onPressed: () {},
+                                 child: Semantics(
+                                   child: IconButton(
+                                     icon: Image.asset('assets/images/menu.png'),
+                                     onPressed: () {},
+                                   ),
+                                   excludeSemantics: true,
                                  ),
                                ),
                                SizedBox(width: 25,),
                                Semantics(
+                                 header: true,
                                  child:  Text('Disaster Management',
                                      style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) ),
                                ),

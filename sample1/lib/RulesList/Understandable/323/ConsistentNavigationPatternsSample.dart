@@ -34,28 +34,26 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.ConsistentNavigationPatterns.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
-                    Text(' In the below sample, the Navigation bar is '
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example'),
+                    ),
+                    Text('In the below sample, the Navigation bar is '
                         'used to navigate to other screens with the'
                         ' hamburger menu button and settings button '
                         'overall the application.'),
+                    SizedBox(height: 15,),
                     Container(
                       height: 55,
                      color: Colors.blueAccent,
@@ -67,13 +65,17 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               Semantics(
                                 button: true,
                                 label: 'Menu',
-                                child: IconButton(
-                                  icon: Image.asset('assets/images/menu.png'),
-                                  onPressed: () {},
+                                child: Semantics(
+                                  excludeSemantics: true,
+                                  child: IconButton(
+                                    icon: Image.asset('assets/images/menu.png'),
+                                    onPressed: () {},
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 25,),
                              Semantics(
+                               header: true,
                                child:  Text('Disaster Management',
                                    style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) ),
                              ),
@@ -81,9 +83,12 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               Semantics(
                                 button: true,
                                 label: 'Settings',
-                                child: IconButton(
+                                child: Semantics(
+                                  excludeSemantics: true,
+                                  child: IconButton(
                                   icon: Image.asset('assets/images/settings.png'),
                                   onPressed: () {},
+                                ),
                                 ),
                               ),
                             ],
@@ -103,13 +108,17 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               Semantics(
                                 button: true,
                                 label: 'Menu',
-                                child: IconButton(
-                                  icon: Image.asset('assets/images/menu.png'),
-                                  onPressed: () {},
+                                child: Semantics(
+                                  excludeSemantics: true,
+                                  child: IconButton(
+                                    icon: Image.asset('assets/images/menu.png'),
+                                    onPressed: () {},
+                                  ),
                                 ),
                               ),
                               SizedBox(width: 25,),
                               Semantics(
+                                header: true,
                                   child:  Text('Flood Management',
                                       style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) ),
                               ),
@@ -117,9 +126,12 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               Semantics(
                                 button: true,
                                 label: 'Settings',
-                                child: IconButton(
-                                  icon: Image.asset('assets/images/settings.png'),
-                                  onPressed: () {},
+                                child: Semantics(
+                                  child: IconButton(
+                                    icon: Image.asset('assets/images/settings.png'),
+                                    onPressed: () {},
+                                  ),
+                                  excludeSemantics: true,
                                 ),
                               ),
                             ],
@@ -130,24 +142,23 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
             SizedBox(height: 25,),
             Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left:15, right: 15),
                 child: Column(
                   children: [
-                    Text('  The sample below allows a change in'
-                        ' context (moves to a different screen) as soon as '
-                        'the user starts typing in the edit text field '
-                        'without any information.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example'),
+                    ),
+                    Text(' In the below sample, the Navigation bar '
+                        'is used to navigate to other screens with the'
+                        ' hamburger menu button and settings button'
+                        ' overall the application. But in some screen,'
+                        ' the navigation pattern is not similar exist '
+                        'without the menu and settings button'),
+                    SizedBox(height: 15,),
                     Container(
                       height: 55,
                       color: Colors.blueAccent,
@@ -158,14 +169,18 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               SizedBox(width: 25,),
                               Semantics(
                                 button: true,
-                                label: 'Menu',
-                                child: IconButton(
-                                  icon: Image.asset('assets/images/menu.png'),
-                                  onPressed: () {},
+                                label: 'Hamburger Menu',
+                                child: Semantics(
+                                  child: IconButton(
+                                    icon: Image.asset('assets/images/menu.png'),
+                                    onPressed: () {},
+                                  ),
+                                  excludeSemantics: true,
                                 ),
                               ),
                               SizedBox(width: 25,),
                               Semantics(
+                                header: true,
                                 child:  Text('Disaster Management',
                                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) ),
                               ),
@@ -173,9 +188,12 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               Semantics(
                                 button: true,
                                 label: 'Settings',
-                                child: IconButton(
-                                  icon: Image.asset('assets/images/settings.png'),
-                                  onPressed: () {},
+                                child: Semantics(
+                                  child: IconButton(
+                                    icon: Image.asset('assets/images/settings.png'),
+                                    onPressed: () {},
+                                  ),
+                                  excludeSemantics: true,
                                 ),
                               ),
                             ],
@@ -193,6 +211,7 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                             children: [
                               SizedBox(width: 100,),
                               Semantics(
+                                header: true,
                                 child:  Text('Flood Management',
                                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) ),
                               ),
@@ -200,9 +219,12 @@ class ConsistentNavigationPatternsSample extends StatelessWidget {
                               Semantics(
                                 button: true,
                                 label: 'Back',
-                                child: IconButton(
-                                  icon: Image.asset('assets/images/back.png'),
-                                  onPressed: () {},
+                                child: Semantics(
+                                  child: IconButton(
+                                    icon: Image.asset('assets/images/back.png'),
+                                    onPressed: () {},
+                                  ),
+                                  excludeSemantics: true,
                                 ),
                               ),
                             ],

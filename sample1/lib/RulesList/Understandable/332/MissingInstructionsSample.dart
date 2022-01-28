@@ -23,28 +23,25 @@ class MissingInstructionsSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.MissingInstructions.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
+           Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example'),
+                    ),
                     Text('The sample below adds an extra text (required) '
                         'to labels of form controls to communicate additional'
                         ' information if the fields are required.'),
-                    SizedBox(height: 15,),
+                    SizedBox(height: 5,),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text('Start Date (Provide in DDMMYYYY format)',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
@@ -61,20 +58,15 @@ class MissingInstructionsSample extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
             SizedBox(height: 25,),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
+            Container(
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example'),
+                    ),
                     Text('The sample below misses the instructions to '
                         'use the field correctly. In the Start Date'
                         ' field below, an additional instruction on'
@@ -96,7 +88,6 @@ class MissingInstructionsSample extends StatelessWidget {
                   ],
                 ),
               ),
-            ),
           ],
         ),
       ),

@@ -67,6 +67,7 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
                       HeaderSemanticWithText(SCs.ErrorSuggestions.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
@@ -75,15 +76,13 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
             ),
             Semantics(
               child: Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example'),
+                    ),
                     Text('The sample below shows an erroneous'
                         ' password field, sets the right error'
                         ' messages to it, and also suggests desired '
@@ -130,15 +129,13 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
             ),
             Semantics(
               child: Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
-            Semantics(
-              child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example'),
+                    ),
                     Text('Sample below does almost everything right'
                         ' except that it misses suggestions to fix the error.'),
                     SizedBox(

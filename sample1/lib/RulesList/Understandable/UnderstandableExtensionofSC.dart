@@ -23,7 +23,7 @@ class ContextChangeOnInputSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ContextChangeOnInput.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ContextChangeOnInput.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -45,7 +45,7 @@ class ConsistentNavigationPatternsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ConsistentNavigationPatterns.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ConsistentNavigationPatterns.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -67,7 +67,7 @@ class ConsistentIdentificationSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ConsistentIdentification.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ConsistentIdentification.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -89,7 +89,7 @@ class ErrorIdentificationSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ErrorIdentification.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ErrorIdentification.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -111,7 +111,7 @@ class VisibleLabelsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.VisibleLabels.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.VisibleLabels.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -133,7 +133,7 @@ class MissingInstructionsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.MissingInstructions.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.MissingInstructions.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -155,7 +155,7 @@ class RequiredFormFieldsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.RequiredFormFields.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.RequiredFormFields.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -177,7 +177,7 @@ class ErrorSuggestionsSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.ErrorSuggestions.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ErrorSuggestions.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],

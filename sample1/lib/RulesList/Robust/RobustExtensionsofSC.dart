@@ -17,7 +17,7 @@ class NameRoleValueSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.NameRoleValue.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.NameRoleValue.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
@@ -39,7 +39,7 @@ class StatusMessagesSampleButton extends StatelessWidget {
     }, child: Row(
       children: [
         SizedBox(width: 5,),
-        TextReturnWidget(checkPoint: SCs.StatusMessages.name,isHeader: false,),
+        TextReturnSCLabelWidget(checkPoint: SCs.StatusMessages.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
