@@ -26,6 +26,7 @@ class OperableRulesList extends StatelessWidget {
               TimeAdjustableSampleButton(),
               TextReturnWidget(checkPoint: '2.2.2',isHeader: true,),
               PauseStopHideContentSampleButton(),
+              AutomaticContentUpdateSampleButton(),
               TextReturnWidget(checkPoint: '2.3.1',isHeader: true,),
               FlashingContentSampleButton(),
               TextReturnWidget(checkPoint: '2.4.2',isHeader: true,),

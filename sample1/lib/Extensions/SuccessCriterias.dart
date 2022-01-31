@@ -40,6 +40,8 @@ enum SCs {
   NameRoleValue, //412a
   StatusMessages, //413a
   CustomGestures, //211c
+  DataTables, //131b
+  PointerGestures, //251a
 
 
 
@@ -81,6 +83,8 @@ extension SCsExtension on SCs {
         return '1.2.3.a - Text or Audio Descriptions \n (Pre Recorded video -with  \n dialogues)';
       case SCs.AudioDescriptions:
         return '1.2.5.a - Audio Descriptions(Prerecorded)';
+        case SCs.DataTables:
+          return '1.3.1.b – Data Tables';
       case SCs.InfoRelationShipProgrammaticLabels:
         return '1.3.1.c – Programmatic Labels';
       case SCs.Headings:
@@ -110,7 +114,7 @@ extension SCsExtension on SCs {
       case SCs.PauseStopHide:
         return '2.2.2.a – Pause, Stop, or Hide Content';
       case SCs.AutomaticUpdating:
-        return '2.2.2.b – Automatically Updating Content';
+        return '2.2.2.b – Automatically Updating \n Content';
       case SCs.FlashingContent:
         return '2.3.1.a – Flashing Content';
       case SCs.TitlesOfPages:
@@ -143,6 +147,8 @@ extension SCsExtension on SCs {
         return '4.1.3.a - Status Messages';
       case SCs.CustomGestures:
         return '2.1.1.c – Custom Gestures';
+      case SCs.PointerGestures:
+        return '2.5.1.a - Pointer Gestures';
 
 
 
@@ -197,6 +203,8 @@ extension SCsExtension_identifier on SCs {
         return '1.2.3.a';
       case SCs.AudioDescriptions:
         return '1.2.5.a';
+      case SCs.DataTables:
+        return '1.3.1.b';
       case SCs.InfoRelationShipProgrammaticLabels:
         return '1.3.1.c';
       case SCs.Headings:
@@ -259,6 +267,8 @@ extension SCsExtension_identifier on SCs {
         return '4.1.3.a';
       case SCs.CustomGestures:
         return '2.1.1.c';
+      case SCs.PointerGestures:
+        return '2.5.1.a';
 
 
       case SCs.TextAlternative:
@@ -312,6 +322,8 @@ extension SCsExtension_title on SCs {
         return 'Text or Audio Description \n (Prerecorded Video)';
       case SCs.AudioDescriptions:
         return 'Audio Descriptions';
+      case SCs.DataTables:
+        return 'Data Tables';
       case SCs.InfoRelationShipProgrammaticLabels:
         return 'Programmatic Labels';
       case SCs.Headings:
@@ -374,6 +386,8 @@ extension SCsExtension_title on SCs {
         return 'Status Messages';
       case SCs.CustomGestures:
         return 'Custom Gestures';
+      case SCs.PointerGestures:
+        return 'Pointer Gestures';
 
 
 

@@ -253,3 +253,27 @@ class CustomGestureSampleButton extends StatelessWidget {
     ),);
   }
 }
+
+//AutomaticallyUpdatingContentSample
+class AutomaticContentUpdateSampleButton extends StatelessWidget {
+
+  String identifier = SCs.AutomaticUpdating.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return AutomaticallyUpdatingContentSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.AutomaticUpdating.name,),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+

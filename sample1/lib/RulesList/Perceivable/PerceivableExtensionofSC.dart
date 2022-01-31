@@ -3,6 +3,7 @@ import 'package:sample1/RulesList/Perceivable/111/111dDecorativeImages.dart';
 import 'package:sample1/RulesList/Perceivable/111/111hAudioOrVideoImages.dart';
 import 'package:sample1/RulesList/Perceivable/121/121aTextTransScriptAudio.dart';
 import 'package:sample1/RulesList/Perceivable/121/121bTextTranscriptVideo.dart';
+import 'package:sample1/RulesList/Perceivable/131/131bDataTablesSample.dart';
 import 'package:sample1/RulesList/Perceivable/131/131cProgrammaticLabels.dart';
 import 'package:sample1/RulesList/Perceivable/131/131eHeadings.dart';
 import 'package:sample1/RulesList/Perceivable/133/133aVisualcues.dart';
@@ -478,6 +479,28 @@ class NonTextContextStateUISampleButton extends StatelessWidget {
       children: [
         SizedBox(width: 5,),
         TextReturnSCLabelWidget(checkPoint: SCs.NonTextContrastStateofUI.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+class DataTabelsSampleButton extends StatelessWidget {
+
+  String identifier = SCs.DataTables.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return DataTableSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.DataTables.name),
         Spacer(),
         RightArrowImageWidget(),
       ],

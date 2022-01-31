@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'WCAG Principles/HomeScreen.dart';
 import 'package:sample1/Samples/GestureRecognizersample1.dart';
-import 'package:sample1/RulesList/Operable/211/CustomGesturesSample.dart';
+import 'package:sample1/RulesList/Operable/222/AutomaticallyUpdatingContentSample.dart';
+import 'package:sample1/Samples/GridViewSampleExample.dart';
 
 void main() {
-  runApp(MaterialApp(home:CustomGesturesSample()));
+  runApp(MaterialApp(home:AutomaticallyUpdatingContentSample()));
 }
 
 class MyApp extends StatelessWidget {
