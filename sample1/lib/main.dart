@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'WCAG Principles/HomeScreen.dart';
 import 'package:sample1/Samples/GestureRecognizersample1.dart';
-import 'package:sample1/RulesList/Operable/222/AutomaticallyUpdatingContentSample.dart';
+import 'package:sample1/RulesList/Operable/252/252PointerCancellation.dart';
 import 'package:sample1/Samples/GoogleMapsSampleIntegration.dart';
 
 void main() {

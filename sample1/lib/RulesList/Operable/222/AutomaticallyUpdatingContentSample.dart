@@ -71,7 +71,6 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
     });
   }
 
-
   initState(){
     startAutoScrollTimer();
     startAutoScrollBadTimer();

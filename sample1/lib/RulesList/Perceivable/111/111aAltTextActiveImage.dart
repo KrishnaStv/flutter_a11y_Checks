@@ -34,7 +34,7 @@ class AltTextActiveImages extends StatelessWidget {
       child: Image(
         image: assertImagePAth,
         fit: BoxFit.cover,
-        width: 150,
+        width: 180,
         height: 150,
       ),
       excludeSemantics: true,
@@ -43,7 +43,7 @@ class AltTextActiveImages extends StatelessWidget {
     var beimgObject = new Image(
       image: assertImagePAth,
       fit: BoxFit.cover,
-      width: 150,
+      width: 180,
       height: 150,
     );
 

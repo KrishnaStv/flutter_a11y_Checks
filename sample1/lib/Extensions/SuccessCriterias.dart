@@ -42,6 +42,8 @@ enum SCs {
   CustomGestures, //211c
   DataTables, //131b
   PointerGestures, //251a
+  ReadingOrder, //132a
+  PointerCancellation,//252a
 
 
 
@@ -149,6 +151,10 @@ extension SCsExtension on SCs {
         return '2.1.1.c – Custom Gestures';
       case SCs.PointerGestures:
         return '2.5.1.a - Pointer Gestures';
+      case SCs.ReadingOrder:
+        return '1.3.2.a – Reading Order';
+      case SCs.PointerCancellation:
+        return '2.5.2.a - Pointer Cancellation';
 
 
 
@@ -269,6 +275,10 @@ extension SCsExtension_identifier on SCs {
         return '2.1.1.c';
       case SCs.PointerGestures:
         return '2.5.1.a';
+      case SCs.ReadingOrder:
+        return '1.3.2.a';
+      case SCs.PointerCancellation:
+        return '2.5.2.a';
 
 
       case SCs.TextAlternative:
@@ -388,6 +398,10 @@ extension SCsExtension_title on SCs {
         return 'Custom Gestures';
       case SCs.PointerGestures:
         return 'Pointer Gestures';
+      case SCs.ReadingOrder:
+        return 'Reading Order';
+      case SCs.PointerCancellation:
+        return 'Pointer Cancellation';
 
 
 

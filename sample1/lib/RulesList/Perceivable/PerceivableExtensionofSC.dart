@@ -6,6 +6,7 @@ import 'package:sample1/RulesList/Perceivable/121/121bTextTranscriptVideo.dart';
 import 'package:sample1/RulesList/Perceivable/131/131bDataTablesSample.dart';
 import 'package:sample1/RulesList/Perceivable/131/131cProgrammaticLabels.dart';
 import 'package:sample1/RulesList/Perceivable/131/131eHeadings.dart';
+import 'package:sample1/RulesList/Perceivable/132/132aReadingOrder.dart';
 import 'package:sample1/RulesList/Perceivable/133/133aVisualcues.dart';
 import 'package:sample1/RulesList/Perceivable/133/133bSoundCues.dart';
 import 'package:sample1/RulesList/Perceivable/141/141aColorasInformation.dart';
@@ -501,6 +502,29 @@ class DataTabelsSampleButton extends StatelessWidget {
       children: [
         SizedBox(width: 5,),
         TextReturnSCLabelWidget(checkPoint: SCs.DataTables.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+//ReadingOrderSample
+class ReadingSampleButton extends StatelessWidget {
+
+  String identifier = SCs.ReadingOrder.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ReadingOrderSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ReadingOrder.name),
         Spacer(),
         RightArrowImageWidget(),
       ],

@@ -48,9 +48,9 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
   var geCustomActionCS = '\n Using Semantics customSemanticsActions \n we can add custom rotor actions \n  for widgets.  Semantics( \n child: ElevatedButton(child: Text(\'Tap to Sound\'), onPressed: () { \n _showDialog(false, \'Alert\', \'Its Default Action\');\n },),\n customSemanticsActions: { \n CustomSemanticsAction(label: "Custom Action"): () { \n _showDialog(false, \'Alert\', \'Its Custom Action\'); \n }, \n }, \n ) \n';
 
   final Map<int, Widget> logoWidgets = const <int, Widget> {
-    0: Text(' Segment 1 '),
-    1: Text(' Segment 2 '),
-    2: Text(' Segment 3 ')
+    0: Text('iOS',semanticsLabel: 'iOS, 1 out of 3',),
+    1: Text('Android', semanticsLabel: 'Android, 2 out of 3',),
+    2: Text('Linux',semanticsLabel: 'Linux, 3 out of 3',)
   };
 
   void startProgressTimer() {
@@ -295,7 +295,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
             SizedBox(height: 25,),
             Container(
               padding: EdgeInsets.only(left: 15,right: 15),
-              child: Text('VoiceOver will announce as \'Download Progress $geProgresscurrentValue, \'(Current Value)\''),
+              child: Text('VoiceOver will announce as \'Download Progress ${geProgresscurrentValue.toStringAsFixed(2)}, \'(Current Value)\''),
             ),
             Divider(),
             Container(
@@ -305,7 +305,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
             ),
             Container(
               width: MediaQuery.of(context).size.width,
-              alignment: Alignment.topLeft,
+              alignment: Alignment.center,
               padding: EdgeInsets.only(left: 15,right: 15),
               child: CupertinoSegmentedControl(
                 padding: EdgeInsets.all(5),
@@ -321,7 +321,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
             SizedBox(height: 25,),
             Container(
               padding: EdgeInsets.only(left: 15,right: 15),
-              child: Text('VoiceOver will announce as \'Segment 1, Button, \'(Current Value)\''),
+              child: Text('VoiceOver will announce as \'(Current Value)\',\'iOS,1 out of 3, Button,'),
             ),
             SizedBox(height: 20,),
             Divider(),

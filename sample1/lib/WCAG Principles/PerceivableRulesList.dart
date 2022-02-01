@@ -39,6 +39,8 @@ class PerceivableRulesList extends StatelessWidget {
               DataTabelsSampleButton(),
               ProgrammaticLabelSampleButton(),
               HeadingsSampleButton(),
+              TextReturnWidget(checkPoint: '1.3.2',isHeader: true,),
+              ReadingSampleButton(),
               TextReturnWidget(checkPoint: '1.3.3',isHeader: true,),
               VisualCuesSampleButton(),
               SoundCuesSampleButton(),

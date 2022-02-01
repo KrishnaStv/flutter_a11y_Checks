@@ -86,7 +86,7 @@ class TextReturnSCLabelWidget extends StatelessWidget implements PreferredSizeWi
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      padding: EdgeInsets.only(left: 20),
+      padding: EdgeInsets.only(left: 20,right: 20),
       alignment: Alignment.topLeft,
       child: Semantics(
         label: 'Success Criteria',

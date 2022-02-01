@@ -113,14 +113,17 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                               }
                             },
                           ),
-                          ElevatedButton (
-                            onPressed: () {
-                              debugPrint('Clicked');
-                              if(_formKey.currentState!.validate()) {
+                          Semantics(
+                            child: ElevatedButton (
+                              onPressed: () {
+                                debugPrint('Clicked');
+                                if(_formKey.currentState!.validate()) {
 
-                              }
-                            },
-                            child: Text('Submit'),
+                                }
+                              },
+                              child: Text('Submit'),
+                            ),
+                            label: 'Good Example Submit',
                           ),
                         ],
                       ),
@@ -192,14 +195,17 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                             }
                           },
                         ),
-                        ElevatedButton (
-                          onPressed: () {
-                            debugPrint('Clicked');
-                            if(_badFormKey.currentState!.validate()) {
+                        Semantics(
+                          child: ElevatedButton (
+                            onPressed: () {
+                              debugPrint('Clicked');
+                              if(_badFormKey.currentState!.validate()) {
 
-                            }
-                          },
-                          child: Text('Submit'),
+                              }
+                            },
+                            child: Text('Submit'),
+                          ),
+                          label: 'Bad Example Submit',
                         ),
                       ],
                     ),
