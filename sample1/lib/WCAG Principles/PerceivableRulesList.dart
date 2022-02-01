@@ -15,7 +15,8 @@ class PerceivableRulesList extends StatelessWidget {
             navdata: TopBarData(title: 'PERCEIVABLE', enableBack: true)),
         body: SingleChildScrollView(
             scrollDirection: Axis.vertical,
-            child: Column(children: [
+            child:
+            Column(children: [
               Container(
                 child: Text(Description),
                 padding: EdgeInsets.all(15),
@@ -59,6 +60,9 @@ class PerceivableRulesList extends StatelessWidget {
 
 
               SizedBox(height: 45,),
-            ])));
+            ]
+            )
+        )
+    );
   }
 }

@@ -61,7 +61,8 @@ class AltTextInformativeImagesButton extends StatelessWidget {
         Spacer(),
         RightArrowImageWidget(),
       ],
-    ),);
+    ),
+    );
   }
 }
 

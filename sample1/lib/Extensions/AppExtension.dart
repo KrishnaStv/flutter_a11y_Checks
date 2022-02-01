@@ -30,9 +30,12 @@ class HeaderSemanticWithText extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Semantics(
-      child: Text(
-        textIs,
-        style: TextStyle(fontWeight: FontWeight.bold),
+      child: Container(
+        width: MediaQuery.of(context).size.width*0.7,
+        child: Text(
+          textIs,
+          style: TextStyle(fontWeight: FontWeight.bold),
+        ),
       ),
       header: true,
     );
@@ -86,13 +89,15 @@ class TextReturnSCLabelWidget extends StatelessWidget implements PreferredSizeWi
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
-      padding: EdgeInsets.only(left: 20,right: 20),
+      width: MediaQuery.of(context).size.width*0.8,
+      padding: EdgeInsets.only(left: 20,),
       alignment: Alignment.topLeft,
       child: Semantics(
         label: 'Success Criteria',
-        child: Text(
-          '${checkPoint}',
-          style: TextStyle(fontWeight: FontWeight.normal),
+        child: Expanded(
+          child: Text('${checkPoint}',
+            style: TextStyle(fontWeight: FontWeight.normal),
+          ),
         ),
       ),
     );
