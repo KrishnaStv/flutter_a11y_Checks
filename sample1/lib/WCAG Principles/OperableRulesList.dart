@@ -34,6 +34,8 @@ class OperableRulesList extends StatelessWidget {
               TextReturnWidget(checkPoint: '2.4.6',isHeader: true,),
               DescriptiveHeadingSampleButton(),
               DescriptiveLabelSampleButton(),
+              TextReturnWidget(checkPoint: '2.5.1',isHeader: true,),
+              PointerGestureSampleButton(),
               TextReturnWidget(checkPoint: '2.5.3',isHeader: true,),
               LabelInNameSampleButton(),
 

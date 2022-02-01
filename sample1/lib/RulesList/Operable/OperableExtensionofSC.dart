@@ -8,6 +8,7 @@ import 'package:sample1/RulesList/Operable/231/FlashingContentSample.dart';
 import 'package:sample1/RulesList/Operable/242/TitleofPageSample.dart';
 import 'package:sample1/RulesList/Operable/246/DescriptiveHeadingSample.dart';
 import 'package:sample1/RulesList/Operable/246/DescriptiveLabelsSample.dart';
+import 'package:sample1/RulesList/Operable/251/251PointerGestures.dart';
 import 'package:sample1/RulesList/Operable/253/LabelinNameSample.dart';
 import 'package:sample1/importFiles.dart';
 
@@ -277,3 +278,26 @@ class AutomaticContentUpdateSampleButton extends StatelessWidget {
   }
 }
 
+//PointerGesturesSample
+
+class PointerGestureSampleButton extends StatelessWidget {
+
+  String identifier = SCs.PointerGestures.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return PointerGesturesSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.PointerGestures.name,),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
