@@ -157,7 +157,7 @@ extension SCsExtension on SCs {
       case SCs.PointerCancellation:
         return '2.5.2.a - Pointer Cancellation';
       case SCs.NonTextContrastGraphicalObjects:
-        return '1.4.11.c – Non-Text Contrast - \n Graphical Objects';
+        return '1.4.11.c – Non-Text Contrast - Graphical Objects';
 
 
 
