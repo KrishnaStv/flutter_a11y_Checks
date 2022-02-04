@@ -57,7 +57,7 @@ class PerceivableRulesList extends StatelessWidget {
               TextReturnWidget(checkPoint: '1.4.11',isHeader: true,),
               NonTextContextActiveUISampleButton(),
               NonTextContextStateUISampleButton(),
-
+              NonTextContrastGraphicalObjectsSampleButton(),
 
               SizedBox(height: 45,),
             ]

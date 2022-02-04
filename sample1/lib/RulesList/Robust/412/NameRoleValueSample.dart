@@ -157,7 +157,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
                 children: [
                  Semantics(
                    button: true,
-                   label: isGERadioButtonSelected? "Selected" : "" + "Send Emails on exciting offer",
+                   label: isGERadioButtonSelected? "Selected, Send Emails on exciting offer" : "Send Emails on exciting offer",
                    child:  Semantics(
                      excludeSemantics: true,
                      child: IconButton(
@@ -186,7 +186,7 @@ class NameRoleValueSampleState extends State<NameRoleValueSample> {
               child: Row(
                 children: [
                   Semantics(
-                    label: isGECheckboxButtonSelected? "Selected, I agree to the terms and conditions" : "I agree to the terms and conditions",
+                    label: isGECheckboxButtonSelected? "I agree to the terms and conditions" : "I agree to the terms and conditions",
                     child: Checkbox(value: isGECheckboxButtonSelected,
                         onChanged: (bool? value) {
                           setState(() {

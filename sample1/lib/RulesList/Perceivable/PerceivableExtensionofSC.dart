@@ -12,6 +12,7 @@ import 'package:sample1/RulesList/Perceivable/133/133bSoundCues.dart';
 import 'package:sample1/RulesList/Perceivable/141/141aColorasInformation.dart';
 import 'package:sample1/RulesList/Perceivable/141/141bLinkColorContrast.dart';
 import 'package:sample1/RulesList/Perceivable/1411/NonTextContrastActiveUI.dart';
+import 'package:sample1/RulesList/Perceivable/1411/NonTextContrastGraphicObjects.dart';
 import 'package:sample1/RulesList/Perceivable/1411/NonTextContrastStatesofUI.dart';
 import 'package:sample1/RulesList/Perceivable/142/AudioControlSample.dart';
 import 'package:sample1/RulesList/Perceivable/143/ColorContrast.dart';
@@ -526,6 +527,29 @@ class ReadingSampleButton extends StatelessWidget {
       children: [
         SizedBox(width: 5,),
         TextReturnSCLabelWidget(checkPoint: SCs.ReadingOrder.name),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+//NonTextContrastGraphicalObjects
+class NonTextContrastGraphicalObjectsSampleButton extends StatelessWidget {
+
+  String identifier = SCs.NonTextContrastGraphicalObjects.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return NonTextContrastGraphicalObjects();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.NonTextContrastGraphicalObjects.name),
         Spacer(),
         RightArrowImageWidget(),
       ],

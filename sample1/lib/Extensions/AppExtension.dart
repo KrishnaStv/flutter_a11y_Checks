@@ -94,11 +94,9 @@ class TextReturnSCLabelWidget extends StatelessWidget implements PreferredSizeWi
       alignment: Alignment.topLeft,
       child: Semantics(
         label: 'Success Criteria',
-        child: Expanded(
-          child: Text('${checkPoint}',
+        child: Text('${checkPoint}',
             style: TextStyle(fontWeight: FontWeight.normal),
           ),
-        ),
       ),
     );
   }

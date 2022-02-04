@@ -44,6 +44,7 @@ enum SCs {
   PointerGestures, //251a
   ReadingOrder, //132a
   PointerCancellation,//252a
+  NonTextContrastGraphicalObjects,//1411c
 
 
 
@@ -155,6 +156,8 @@ extension SCsExtension on SCs {
         return '1.3.2.a – Reading Order';
       case SCs.PointerCancellation:
         return '2.5.2.a - Pointer Cancellation';
+      case SCs.NonTextContrastGraphicalObjects:
+        return '1.4.11.c – Non-Text Contrast - \n Graphical Objects';
 
 
 
@@ -279,6 +282,8 @@ extension SCsExtension_identifier on SCs {
         return '1.3.2.a';
       case SCs.PointerCancellation:
         return '2.5.2.a';
+      case SCs.NonTextContrastGraphicalObjects:
+        return '1.4.11.c';
 
 
       case SCs.TextAlternative:
@@ -402,6 +407,9 @@ extension SCsExtension_title on SCs {
         return 'Reading Order';
       case SCs.PointerCancellation:
         return 'Pointer Cancellation';
+      case SCs.NonTextContrastGraphicalObjects:
+        return 'Non-Text Contrast - \n Graphical Objects';
+
 
 
 

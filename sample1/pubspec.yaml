@@ -33,6 +33,7 @@ dependencies:
   url_launcher: ^6.0.10
   google_maps_flutter: any
   geolocator: any
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:
