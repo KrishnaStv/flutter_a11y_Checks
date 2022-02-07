@@ -45,6 +45,7 @@ enum SCs {
   ReadingOrder, //132a
   PointerCancellation,//252a
   NonTextContrastGraphicalObjects,//1411c
+  ContextChangeOnFocus, //321a
 
 
 
@@ -158,6 +159,8 @@ extension SCsExtension on SCs {
         return '2.5.2.a - Pointer Cancellation';
       case SCs.NonTextContrastGraphicalObjects:
         return '1.4.11.c – Non-Text Contrast - Graphical Objects';
+      case SCs.ContextChangeOnFocus:
+        return '3.2.1.a – Context Changes (on Focus)';
 
 
 
@@ -284,6 +287,8 @@ extension SCsExtension_identifier on SCs {
         return '2.5.2.a';
       case SCs.NonTextContrastGraphicalObjects:
         return '1.4.11.c';
+      case SCs.ContextChangeOnFocus:
+        return '3.2.1.a';
 
 
       case SCs.TextAlternative:
@@ -409,7 +414,8 @@ extension SCsExtension_title on SCs {
         return 'Pointer Cancellation';
       case SCs.NonTextContrastGraphicalObjects:
         return 'Non-Text Contrast - \n Graphical Objects';
-
+      case SCs.ContextChangeOnFocus:
+        return 'Context Changes (on Focus)';
 
 
 

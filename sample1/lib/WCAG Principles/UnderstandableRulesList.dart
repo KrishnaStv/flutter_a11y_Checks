@@ -19,6 +19,8 @@ class UnderstandableRulesList extends StatelessWidget {
                 padding: EdgeInsets.all(15),
                 alignment: Alignment.centerLeft,
               ),
+              TextReturnWidget(checkPoint: '3.2.1', isHeader: true),
+              ContextChangeOnFocusSampleButton(),
               TextReturnWidget(checkPoint: '3.2.2',isHeader: true,),
               ContextChangeOnInputSampleButton(),
               TextReturnWidget(checkPoint: '3.2.3',isHeader: true,),

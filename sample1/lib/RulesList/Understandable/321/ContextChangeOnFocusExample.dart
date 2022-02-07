@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:sample1/Extensions/AppExtension.dart';
+import 'package:sample1/importFiles.dart';
 
 class ContextChangeOnFocusSample extends StatelessWidget {
 
@@ -22,7 +21,7 @@ class ContextChangeOnFocusSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Context Changes (on Focus)', enableBack: true)),
+          navdata: TopBarData(title: SCs.ContextChangeOnFocus.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -32,9 +31,10 @@ class ContextChangeOnFocusSample extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.ContextChangeOnFocus.name),
                     ],
                   ),
+                  SizedBox(height: 5,),
                   Text(ruleDescription),
                 ],
               ),
@@ -42,54 +42,53 @@ class ContextChangeOnFocusSample extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Good Example'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
-                    Text('  The sample below shows a scenario where the focus'
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example'),
+                    ),
+                    Text('The sample below shows a scenario where the focus'
                         ' arrives at the \'Apply Coupon\' button and waits '
                         'for users’ action to open coupon modal/dialog'
                         ' rather than automatically opening a dialog or'
                         ' redirecting to a new screen.'),
                     SizedBox(height: 10,),
                     Semantics(
-                      label: 'Tap to Change Avatar',
-                      child: ElevatedButton(child: Text('APPLY COUPON'), onPressed: () {},),
+                      label: 'Good example APPLY COUPON',
+                      child: ElevatedButton(child: Text('APPLY COUPON'), onPressed: () {
+                        showCouponsuccessAlert(context);
+                      },),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 25,),
-            Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('  Bad Example'),
-              ),
-            ),
+            SizedBox(height: 10,),
             Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15,right: 15),
                 child: Column(
                   children: [
-                    Text('  The sample below allows a change '
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example'),
+                    ),
+                    Text('The sample below allows a change '
                         'in context as soon as focus arrives '
                         'at the controls (buttons here) rather '
                         'than waiting for user action.'),
                     SizedBox(height: 10,),
-                    HeaderSemanticWithText('Profile'),
-                    getImageFromPath('assets/images/profile.png'),
                     Semantics(
-                      label: 'Tap to Change Profile photo',
-                      child: ElevatedButton(child: Text('Change Avatar'), onPressed: () {},),
+                      onDidGainAccessibilityFocus: () {
+                        showCouponsuccessAlert(context);
+                      },
+                      label: 'Bad example APPLY COUPON',
+                      child: ElevatedButton(child: Text('APPLY COUPON'), onPressed: () {
+                        showCouponsuccessAlert(context);
+                      },),
                     ),
                   ],
                 ),
@@ -98,6 +97,24 @@ class ContextChangeOnFocusSample extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void showCouponsuccessAlert(BuildContext context) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext dialogContext) {
+        return AlertDialog(
+          title: Text('Alert'),
+          content: Text('Voucher applied successfully'),
+          actions: [
+            ElevatedButton(onPressed: () {
+              Navigator.pop(context);
+            }, child: Text('Okay')),
+          ],
+        );
+      },
     );
   }
 }

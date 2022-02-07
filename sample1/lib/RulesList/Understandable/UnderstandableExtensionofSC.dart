@@ -6,6 +6,8 @@ import 'package:sample1/RulesList/Understandable/332/MissingInstructionsSample.d
 import 'package:sample1/RulesList/Understandable/332/RequiredFormFieldsSample.dart';
 import 'package:sample1/RulesList/Understandable/332/VisualLabelsSample.dart';
 import 'package:sample1/RulesList/Understandable/333/ErrorSuggestionSample.dart';
+import '321/ContextChangeOnFocusExample.dart';
+import 'package:sample1/Samples/UnderstandableSCExamples.dart';
 import 'package:sample1/importFiles.dart';
 import 'package:flutter/material.dart';
 
@@ -178,6 +180,30 @@ class ErrorSuggestionsSampleButton extends StatelessWidget {
       children: [
         SizedBox(width: 5,),
         TextReturnSCLabelWidget(checkPoint: SCs.ErrorSuggestions.name,),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+//ContextChangeOnFocusSample
+
+class ContextChangeOnFocusSampleButton extends StatelessWidget {
+
+  String identifier = SCs.ContextChangeOnFocus.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return ContextChangeOnFocusSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.ContextChangeOnFocus.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],
