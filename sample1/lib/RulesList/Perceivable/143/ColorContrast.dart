@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:sample1/importFiles.dart';
 
 class ColorContrastSample extends StatelessWidget {
-
   final String ruleDescription =
       'Regular text and images of regular text MUST have a contrast ratio of at least 4.5 to 1 with the background.';
   final String colorText = 'Wikipedia is a multilingual online '
@@ -24,7 +23,8 @@ class ColorContrastSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.ColorContrastRegularText.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.ColorContrastRegularText.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -43,44 +43,53 @@ class ColorContrastSample extends StatelessWidget {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 5,),
-           Container(
-                  padding: EdgeInsets.only(left: 15,right: 15),
-                  alignment: Alignment.topLeft,
-                  child: Column(
-                    children: [
-                      HeaderSemanticWithText('Good Example: Maintaining a '
-                          'contrast ratio of 4.5:1 between text color'
-                          ' and its background color.'),
-                      Text(colorText,style: TextStyle(
-                          backgroundColor: Colors.red,
-                          color: Colors.yellow
-                      ),
-                      ),
-                      Text(geRatios),
-                    ],
-                  )
-              ),
-
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 5,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                alignment: Alignment.topLeft,
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child:
+                          HeaderSemanticWithText('Good Example: Maintaining a '
+                              'contrast ratio of 4.5:1 between text color'
+                              ' and its background color.'),
+                    ),
+                    Text(
+                      colorText,
+                      style: TextStyle(
+                          backgroundColor: Colors.red, color: Colors.yellow),
+                    ),
+                    Text(geRatios),
+                  ],
+                )),
+            SizedBox(
+              height: 25,
+            ),
             Semantics(
               child: Container(
-                  padding: EdgeInsets.only(left: 15,right: 15),
+                  padding: EdgeInsets.only(left: 15, right: 15),
                   alignment: Alignment.topLeft,
                   child: Column(
                     children: [
-                      HeaderSemanticWithText('Bad Example: Color contrast '
-                          'ratio text color and its background '
-                          'color is not atleast 4.5:1.'),
-                      Text(colorText,style: TextStyle(
-                          backgroundColor: Colors.white,
-                          color: Colors.black
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Bad Example: Color contrast '
+                            'ratio text color and its background '
+                            'color is not atleast 4.5:1.'),
                       ),
+                      Text(
+                        colorText,
+                        style: TextStyle(
+                            backgroundColor: Colors.white, color: Colors.black),
                       ),
                       Text(beRatios),
                     ],
-                  )
-              ),
+                  )),
             ),
           ],
         ),
@@ -90,7 +99,6 @@ class ColorContrastSample extends StatelessWidget {
 }
 
 class Colorconstart extends StatelessWidget {
-
   final String ruleDescription =
       'Regular text and images of regular text MUST have a contrast ratio of at least 4.5 to 1 with the background.';
 
@@ -100,22 +108,26 @@ class Colorconstart extends StatelessWidget {
     return MaterialApp(
       home: SafeArea(
         child: Scaffold(
-          appBar:  new AppBarExtension(
+          appBar: new AppBarExtension(
               navdata: TopBarData(title: 'ColorContrast', enableBack: true)),
           body: Center(
             child: Column(
               children: [
-                SizedBox(height: 25,),
-                Text('Check Text color with background',style: TextStyle(
-                  backgroundColor: Colors.red,
-                  color: Colors.yellow
+                SizedBox(
+                  height: 25,
                 ),
+                Text(
+                  'Check Text color with background',
+                  style: TextStyle(
+                      backgroundColor: Colors.red, color: Colors.yellow),
                 ),
-                SizedBox(height: 25,),
-                Text('Check good Text color with background',style: TextStyle(
-                    backgroundColor: Colors.white,
-                    color: Colors.black
+                SizedBox(
+                  height: 25,
                 ),
+                Text(
+                  'Check good Text color with background',
+                  style: TextStyle(
+                      backgroundColor: Colors.white, color: Colors.black),
                 ),
                 // SizedBox(height: 55,),
                 // Semantics(

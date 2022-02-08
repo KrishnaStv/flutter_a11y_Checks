@@ -1,7 +1,6 @@
 import 'package:sample1/importFiles.dart';
 
 class AltTextActiveImages extends StatelessWidget {
-
   final String ruleDescription =
       'All actionable / clickable ImageViews and ImageButtons'
       ' MUST use a descriptive Semantic label attribute '
@@ -18,7 +17,7 @@ class AltTextActiveImages extends StatelessWidget {
       'button: true, \n '
       'label: \'50% off shop now\',),';
   final String beRuleDescription = 'When focused on the ImageView,'
-      ' because an accessibilityLabel attribute '
+      ' because an semantics Labels attribute '
       'is not assigned, VoiceOver will announce'
       ' as trait value only \'image\'.';
   final String becodeSnippet = ' Semantics( \n '
@@ -28,7 +27,6 @@ class AltTextActiveImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var assertImagePAth = new AssetImage('assets/images/discount50pc.png');
     var imgObject = new Semantics(
       child: Image(
@@ -60,7 +58,8 @@ class AltTextActiveImages extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.AltTextActiveImages.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.AltTextActiveImages.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -73,6 +72,9 @@ class AltTextActiveImages extends StatelessWidget {
                       HeaderSemanticWithText(SCs.AltTextActiveImages.name),
                     ],
                   ),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -81,17 +83,21 @@ class AltTextActiveImages extends StatelessWidget {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
-                child: Column(
-                  children: [
-                    HeaderSemanticWithText('Good Example: ImageView with accessibility description'),
-                    Text(ruleDescription),
-                  ],
-                )
-              ),
+                  padding: EdgeInsets.only(left: 15, right: 15),
+                  child: Column(
+                    children: [
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Good Example: ImageView with accessibility description'),
+                      ),
+                      Text(ruleDescription),
+                    ],
+                  )),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Semantics(
               child: Container(
                 child: GestureDetector(
@@ -106,17 +112,21 @@ class AltTextActiveImages extends StatelessWidget {
             Divider(),
             Semantics(
               child: Container(
-                  padding: EdgeInsets.only(left: 15,right: 15),
-                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 15, right: 15),
                   child: Column(
                     children: [
-                      HeaderSemanticWithText('Bad Example: ImageView without accessibility description'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Bad Example: ImageView without accessibility description'),
+                      ),
                       Text(beRuleDescription),
                     ],
-                  )
-              ),
+                  )),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Semantics(
               child: Container(
                 child: GestureDetector(
@@ -126,7 +136,9 @@ class AltTextActiveImages extends StatelessWidget {
               ),
             ),
             CodeSinppetWidget(codeSnippet: becodeSnippet),
-            SizedBox(height: 45,)
+            SizedBox(
+              height: 45,
+            )
           ],
         ),
       ),

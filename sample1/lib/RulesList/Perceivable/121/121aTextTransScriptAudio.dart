@@ -9,12 +9,13 @@ class TextTranscriptAudioSample extends StatefulWidget {
 }
 
 class TextTranscriptState extends State<TextTranscriptAudioSample> {
-
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
 
-  final String ruleDescription = 'Prerecorded audio web-based files such as mp3 files and audio podcasts MUST come with an '
-      'adjacent or easily reachable descriptive text transcript or verbatim. For bad example text transcript won''t available.';
+  final String ruleDescription =
+      'Prerecorded audio web-based files such as mp3 files and audio podcasts MUST come with an '
+      'adjacent or easily reachable descriptive text transcript or verbatim. For bad example text transcript won'
+      't available.';
   late String _data = "";
   bool isPaused = false;
   bool isPlaying = false;
@@ -29,7 +30,7 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
   }
 
   void playAudio() {
-    if(isPaused == true) {
+    if (isPaused == true) {
       advancedPlayer.resume();
     } else {
       isPlaying = true;
@@ -38,7 +39,7 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
   }
 
   void pauseAudio() {
-    if(isPlaying) {
+    if (isPlaying) {
       isPaused = true;
       advancedPlayer.pause();
     }
@@ -58,14 +59,16 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
     super.initState();
     audioCache = new AudioCache(fixedPlayer: advancedPlayer);
   }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      appBar: new AppBarExtension(
-          navdata: TopBarData(
-              title: SCs.TranscriptPrerecordedAudio.pageTitle, enableBack: true)),
-      body: SingleChildScrollView(
+        appBar: new AppBarExtension(
+            navdata: TopBarData(
+                title: SCs.TranscriptPrerecordedAudio.pageTitle,
+                enableBack: true)),
+        body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             children: [
@@ -74,14 +77,14 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
                   children: [
                     Row(
                       children: [
-                        HeaderSemanticWithText(SCs.TranscriptPrerecordedAudio.name),
+                        HeaderSemanticWithText(
+                            SCs.TranscriptPrerecordedAudio.name),
                       ],
                     ),
                     Text(ruleDescription),
                   ],
                 ),
-                padding:
-                    EdgeInsets.all(15),
+                padding: EdgeInsets.all(15),
                 alignment: Alignment.centerLeft,
               ),
               SizedBox(
@@ -107,7 +110,7 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
                         ),
                         ElevatedButton(
                             onPressed: () {
-                              if(isTranscriptVisibe ==  true) {
+                              if (isTranscriptVisibe == true) {
                                 setState(() {
                                   _data = '';
                                 });
@@ -117,24 +120,28 @@ class TextTranscriptState extends State<TextTranscriptAudioSample> {
                                 _loadData();
                               }
                             },
-                            child: Text( isTranscriptVisibe ?
-                              'Hide text Transcript' : 'Show text Transcript',
+                            child: Text(
+                              isTranscriptVisibe
+                                  ? 'Hide text Transcript'
+                                  : 'Show text Transcript',
                               style: TextStyle(fontWeight: FontWeight.normal),
                             ))
                       ],
                     ),
-                     Container(
-                       child: Text(_data != null ? _data : '',),
-                         padding:EdgeInsets.all(15),
-                         alignment: Alignment.centerLeft
-                     ) ,
-                    SizedBox(height: 20,),
+                    Container(
+                        child: Text(
+                          _data != null ? _data : '',
+                        ),
+                        padding: EdgeInsets.all(15),
+                        alignment: Alignment.centerLeft),
+                    SizedBox(
+                      height: 20,
+                    ),
                   ],
                 ),
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }

@@ -1,7 +1,6 @@
 import 'package:sample1/importFiles.dart';
 
 class VisualCues extends StatelessWidget {
-
   final String ruleDescription =
       'Information/instruction is presented to the user in a way '
       'that not just requires the'
@@ -15,13 +14,13 @@ class VisualCues extends StatelessWidget {
       'color as information. In the example we didn\'t '
       'provide STOP text for the button.';
 
-
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.VisualCues.pageTitle, enableBack: true)),
+          navdata:
+              TopBarData(title: SCs.VisualCues.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -41,57 +40,61 @@ class VisualCues extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Good Example: Using proper instructions'
-                        ' more than just visual cues.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Good Example: Using proper instructions'
+                          ' more than just visual cues.'),
+                    ),
                     Text(geDescription),
                   ],
-                )
-            ),
+                )),
             Container(
               height: 45,
               width: 130,
               color: Colors.red,
-              child:
-              MaterialButton(onPressed: () {
-
-              }, child: Text('STOP',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 21),
-              )
-              ),
+              child: MaterialButton(
+                  onPressed: () {},
+                  child: Text(
+                    'STOP',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 21),
+                  )),
             ),
-            SizedBox(height: 45,),
+            SizedBox(
+              height: 45,
+            ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Bad Example:An instruction to'
-                        ' users that requires the ability to see.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child:
+                          HeaderSemanticWithText('Bad Example:An instruction to'
+                              ' users that requires the ability to see.'),
+                    ),
                     Text(beDescription),
                   ],
-                )
-            ),
+                )),
             Container(
               height: 45,
               width: 130,
               color: Colors.red,
-              child:
-              MaterialButton(onPressed: () {
-
-              }, child: Text('',
-                style: TextStyle(
-                    color: Colors.white,
-                    fontStyle: FontStyle.italic,
-                    fontSize: 21),
-              )
-              ),
+              child: MaterialButton(
+                  onPressed: () {},
+                  child: Text(
+                    '',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontStyle: FontStyle.italic,
+                        fontSize: 21),
+                  )),
             ),
           ],
         ),

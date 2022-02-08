@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'WCAG Principles/HomeScreen.dart';
 import 'package:sample1/Samples/GestureRecognizersample1.dart';
-import 'package:sample1/RulesList/Understandable/321/ContextChangeOnFocusExample.dart';
-import 'package:sample1/Samples/BlockSemanticSample.dart';
+import 'package:sample1/RulesList/Operable/212/KeyboardTrapExample.dart';
+import 'package:sample1/Samples/ShakeGestureSample.dart';
 import 'package:sample1/Extensions/StarDisplayWidgetSample.dart';
 
 void main() {

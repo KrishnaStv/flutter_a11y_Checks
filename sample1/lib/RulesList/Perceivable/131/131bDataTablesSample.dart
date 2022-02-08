@@ -1,13 +1,11 @@
 import 'package:sample1/importFiles.dart';
 
 class DataTableSample extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return new DataTableSampleState();
   }
-
 }
 
 class DataTableSampleState extends State<DataTableSample> {
@@ -29,7 +27,8 @@ class DataTableSampleState extends State<DataTableSample> {
       'then over row will read at once by screen reader.';
   final String beDescription = 'If row widgets is accessible, but '
       'Semantic label is linked with  row headers, then  VoiceOver will announce as row data only.';
-  final String codeSnippet = '\n //1.First row: each cell item accessible. \n  Row( \n mainAxisAlignment: MainAxisAlignment.spaceEvenly, \n children: [ \n Semantics( \n label: \'Company: \', \n child: Text(\'Maruthi\'), \n ), \n Semantics( \n label: \'June 2018 cost:\',\n child: Text(\'1.34L\'), \n ),\n Semantics( \n label: \'June 2019 cost\', \n child: Text(\'1.10L\'), \n ), \n ],\n ), \n '
+  final String codeSnippet =
+      '\n //1.First row: each cell item accessible. \n  Row( \n mainAxisAlignment: MainAxisAlignment.spaceEvenly, \n children: [ \n Semantics( \n label: \'Company: \', \n child: Text(\'Maruthi\'), \n ), \n Semantics( \n label: \'June 2018 cost:\',\n child: Text(\'1.34L\'), \n ),\n Semantics( \n label: \'June 2019 cost\', \n child: Text(\'1.10L\'), \n ), \n ],\n ), \n '
       '//2.Second row: over row is accessible at a time. \n  MergeSemantics( \n child: Row( \n mainAxisAlignment: MainAxisAlignment.spaceEvenly, \n children: [ \n Semantics( \n label: \'Company: \', \n child: Text(\'Hundai\'), \n ), \n Semantics( \n label: \'June 2018 cost:\', \n child: Text(\'0.45L\'), \n ), \n Semantics( \n label: \'June 2019 cost:\', \n child: Text(\'0.42L\'), \n ), \n ], \n ), \n)';
 
   bool isChecked = false;
@@ -39,7 +38,8 @@ class DataTableSampleState extends State<DataTableSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.DataTables.pageTitle, enableBack: true)),
+          navdata:
+              TopBarData(title: SCs.DataTables.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -59,124 +59,21 @@ class DataTableSampleState extends State<DataTableSample> {
               alignment: Alignment.centerLeft,
             ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Good Example: Datatable with an'
-                        ' appropriately described header cell association '
-                        'using Semantic label description'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Good Example: Datatable with an appropriately described header cell association '
+                          'using Semantic label description'),
+                    ),
                     Text(geDescription),
                   ],
-                )
-            ),
-           Container(
-             padding: EdgeInsets.only(left: 15,right: 15),
-             child:  Center(
-               child: Column(
-                 children: [
-                   Divider(),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     children: [
-                       Semantics(
-                         header: true,
-                         child: Text('Company'
-                           , style: TextStyle(fontWeight: FontWeight.bold),
-                         ),
-                       ),
-                       Semantics(
-                         header: true,
-                         child: Text('Jun 2018'
-                           , style: TextStyle(fontWeight: FontWeight.bold),
-                         ),
-                       ),
-                       Semantics(
-                         header: true,
-                         child: Text('Jun 2019'
-                           , style: TextStyle(fontWeight: FontWeight.bold),
-                         ),
-                       ),
-                     ],
-                   ),
-                   Divider(),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     children: [
-                       Semantics(
-                         label: 'Company: ',
-                         child: Text('Maruthi'),
-                       ),
-                       Semantics(
-                         label: 'June 2018 cost:',
-                         child: Text('1.34L'),
-                       ),
-                       Semantics(
-                         label: 'June 2019 cost',
-                         child: Text('1.10L'),
-                       ),
-                     ],
-                   ),
-                   Divider(),
-                   MergeSemantics(
-                     child: Row(
-                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       children: [
-                         Semantics(
-                           label: 'Company: ',
-                           child: Text('Hundai'),
-                         ),
-                         Semantics(
-                           label: 'June 2018 cost:',
-                           child: Text('0.45L'),
-                         ),
-                         Semantics(
-                           label: 'June 2019 cost:',
-                           child: Text('0.42L'),
-                         ),
-                       ],
-                     ),
-                   ),
-                   Divider(),
-                   Row(
-                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                     children: [
-                       Semantics(
-                         label: 'Company: ',
-                         child: Text('Hundai'),
-                       ),
-                       Semantics(
-                         label: 'June 2018 cost:',
-                         child: Text('0.45L'),
-                       ),
-                       Semantics(
-                         label: 'June 2019 cost:',
-                         child: Text('0.42L'),
-                       ),
-                     ],
-                   ),
-                   Divider(),
-                 ],
-               ),
-             ),
-           ),
-            CodeSinppetWidget(codeSnippet: codeSnippet),
-            SizedBox(height: 25,),
+                )),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
-                child: Column(
-                  children: [
-                    HeaderSemanticWithText('Bad Example: TableView implementation'
-                        ' without an appropriate data cell, header cell '
-                        'association in semantic label description.'),
-                    Text(beDescription),
-                  ],
-                )
-            ),
-            Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
-              child:  Center(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Center(
                 child: Column(
                   children: [
                     Divider(),
@@ -184,18 +81,132 @@ class DataTableSampleState extends State<DataTableSample> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         Semantics(
-                          child: Text('Company'
-                            , style: TextStyle(fontWeight: FontWeight.bold),
+                          header: true,
+                          child: Text(
+                            'Company',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                         Semantics(
-                          child: Text('Jun 2018'
-                            , style: TextStyle(fontWeight: FontWeight.bold),
+                          header: true,
+                          child: Text(
+                            'Jun 2018',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                         Semantics(
-                          child: Text('Jun 2019'
-                            , style: TextStyle(fontWeight: FontWeight.bold),
+                          header: true,
+                          child: Text(
+                            'Jun 2019',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Semantics(
+                          label: 'Company: ',
+                          child: Text('Maruthi'),
+                        ),
+                        Semantics(
+                          label: 'June 2018 cost:',
+                          child: Text('1.34L'),
+                        ),
+                        Semantics(
+                          label: 'June 2019 cost',
+                          child: Text('1.10L'),
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                    MergeSemantics(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Semantics(
+                            label: 'Company: ',
+                            child: Text('Hundai'),
+                          ),
+                          Semantics(
+                            label: 'June 2018 cost:',
+                            child: Text('0.45L'),
+                          ),
+                          Semantics(
+                            label: 'June 2019 cost:',
+                            child: Text('0.42L'),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Semantics(
+                          label: 'Company: ',
+                          child: Text('Hundai'),
+                        ),
+                        Semantics(
+                          label: 'June 2018 cost:',
+                          child: Text('0.45L'),
+                        ),
+                        Semantics(
+                          label: 'June 2019 cost:',
+                          child: Text('0.42L'),
+                        ),
+                      ],
+                    ),
+                    Divider(),
+                  ],
+                ),
+              ),
+            ),
+            CodeSinppetWidget(codeSnippet: codeSnippet),
+            SizedBox(
+              height: 25,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                child: Column(
+                  children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Bad Example: TableView implementation'
+                          ' without an appropriate data cell, header cell '
+                          'association in semantic label description.'),
+                    ),
+                    Text(beDescription),
+                  ],
+                )),
+            Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Center(
+                child: Column(
+                  children: [
+                    Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Semantics(
+                          child: Text(
+                            'Company',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Semantics(
+                          child: Text(
+                            'Jun 2018',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Semantics(
+                          child: Text(
+                            'Jun 2019',
+                            style: TextStyle(fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
@@ -248,6 +259,7 @@ class DataTableSampleState extends State<DataTableSample> {
                       ],
                     ),
                     Divider(),
+                    SizedBox(height: 75,),
                   ],
                 ),
               ),

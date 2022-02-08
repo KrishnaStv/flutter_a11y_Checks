@@ -74,7 +74,7 @@ class NonTextContrastActiveUI extends StatelessWidget {
                               onChanged: (bool? value)  {
                               }),
                           label: 'I Accept Terms and Conditions',
-                          value: 'Not Selected',
+                          // value: 'Not Selected',
                         ),
                         Text('I Accept Terms and Conditions')
                       ],
@@ -122,7 +122,7 @@ class NonTextContrastActiveUI extends StatelessWidget {
                               ),
                               onChanged: (bool? value)  {
                               }),
-                          value: 'Not Selected',
+                          // value: 'Not Selected',
                           label: 'I Accept Terms and Conditions',
                         ),
                         Text('I Accept Terms and Conditions')

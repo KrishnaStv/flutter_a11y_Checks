@@ -1,7 +1,6 @@
 import 'package:sample1/importFiles.dart';
 
 class AltTextInformativeImages extends StatelessWidget {
-
   final String ruleDescription =
       'All images that convey meaningful information MUST use a'
       ' descriptive Semantic label attribute to specify a '
@@ -12,12 +11,12 @@ class AltTextInformativeImages extends StatelessWidget {
       'When the UIImageView receives VoiceOver focus,'
       ' VoiceOver announces the provided value of '
       'Semantic label along with the element trait. '
-     'VoiceOver will announce \'sunset as a sea, image.\'.';
+      'VoiceOver will announce \'sunset as a sea, image.\'.';
   final String codeSnippet = ' Semantics( \n '
       'child: Container( \n child: ImageWidget'
       'label: \'sunset as a sea, image\',),';
   final String beRuleDescription = 'When focused on the ImageView,'
-      ' because an accessibilityLabel attribute '
+      ' because an semantics Labels attribute '
       'is not assigned, VoiceOver will announce'
       ' as trait value only \'image\'.';
   final String becodeSnippet = ' Semantics( \n '
@@ -26,7 +25,6 @@ class AltTextInformativeImages extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     var assertImagePAth = new AssetImage('assets/images/sunset.jpg');
     var imgObject = new Image(
       image: assertImagePAth,
@@ -38,7 +36,8 @@ class AltTextInformativeImages extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.AltTextInformativeImages.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.AltTextInformativeImages.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -59,17 +58,21 @@ class AltTextInformativeImages extends StatelessWidget {
             ),
             Semantics(
               child: Container(
-                  padding: EdgeInsets.only(left: 15,right: 15),
-                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 15, right: 15),
                   child: Column(
                     children: [
-                      HeaderSemanticWithText('Good Example: ImageView with accessibility description'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Good Example: ImageView with accessibility description'),
+                      ),
                       Text(ruleDescription),
                     ],
-                  )
-              ),
+                  )),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Semantics(
               child: Container(
                 child: imgObject,
@@ -80,24 +83,28 @@ class AltTextInformativeImages extends StatelessWidget {
             Divider(),
             Semantics(
               child: Container(
-                  padding: EdgeInsets.only(left: 15,right: 15),
-                  alignment: Alignment.topLeft,
+                  padding: EdgeInsets.only(left: 15, right: 15),
                   child: Column(
                     children: [
-                      HeaderSemanticWithText('Bad Example: ImageView without accessibility description'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Bad Example: ImageView without accessibility description'),
+                      ),
                       Text(beRuleDescription),
                     ],
-                  )
-              ),
+                  )),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Semantics(
-              child: Container(
-                child: imgObject
-              ),
+              child: Container(child: imgObject),
             ),
             CodeSinppetWidget(codeSnippet: becodeSnippet),
-            SizedBox(height: 45,)
+            SizedBox(
+              height: 45,
+            )
           ],
         ),
       ),

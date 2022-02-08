@@ -17,16 +17,15 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
       'child: Container( \n child: ImageWidget'
       'label: \'Play the video of cartoon wakeup\',';
   final String beRuleDescription = 'When focused on the ImageView,'
-      ' because an accessibilityLabel attribute '
+      ' because an semantics Labels attribute '
       'is not assigned, VoiceOver will announce'
-      ' as trait value only \'image\'. No alternative way for '
+      ' as unlabelled along with trait value \'image\'. No alternative way for '
       'captcha like Audio clip.';
   final String becodeSnippet = ' Semantics( \n '
       'child: Container( \n child: ImageWidget, ),';
 
   @override
   Widget build(BuildContext context) {
-
     var audassertImagePAth = new AssetImage('assets/images/1.1.1.h.audio.png');
     var audimgObject = new Semantics(
       child: Image(
@@ -75,12 +74,15 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
             Semantics(
               child: Container(
                   padding: EdgeInsets.only(left: 15, right: 15),
-                  alignment: Alignment.topLeft,
                   child: Column(
                     children: [
-                      HeaderSemanticWithText('Good Example: Audio and Video '
-                          'file must have accessibility description  to '
-                          'represent the file description.'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Good Example: Audio and Video '
+                            'file must have accessibility description  to '
+                            'represent the file description.'),
+                      ),
                       Text(geRuleDescription),
                     ],
                   )),
@@ -100,7 +102,9 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
                     child: audimgObject,
                   ),
                 ),
-                SizedBox(width: 25,),
+                SizedBox(
+                  width: 25,
+                ),
                 Semantics(
                   button: true,
                   label: 'Play the Video of cartoon wakeup',
@@ -117,11 +121,13 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
             Semantics(
               child: Container(
                   padding: EdgeInsets.only(left: 15, right: 15),
-                  alignment: Alignment.topLeft,
                   child: Column(
                     children: [
-                      HeaderSemanticWithText(
-                          'Bad Example: Audio and Video files without accessibility description'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Bad Example: Audio and Video files without accessibility description'),
+                      ),
                       Text(beRuleDescription),
                     ],
                   )),
@@ -132,26 +138,32 @@ class AltTextAudioOrVideoImages extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               Semantics(
-                 button: true,
-                 child:  Container(
-                   width: 60,
-                   height: 60,
-                   child: audimgObject,
-                 ),
-               ),
-                SizedBox(width: 25,),
                 Semantics(
+                  enabled: true,
+                  image: true,
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    child: audimgObject,
+                  ),
+                ),
+                SizedBox(
+                  width: 25,
+                ),
+                Semantics(
+                  enabled: true,
                   child: Container(
                     width: 90,
                     height: 75,
                     child: vidimgObject,
                   ),
-                  button: true,
+                  image: true,
                 ),
               ],
             ),
-            SizedBox(height: 45,),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

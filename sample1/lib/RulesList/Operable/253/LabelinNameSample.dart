@@ -60,8 +60,10 @@ class LabelinNameSample extends StatelessWidget {
                     child: getImageFromPath('assets/images/profile.png'),
                   ),
                   Semantics(
+                    button: true,
                     label: 'Tap to Change Avatar',
                     child: Semantics(
+                      excludeSemantics: true,
                       child: ElevatedButton(
                         child: Text('Change Avatar'),
                         onPressed: () {},
@@ -93,8 +95,10 @@ class LabelinNameSample extends StatelessWidget {
                     child: getImageFromPath('assets/images/profile.png'),
                   ),
                   Semantics(
+                    button: true,
                     label: 'Tap to Change Profile photo',
                     child: Semantics(
+                      excludeSemantics: true,
                       child: ElevatedButton(
                         child: Text('Change Avatar'),
                         onPressed: () {},

@@ -1,7 +1,6 @@
 import 'package:sample1/importFiles.dart';
 
 class ContextChangeOnFocusSample extends StatelessWidget {
-
   final String ruleDescription =
       'When a screen element receives focus, it MUST NOT result in '
       'a substantial change to the screen, the spawning of a '
@@ -21,7 +20,8 @@ class ContextChangeOnFocusSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.ContextChangeOnFocus.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.ContextChangeOnFocus.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -34,7 +34,9 @@ class ContextChangeOnFocusSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.ContextChangeOnFocus.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -43,7 +45,7 @@ class ContextChangeOnFocusSample extends StatelessWidget {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(
@@ -55,21 +57,28 @@ class ContextChangeOnFocusSample extends StatelessWidget {
                         'for users’ action to open coupon modal/dialog'
                         ' rather than automatically opening a dialog or'
                         ' redirecting to a new screen.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Semantics(
                       label: 'Good example APPLY COUPON',
-                      child: ElevatedButton(child: Text('APPLY COUPON'), onPressed: () {
-                        showCouponsuccessAlert(context);
-                      },),
+                      child: ElevatedButton(
+                        child: Text('APPLY COUPON'),
+                        onPressed: () {
+                          showCouponsuccessAlert(context);
+                        },
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(
@@ -80,15 +89,20 @@ class ContextChangeOnFocusSample extends StatelessWidget {
                         'in context as soon as focus arrives '
                         'at the controls (buttons here) rather '
                         'than waiting for user action.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Semantics(
                       onDidGainAccessibilityFocus: () {
                         showCouponsuccessAlert(context);
                       },
                       label: 'Bad example APPLY COUPON',
-                      child: ElevatedButton(child: Text('APPLY COUPON'), onPressed: () {
-                        showCouponsuccessAlert(context);
-                      },),
+                      child: ElevatedButton(
+                        child: Text('APPLY COUPON'),
+                        onPressed: () {
+                          showCouponsuccessAlert(context);
+                        },
+                      ),
                     ),
                   ],
                 ),
@@ -109,9 +123,11 @@ class ContextChangeOnFocusSample extends StatelessWidget {
           title: Text('Alert'),
           content: Text('Voucher applied successfully'),
           actions: [
-            ElevatedButton(onPressed: () {
-              Navigator.pop(context);
-            }, child: Text('Okay')),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text('Okay')),
           ],
         );
       },

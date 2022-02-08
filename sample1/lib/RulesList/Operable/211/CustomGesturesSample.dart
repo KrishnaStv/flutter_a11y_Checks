@@ -54,9 +54,8 @@ class CustomGesturesSampleState extends State<CustomGesturesSample> {
                     alignment: Alignment.topLeft,
                     child: HeaderSemanticWithText('Good Example'),
                   ),
-                  Text(
-                      'The below example contains a custom VerticalLine,'
-                          ' Horizontal line gesture to do some functionality.\n '
+                  Text('The below example contains a custom VerticalLine,'
+                      ' Horizontal line gesture to do some functionality.\n '
                       'And given accessibility action for the same gesture.'),
                   SizedBox(
                     height: 10,
@@ -81,25 +80,31 @@ class CustomGesturesSampleState extends State<CustomGesturesSample> {
                                       },
                                       onVerticalDragEnd: (details) {
                                         if (isVerticalDragStart == true) {
-                                          buildShowDialog(alertContext,'Vertical Drag gesture detected');
+                                          buildShowDialog(alertContext,
+                                              'Vertical Drag gesture detected');
                                         }
                                       },
                                       onHorizontalDragStart: (details) {
                                         isHorizontalDragStart = true;
                                       },
                                       onHorizontalDragEnd: (details) {
-                                        if(isHorizontalDragStart == true) {
-                                          buildShowDialog(alertContext,'Horizontal Drag gesture detected');
+                                        if (isHorizontalDragStart == true) {
+                                          buildShowDialog(alertContext,
+                                              'Horizontal Drag gesture detected');
                                         }
                                       },
                                     ),
                                   ),
                                   customSemanticsActions: {
-                                    CustomSemanticsAction(label: "Vertical Drag"): () {
-                                      buildShowDialog(alertContext,'Vertical Drag gesture detected');
+                                    CustomSemanticsAction(
+                                        label: "Vertical Drag"): () {
+                                      buildShowDialog(alertContext,
+                                          'Vertical Drag gesture detected');
                                     },
-                                    CustomSemanticsAction(label: "Horizontal Drag"): () {
-                                      buildShowDialog(alertContext,'Horizontal Drag gesture detected');
+                                    CustomSemanticsAction(
+                                        label: "Horizontal Drag"): () {
+                                      buildShowDialog(alertContext,
+                                          'Horizontal Drag gesture detected');
                                     },
                                   },
                                 ),
@@ -114,7 +119,7 @@ class CustomGesturesSampleState extends State<CustomGesturesSample> {
               height: 25,
             ),
             Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               child: Column(
                 children: [
                   Container(
@@ -146,15 +151,17 @@ class CustomGesturesSampleState extends State<CustomGesturesSample> {
                                       },
                                       onVerticalDragEnd: (details) {
                                         if (isVerticalDragStart == true) {
-                                          buildShowDialog(alertContext,'Vertical Drag gesture detected');
+                                          buildShowDialog(alertContext,
+                                              'Vertical Drag gesture detected');
                                         }
                                       },
                                       onHorizontalDragStart: (details) {
                                         isHorizontalDragStart = true;
                                       },
                                       onHorizontalDragEnd: (details) {
-                                        if(isHorizontalDragStart == true) {
-                                          buildShowDialog(alertContext,'Horizontal Drag gesture detected');
+                                        if (isHorizontalDragStart == true) {
+                                          buildShowDialog(alertContext,
+                                              'Horizontal Drag gesture detected');
                                         }
                                       },
                                     ),
@@ -181,7 +188,7 @@ class CustomGesturesSampleState extends State<CustomGesturesSample> {
             title: Text('Alert'),
             content: Text(content),
             actions: [
-              TextButton(
+              ElevatedButton(
                   onPressed: () {
                     Navigator.of(dragContext).pop();
                   },

@@ -13,6 +13,7 @@ class TabbarControllerSampleState extends State<TabbarControllerSample>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   int selectedTab = 0;
+
   @override
   void initState() {
     _tabController = new TabController(length: 2, vsync: this);
@@ -36,8 +37,10 @@ class TabbarControllerSampleState extends State<TabbarControllerSample>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-              height: MediaQuery.of(context).size.height /2,
-              child: Center(child: Text("Profile"),),
+              height: MediaQuery.of(context).size.height / 2,
+              child: Center(
+                child: Text("Profile"),
+              ),
               color: Colors.blue,
             ),
             TabBar(

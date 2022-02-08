@@ -96,13 +96,14 @@ class CaptionsPrerecordedVideoSampleState extends State<CaptionsPrerecordedVideo
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MaterialButton(
+                        ElevatedButton(
                           onPressed: () {
                             _controller.play();
                           },
                           child: Text('Play'),
                         ),
-                        MaterialButton(
+                        SizedBox(width: 25,),
+                        ElevatedButton(
                           onPressed: () {
                             _controller.pause();
                           },
@@ -134,13 +135,14 @@ class CaptionsPrerecordedVideoSampleState extends State<CaptionsPrerecordedVideo
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MaterialButton(
+                        ElevatedButton(
                           onPressed: () {
                             _beController.play();
                           },
                           child: Text('Play'),
                         ),
-                        MaterialButton(
+                        SizedBox(width: 25,),
+                        ElevatedButton(
                           onPressed: () {
                             _beController.pause();
                           },

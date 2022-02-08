@@ -59,7 +59,7 @@ class PerceivableRulesList extends StatelessWidget {
               NonTextContextStateUISampleButton(),
               NonTextContrastGraphicalObjectsSampleButton(),
 
-              SizedBox(height: 45,),
+              SizedBox(height: 75,),
             ]
             )
         )

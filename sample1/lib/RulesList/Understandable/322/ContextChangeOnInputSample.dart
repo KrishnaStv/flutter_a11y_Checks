@@ -1,7 +1,6 @@
 import 'package:sample1/importFiles.dart';
 
 class ContextChangeOnInputSample extends StatelessWidget {
-
   final String ruleDescription =
       'When a user inputs information or interacts with a control,'
       ' it MUST NOT result in a substantial change to the page,'
@@ -23,7 +22,8 @@ class ContextChangeOnInputSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.ContextChangeOnInput.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.ContextChangeOnInput.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -36,7 +36,9 @@ class ContextChangeOnInputSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.ContextChangeOnInput.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -44,8 +46,7 @@ class ContextChangeOnInputSample extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             Semantics(
-              child:
-              Container(
+              child: Container(
                 alignment: Alignment.topLeft,
                 child: HeaderSemanticWithText('  Good Example'),
               ),
@@ -59,14 +60,16 @@ class ContextChangeOnInputSample extends StatelessWidget {
                         'the user entered the Email id to subscribe.'
                         ' Until user tap on subscribe, '
                         'no action can be performed.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text('Email Id'),
                     ),
                     TextField(
                       decoration: InputDecoration(
-                          hintText: "Enter Email Id",
+                        hintText: "Enter Email Id",
                       ),
                     ),
                     Row(
@@ -75,8 +78,7 @@ class ContextChangeOnInputSample extends StatelessWidget {
                         Semantics(
                           child: ElevatedButton(
                             child: const Text("SUBSCRIBE"),
-                            onPressed: () {
-                            },
+                            onPressed: () {},
                           ),
                         ),
                       ],
@@ -85,10 +87,11 @@ class ContextChangeOnInputSample extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Semantics(
-              child:
-              Container(
+              child: Container(
                 alignment: Alignment.topLeft,
                 child: HeaderSemanticWithText('  Bad Example'),
               ),
@@ -102,17 +105,19 @@ class ContextChangeOnInputSample extends StatelessWidget {
                         ' context (moves to a different screen) as soon as '
                         'the user starts typing in the edit text field '
                         'without any information.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
                       child: Text('Email Id'),
                     ),
                     TextField(
                       decoration: InputDecoration(
-                          hintText: "Enter Email Id",
+                        hintText: "Enter Email Id",
                       ),
                       onChanged: (text) {
-                        if(text.length > 0) {
+                        if (text.length > 0) {
                           Navigator.of(context).pop();
                         }
                       },
@@ -123,8 +128,7 @@ class ContextChangeOnInputSample extends StatelessWidget {
                         Semantics(
                           child: ElevatedButton(
                             child: const Text("SUBSCRIBE"),
-                            onPressed: () {
-                            },
+                            onPressed: () {},
                           ),
                         ),
                       ],

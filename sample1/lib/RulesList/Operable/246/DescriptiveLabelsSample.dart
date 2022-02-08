@@ -85,6 +85,7 @@ class DescriptiveLabelsSample extends StatelessWidget {
                   ),
                   Text('Personality Training'),
                   Semantics(
+                    button: true,
                     label: 'Subscribe to Personal Training',
                     child: Semantics(
                       excludeSemantics: true,
@@ -101,6 +102,7 @@ class DescriptiveLabelsSample extends StatelessWidget {
                   ),
                   Text('Self Motivation Training'),
                   Semantics(
+                    button: true,
                     label: 'Subscribe to Self Motivation Training',
                     child: Semantics(
                       excludeSemantics: true,
@@ -161,11 +163,11 @@ class DescriptiveLabelsSample extends StatelessWidget {
                   SizedBox(
                     height: 25,
                   ),
-                  Text('  Differentiate descriptive labels as'
+                  Text(' Differentiate descriptive labels as'
                       ' per the purpose of it. Below is an example of the'
                       ' training sessions list subscription option.\n '
-                      'There are no differentiation foe subscription '
-                      'buttons accessibilityLabels.'),
+                      'There are no differentiation for subscription '
+                      'buttons semantics Labels.'),
                   SizedBox(
                     height: 15,
                   ),

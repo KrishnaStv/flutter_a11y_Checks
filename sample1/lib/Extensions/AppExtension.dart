@@ -31,7 +31,7 @@ class HeaderSemanticWithText extends StatelessWidget {
     // TODO: implement build
     return Semantics(
       child: Container(
-        width: MediaQuery.of(context).size.width*0.7,
+        width: MediaQuery.of(context).size.width*0.9,
         child: Text(
           textIs,
           style: TextStyle(fontWeight: FontWeight.bold),
@@ -63,7 +63,6 @@ class AppBarExtension extends StatelessWidget implements PreferredSizeWidget {
     // TODO: implement build
     return AppBar(
       title: Text('${navdata.title}'),
-      centerTitle: true,
       leading: navdata.enableBack
           ? BackButton(
               color: Colors.white,

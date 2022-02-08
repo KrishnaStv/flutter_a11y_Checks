@@ -1,7 +1,6 @@
 import 'package:sample1/importFiles.dart';
 
 class ErrorIdentificationSample extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -30,8 +29,8 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata:
-          TopBarData(title: SCs.ErrorIdentification.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.ErrorIdentification.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -44,16 +43,17 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                       HeaderSemanticWithText(SCs.ErrorIdentification.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-
             Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               child: Column(
                 children: [
                   Container(
@@ -68,71 +68,77 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                   ),
                   Form(
                     key: _formKey,
-                      child: Column(
-                        children: [
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: Text('Email',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                    child: Column(
+                      children: [
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
                           ),
-                          TextFormField(
-                            keyboardType: TextInputType.emailAddress,
-                            maxLines: 1,
-                            minLines: 1,
-                            decoration: InputDecoration(
+                        ),
+                        TextFormField(
+                          keyboardType: TextInputType.emailAddress,
+                          maxLines: 1,
+                          minLines: 1,
+                          decoration: InputDecoration(
                               isDense: true,
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter Email'
-                            ),
-                            validator: (String? value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter valid Email';
-                              } else {
-                                debugPrint('Value is $value');
-                              }
+                              border: OutlineInputBorder(),
+                              hintText: 'Enter Email'),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter valid Email';
+                            } else {
+                              debugPrint('Value is $value');
+                            }
+                          },
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Container(
+                          alignment: Alignment.topLeft,
+                          child: Text(
+                            'Password',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
+                        ),
+                        TextFormField(
+                          obscureText: true,
+                          maxLines: 1,
+                          minLines: 1,
+                          decoration: InputDecoration(
+                              isDense: true,
+                              border: OutlineInputBorder(),
+                              hintText: 'Enter Password'),
+                          validator: (String? value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter valid password';
+                            } else {
+                              debugPrint('Value is $value');
+                            }
+                          },
+                        ),
+                        Semantics(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              debugPrint('Clicked');
+                              if (_formKey.currentState!.validate()) {}
                             },
+                            child: Text('Submit'),
                           ),
-                          SizedBox(height: 20,),
-                          Container(
-                            alignment: Alignment.topLeft,
-                            child: Text('Password',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
-                          ),
-                          TextFormField(
-                            obscureText: true,
-                            maxLines: 1,
-                            minLines: 1,
-                            decoration: InputDecoration(
-                                isDense: true,
-                                border: OutlineInputBorder(),
-                                hintText: 'Enter Password'
-                            ),
-                            validator: (String? value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Please enter valid password';
-                              } else {
-                                debugPrint('Value is $value');
-                              }
-                            },
-                          ),
-                          Semantics(
-                            child: ElevatedButton (
-                              onPressed: () {
-                                debugPrint('Clicked');
-                                if(_formKey.currentState!.validate()) {
-
-                                }
-                              },
-                              child: Text('Submit'),
-                            ),
-                            label: 'Good Example Submit',
-                          ),
-                        ],
-                      ),
+                          label: 'Good Example Submit',
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
             Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               child: Column(
                 children: [
                   Container(
@@ -154,7 +160,11 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                       children: [
                         Container(
                           alignment: Alignment.topLeft,
-                          child: Text('User Name',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                          child: Text(
+                            'User Name',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
                         ),
                         TextFormField(
                           keyboardType: TextInputType.emailAddress,
@@ -163,8 +173,7 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                           decoration: InputDecoration(
                               isDense: true,
                               border: OutlineInputBorder(),
-                              hintText: 'Enter User Name'
-                          ),
+                              hintText: 'Enter User Name'),
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return '';
@@ -173,10 +182,16 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                             }
                           },
                         ),
-                        SizedBox(height: 20,),
+                        SizedBox(
+                          height: 20,
+                        ),
                         Container(
                           alignment: Alignment.topLeft,
-                          child: Text('Password',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),),
+                          child: Text(
+                            'Password',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 15),
+                          ),
                         ),
                         TextFormField(
                           obscureText: true,
@@ -185,8 +200,7 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                           decoration: InputDecoration(
                               isDense: true,
                               border: OutlineInputBorder(),
-                              hintText: 'Enter Password'
-                          ),
+                              hintText: 'Enter Password'),
                           validator: (String? value) {
                             if (value == null || value.isEmpty) {
                               return '';
@@ -196,12 +210,10 @@ class ErrorIdentificationSampleState extends State<ErrorIdentificationSample> {
                           },
                         ),
                         Semantics(
-                          child: ElevatedButton (
+                          child: ElevatedButton(
                             onPressed: () {
                               debugPrint('Clicked');
-                              if(_badFormKey.currentState!.validate()) {
-
-                              }
+                              if (_badFormKey.currentState!.validate()) {}
                             },
                             child: Text('Submit'),
                           ),

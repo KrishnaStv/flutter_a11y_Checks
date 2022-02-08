@@ -58,28 +58,26 @@ class TitlesOfPageSample extends StatelessWidget {
             SizedBox(
               height: 25,
             ),
-
-         Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: HeaderSemanticWithText('Bad Example'),
-                    ),
-                    Text('The sample below misses a meaningful title '
-                        'or misses a title completely.'),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Container(
-                      height: 60,
-                      color: Colors.blue,
-                    ),
-                  ],
-                ),
+            Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Bad Example'),
+                  ),
+                  Text('The sample below misses a meaningful title '
+                      'or misses a title completely.'),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    height: 60,
+                    color: Colors.blue,
+                  ),
+                ],
               ),
-
+            ),
           ],
         ),
       ),

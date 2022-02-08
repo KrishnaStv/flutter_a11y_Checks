@@ -46,6 +46,8 @@ enum SCs {
   PointerCancellation,//252a
   NonTextContrastGraphicalObjects,//1411c
   ContextChangeOnFocus, //321a
+  MotionActuation,//254a
+  KeyboardTrap,//212a
 
 
 
@@ -161,6 +163,10 @@ extension SCsExtension on SCs {
         return '1.4.11.c – Non-Text Contrast - Graphical Objects';
       case SCs.ContextChangeOnFocus:
         return '3.2.1.a – Context Changes (on Focus)';
+      case SCs.MotionActuation:
+        return '2.5.4.a - Motion Actuation';
+      case SCs.KeyboardTrap:
+        return '2.1.2.a – Keyboard Trap';
 
 
 
@@ -289,6 +295,10 @@ extension SCsExtension_identifier on SCs {
         return '1.4.11.c';
       case SCs.ContextChangeOnFocus:
         return '3.2.1.a';
+      case SCs.MotionActuation:
+        return '2.5.4.a';
+      case SCs.KeyboardTrap:
+        return '2.1.2.a';
 
 
       case SCs.TextAlternative:
@@ -416,6 +426,10 @@ extension SCsExtension_title on SCs {
         return 'Non-Text Contrast - \n Graphical Objects';
       case SCs.ContextChangeOnFocus:
         return 'Context Changes (on Focus)';
+      case SCs.MotionActuation:
+        return 'Motion Actuation';
+      case SCs.KeyboardTrap:
+        return 'Keyboard Trap';
 
 
 

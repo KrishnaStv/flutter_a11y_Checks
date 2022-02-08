@@ -6,7 +6,6 @@ class DescriptiveHeadingSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
@@ -54,16 +53,16 @@ class DescriptiveHeadingSample extends StatelessWidget {
                     height: 10,
                   ),
                   Container(
-                      alignment: Alignment.topLeft,
-                      child: HeaderSemanticWithText('  Flood Management'),
-                    ),
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('  Flood Management'),
+                  ),
                   SizedBox(
                     height: 10,
                   ),
-                 Container(
-                      alignment: Alignment.topLeft,
-                      child: HeaderSemanticWithText('  Fire Management'),
-                    ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('  Fire Management'),
+                  ),
                 ],
               ),
             ),

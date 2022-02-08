@@ -52,7 +52,9 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
                       HeaderSemanticWithText(SCs.ReadingOrder.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -61,17 +63,20 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
             ),
             Container(
                 padding: EdgeInsets.only(left: 15, right: 15),
-                alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Good Example: Using swipe'
-                        ' right/swipe left on the screen check '
-                        'Semantics Label attributes to manage reading order.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example: Using swipe'
+                          ' right/swipe left on the screen check '
+                          'Semantics Label attributes to manage reading order.'),
+                    ),
                     Text(geDescription),
                   ],
-                )
+                )),
+            SizedBox(
+              height: 15,
             ),
-            SizedBox(height: 15,),
             Container(
               child: Column(
                 children: [
@@ -89,15 +94,17 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                    InputDecoration(hintText: 'Enter First Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter First Name'),
                               ),
                               sortKey: OrdinalSortKey(2),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Expanded(
                         child: Column(
                           children: [
@@ -110,8 +117,8 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                    InputDecoration(hintText: 'Enter Last Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter Last Name'),
                               ),
                               sortKey: OrdinalSortKey(4),
                             ),
@@ -124,22 +131,29 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
               ),
               padding: EdgeInsets.only(left: 10, right: 10),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             CodeSinppetWidget(codeSnippet: codeSnippet),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Container(
                 padding: EdgeInsets.only(left: 15, right: 15),
-                alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Bad Example: Using swipe '
-                        'right/swipe left on the screen, '
-                        'the focus order is not correct.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Bad Example: Using swipe '
+                          'right/swipe left on the screen, '
+                          'the focus order is not correct.'),
+                    ),
                     Text(beDescription),
                   ],
-                )
+                )),
+            SizedBox(
+              height: 15,
             ),
-            SizedBox(height: 15,),
             Container(
               child: Column(
                 children: [
@@ -156,14 +170,16 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                InputDecoration(hintText: 'Enter First Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter First Name'),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Expanded(
                         child: Column(
                           children: [
@@ -175,8 +191,8 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                InputDecoration(hintText: 'Enter Last Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter Last Name'),
                               ),
                             ),
                           ],
@@ -189,13 +205,17 @@ class ReadingOrderSampleState extends State<ReadingOrderSample> {
               padding: EdgeInsets.only(left: 10, right: 10),
             ),
             Divider(),
-            ElevatedButton(child: Text('Skip Objects'), onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return SkipReadingOrderSample();
-              })
-              );
-            },),
-            SizedBox(height: 45,),
+            ElevatedButton(
+              child: Text('Skip Objects'),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return SkipReadingOrderSample();
+                }));
+              },
+            ),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

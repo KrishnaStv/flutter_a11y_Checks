@@ -1,13 +1,11 @@
 import 'package:sample1/importFiles.dart';
 
 class ProgrammaticLabelSample extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
     return new ProgrammaticLabelState();
   }
-
 }
 
 class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
@@ -35,7 +33,9 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.InfoRelationShipProgrammaticLabels.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.InfoRelationShipProgrammaticLabels.pageTitle,
+              enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -45,7 +45,8 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText(SCs.InfoRelationShipProgrammaticLabels.name),
+                      HeaderSemanticWithText(
+                          SCs.InfoRelationShipProgrammaticLabels.name),
                     ],
                   ),
                   Text(ruleDescription),
@@ -55,29 +56,31 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
               alignment: Alignment.centerLeft,
             ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Good Example: for every input fields'
-                        ' must add hint value, it will read by screen reader.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Good Example: for every input fields'
+                          ' must add hint value, it will read by screen reader.'),
+                    ),
                     Text(geDescription),
                   ],
-                )
-            ),
+                )),
             Container(
-              child: Column (
+              child: Column(
                 children: [
                   Row(
                     children: [
-                    Semantics(
-                      child:  Text('Email Id',
-                        style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 20),
-                      ),
-                      header: true,
-                    )
+                      Semantics(
+                        child: Text(
+                          'Email Id',
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold, fontSize: 20),
+                        ),
+                        header: true,
+                      )
                     ],
                   ),
                   TextFormField(
@@ -96,47 +99,54 @@ class ProgrammaticLabelState extends State<ProgrammaticLabelSample> {
               padding: EdgeInsets.only(left: 10, right: 10),
             ),
             Divider(),
-           Row(
-                children: [
-                 Semantics(
-                   label: 'I accept Terms and Conditions ',
-                   button: true,
-                   value: isChecked ? 'Selected' : 'Not selected',
-                   child:  Checkbox(value: isChecked,
-                       onChanged: (bool? value) {
-                         setState(() {
-                           isChecked = isChecked ? false : true;
-                         });
-                       }),
-                 ),
-                  Text('I accept Terms and Conditions'),
-                ],
+            Row(
+              children: [
+                Semantics(
+                  label: 'I accept Terms and Conditions ',
+                  button: true,
+                  // value: isChecked ? 'Selected' : 'Not selected',
+                  child: Checkbox(
+                      value: isChecked,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          isChecked = isChecked ? false : true;
+                        });
+                      }),
+                ),
+                Text('I accept Terms and Conditions'),
+              ],
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             CodeSinppetWidget(codeSnippet: codeSnippet),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Bad Example: for form inputs and'
-                        ' any input selection hint value does n\'t associate '
-                        'with programmatic label'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Bad Example: for form inputs and'
+                          ' any input selection hint value does n\'t associate '
+                          'with programmatic label'),
+                    ),
                     Text(geDescription),
                   ],
-                )
-            ),
+                )),
             Container(
-              child: Column (
+              child: Column(
                 children: [
                   Row(
                     children: [
                       Semantics(
-                        child:  Text('Email Id',
+                        child: Text(
+                          'Email Id',
                           style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 20),
+                              fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                         header: true,
                       )

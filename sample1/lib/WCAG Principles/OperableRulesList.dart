@@ -22,6 +22,8 @@ class OperableRulesList extends StatelessWidget {
               TextReturnWidget(checkPoint: '2.1.1',isHeader: true,),
               KeyboardNavigationSampleButton(),
               CustomGestureSampleButton(),
+              TextReturnWidget(checkPoint: '2.1.2', isHeader: true),
+              KeyboardTrapSampleButton(),
               TextReturnWidget(checkPoint: '2.2.1',isHeader: true,),
               TimeAdjustableSampleButton(),
               TextReturnWidget(checkPoint: '2.2.2',isHeader: true,),
@@ -40,6 +42,8 @@ class OperableRulesList extends StatelessWidget {
               PointerCancellationSampleButton(),
               TextReturnWidget(checkPoint: '2.5.3',isHeader: true,),
               LabelInNameSampleButton(),
+              TextReturnWidget(checkPoint: '2.5.4', isHeader: true),
+              MotionActuationSampleButton(),
 
 
 

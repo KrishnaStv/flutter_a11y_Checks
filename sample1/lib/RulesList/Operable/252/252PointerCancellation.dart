@@ -8,33 +8,43 @@ class PointerCancellationSample extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
-    Future<void> _showDialog(bool enableOutSideTap,
-        String title,
-        String description,
-        bool? isSecondActionAvailable,
-        String button1Title,
-        String? button2Title,
-        bool? enableTimerTodismiss,) async {
+    Future<void> _showDialog(
+      bool enableOutSideTap,
+      String title,
+      String description,
+      bool? isSecondActionAvailable,
+      String button1Title,
+      String? button2Title,
+      bool? enableTimerTodismiss,
+    ) async {
       List<Widget> widgets = [];
 
-      widgets.add( TextButton(onPressed: (){
-        Navigator.of(context).pop();
-      }, child: Text(button1Title)),);
+      widgets.add(
+        ElevatedButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Text(button1Title)),
+      );
 
-      if(isSecondActionAvailable == true) {
-        widgets.add( TextButton(onPressed: (){
-          Navigator.of(context).pop();
-        }, child: Text(button2Title ?? 'No')),);
+      if (isSecondActionAvailable == true) {
+        widgets.add(
+          ElevatedButton(
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(button2Title ?? 'No')),
+        );
       }
 
-      if(enableTimerTodismiss == true) {
+      if (enableTimerTodismiss == true) {
         Future.delayed(Duration(milliseconds: 1200), () {
           Navigator.of(context).pop();
         });
       }
 
-      return showDialog(context: context,
+      return showDialog(
+          context: context,
           barrierDismissible: enableOutSideTap,
           builder: (BuildContext context) {
             return AlertDialog(
@@ -92,12 +102,23 @@ class PointerCancellationSample extends StatelessWidget {
                     height: 10,
                   ),
                   Semantics(
-                    child: OutlinedButton( style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
-                    ),
-                        onPressed: (){
-                          _showDialog(false, 'Alert', 'Are you sure want to Delete Account?', true, 'Cancel', 'Delete', false);
-                        }, child: Text('Delete Account')),
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0))),
+                        ),
+                        onPressed: () {
+                          _showDialog(
+                              false,
+                              'Alert',
+                              'Are you sure want to Delete Account?',
+                              true,
+                              'Cancel',
+                              'Delete',
+                              false);
+                        },
+                        child: Text('Delete Account')),
                     label: 'Good Example Delete Account',
                   ),
                 ],
@@ -121,12 +142,23 @@ class PointerCancellationSample extends StatelessWidget {
                     height: 10,
                   ),
                   Semantics(
-                    child: OutlinedButton( style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
-                    ),
-                        onPressed: (){
-                          _showDialog(false, 'Alert', 'Account Deleted Successfully', false, 'Okay', 'Okay', false);
-                        }, child: Text('Delete Account')),
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0))),
+                        ),
+                        onPressed: () {
+                          _showDialog(
+                              false,
+                              'Alert',
+                              'Account Deleted Successfully',
+                              false,
+                              'Okay',
+                              'Okay',
+                              false);
+                        },
+                        child: Text('Delete Account')),
                     label: 'Bad Example Delete Account',
                   ),
                 ],

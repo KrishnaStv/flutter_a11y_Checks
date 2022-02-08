@@ -1,4 +1,5 @@
 import 'package:sample1/importFiles.dart';
+import 'package:flutter/semantics.dart';
 
 class SkipReadingOrderSample extends StatefulWidget {
   @override
@@ -33,7 +34,7 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
     return Scaffold(
       appBar: new AppBarExtension(
           navdata:
-          TopBarData(title: '1.3.2.a – Reading Order', enableBack: true)),
+              TopBarData(title: '1.3.2.a – Reading Order', enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -43,7 +44,8 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('1.3.2.a – Reading Order: \n Skip UIElements.'),
+                      HeaderSemanticWithText(
+                          '1.3.2.a – Reading Order: \n Skip UIElements.'),
                     ],
                   ),
                 ],
@@ -53,17 +55,21 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
             ),
             Container(
                 padding: EdgeInsets.only(left: 15, right: 15),
-                alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Good Example:Using swipe right/swipe '
-                        'left on the screen check all UIElements are '
-                        'accessible.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Good Example:Using swipe right/swipe '
+                          'left on the screen check all UIElements are '
+                          'accessible.'),
+                    ),
                     Text(geDescription),
                   ],
-                )
+                )),
+            SizedBox(
+              height: 15,
             ),
-            SizedBox(height: 15,),
             Container(
               child: Column(
                 children: [
@@ -76,18 +82,22 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
                               alignment: Alignment.topLeft,
                               child: Semantics(
                                 child: Text("First Name"),
+                                sortKey: OrdinalSortKey(1),
                               ),
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                InputDecoration(hintText: 'Enter First Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter First Name'),
                               ),
+                              sortKey: OrdinalSortKey(2),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Expanded(
                         child: Column(
                           children: [
@@ -95,13 +105,15 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
                               alignment: Alignment.topLeft,
                               child: Semantics(
                                 child: Text("Last Name"),
+                                sortKey: OrdinalSortKey(3),
                               ),
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                InputDecoration(hintText: 'Enter Last Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter Last Name'),
                               ),
+                              sortKey: OrdinalSortKey(4),
                             ),
                           ],
                         ),
@@ -112,21 +124,29 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
               ),
               padding: EdgeInsets.only(left: 10, right: 10),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             CodeSinppetWidget(codeSnippet: codeSnippet),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Container(
                 padding: EdgeInsets.only(left: 15, right: 15),
-                alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Bad Example:Using swipe right/swipe'
-                        ' left on the screen check some UI elements are not accessible'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Bad Example:Using swipe right/swipe'
+                          ' left on the screen check some UI elements are not accessible'),
+                    ),
                     Text(beDescription),
                   ],
-                )
+                )),
+            SizedBox(
+              height: 15,
             ),
-            SizedBox(height: 15,),
             Container(
               child: Column(
                 children: [
@@ -143,14 +163,16 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                InputDecoration(hintText: 'Enter First Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter First Name'),
                               ),
                             ),
                           ],
                         ),
                       ),
-                      SizedBox(width: 10,),
+                      SizedBox(
+                        width: 10,
+                      ),
                       Expanded(
                         child: Column(
                           children: [
@@ -163,8 +185,8 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
                             ),
                             Semantics(
                               child: TextField(
-                                decoration:
-                                InputDecoration(hintText: 'Enter Last Name'),
+                                decoration: InputDecoration(
+                                    hintText: 'Enter Last Name'),
                               ),
                             ),
                           ],
@@ -176,7 +198,9 @@ class SkipReadingOrderSampleState extends State<SkipReadingOrderSample> {
               ),
               padding: EdgeInsets.only(left: 10, right: 10),
             ),
-            SizedBox(height: 45,),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

@@ -9,7 +9,8 @@ class AutomaticallyUpdatingContentSample extends StatefulWidget {
   }
 }
 
-class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatingContentSample> {
+class AutomaticallyUpdatingContentSampleState
+    extends State<AutomaticallyUpdatingContentSample> {
   final String ruleDescription =
       'Automatically updating content must be able to be paused,'
       ' stopped, or hidden by the user or the user can'
@@ -21,15 +22,17 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
   final String beDescription = 'For the collection images, there is no'
       ' option to move to next and previous images based on user input actions.';
 
-
   ScrollController _scrollController = new ScrollController();
   ScrollController _bescrollController = new ScrollController();
 
-  List imagesArray = ['assets/images/1.png',
+  List imagesArray = [
+    'assets/images/1.png',
     'assets/images/2.png',
-    'assets/images/3.png','assets/images/1.png',
+    'assets/images/3.png',
+    'assets/images/1.png',
     'assets/images/2.png',
-    'assets/images/3.png'];
+    'assets/images/3.png'
+  ];
 
   late Timer _timer;
   late Timer _betimer;
@@ -47,7 +50,7 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
     const oneSec = const Duration(seconds: 2);
     _timer = new Timer.periodic(oneSec, (Timer timer) {
       setState(() {
-        if (indexis == imagesArray.length -1) {
+        if (indexis == imagesArray.length - 1) {
           indexis = 0;
         } else {
           indexis += 1;
@@ -61,7 +64,7 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
     const oneSec = const Duration(seconds: 2);
     _betimer = new Timer.periodic(oneSec, (Timer timer) {
       setState(() {
-        if (beindexis == imagesArray.length-1) {
+        if (beindexis == imagesArray.length - 1) {
           beindexis = 0;
         } else {
           beindexis += 1;
@@ -71,7 +74,7 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
     });
   }
 
-  initState(){
+  initState() {
     startAutoScrollTimer();
     startAutoScrollBadTimer();
   }
@@ -84,12 +87,12 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
     super.dispose();
   }
 
-  void scrollToIndex(){
+  void scrollToIndex() {
     _scrollController.animateTo(listItemWidth * indexis,
         duration: const Duration(microseconds: 2), curve: Curves.easeInCirc);
   }
 
-  void beScrollToIndex(){
+  void beScrollToIndex() {
     _bescrollController.animateTo(listItemWidth * beindexis,
         duration: const Duration(microseconds: 2), curve: Curves.easeInCirc);
   }
@@ -113,16 +116,17 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
                       HeaderSemanticWithText(SCs.AutomaticUpdating.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-
             Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               alignment: Alignment.topLeft,
               child: Column(
                 children: [
@@ -135,58 +139,66 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
                 ],
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Container(
               width: listItemWidth,
               height: 200,
-              child: ListView(
-                controller: _scrollController,
-                // This next line does the trick.
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Image(
-                    image: AssetImage(imagesArray[0]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[1]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[2]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[3]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[4]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[5]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                ],
+              child: Semantics(
+                label: 'Good Example Animation',
+                child: ListView(
+                  controller: _scrollController,
+                  // This next line does the trick.
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Image(
+                      image: AssetImage(imagesArray[0]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[1]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[2]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[3]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[4]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[5]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ],
+                ),
               ),
             ),
-            ElevatedButton(onPressed: (){
-              setState(() {
-                isAnimationPause = !isAnimationPause;
-                if(isAnimationPause) {
-                  pauseGoodAnimation();
-                } else {
-                  startAutoScrollTimer();
-                }
-              });
-            },child: Text(isAnimationPause ? 'Pause' :'Play'),),
+            ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  isAnimationPause = !isAnimationPause;
+                  if (isAnimationPause) {
+                    pauseGoodAnimation();
+                  } else {
+                    startAutoScrollTimer();
+                  }
+                });
+              },
+              child: Text(isAnimationPause ? 'Pause' : 'Play'),
+            ),
             SizedBox(
               height: 25,
             ),
             Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               alignment: Alignment.topLeft,
               child: Column(
                 children: [
@@ -194,50 +206,57 @@ class AutomaticallyUpdatingContentSampleState extends State<AutomaticallyUpdatin
                     alignment: Alignment.topLeft,
                     child: HeaderSemanticWithText(
                         'Bad Example: Provides no mechanism to pause/stop'
-                            ' moving content/control.'),
+                        ' moving content/control.'),
                   ),
                   Text(beDescription),
                 ],
               ),
             ),
-            SizedBox(height: 15,),
+            SizedBox(
+              height: 15,
+            ),
             Container(
               width: listItemWidth,
               height: 200,
-              child: ListView(
-                controller: _bescrollController,
-                // This next line does the trick.
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                children: <Widget>[
-                  Image(
-                    image: AssetImage(imagesArray[0]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[1]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[2]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[3]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[4]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                  Image(
-                    image: AssetImage(imagesArray[5]),
-                    fit: BoxFit.fitWidth,
-                  ),
-                ],
+              child: Semantics(
+                label: 'Bad Example Animation',
+                child: ListView(
+                  controller: _bescrollController,
+                  // This next line does the trick.
+                  shrinkWrap: true,
+                  scrollDirection: Axis.horizontal,
+                  children: <Widget>[
+                    Image(
+                      image: AssetImage(imagesArray[0]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[1]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[2]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[3]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[4]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                    Image(
+                      image: AssetImage(imagesArray[5]),
+                      fit: BoxFit.fitWidth,
+                    ),
+                  ],
+                ),
               ),
             ),
-            SizedBox(height: 45,),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

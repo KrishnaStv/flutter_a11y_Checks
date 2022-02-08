@@ -2,35 +2,36 @@ import 'package:video_player/video_player.dart';
 import 'package:sample1/importFiles.dart';
 
 class TextTranscriptVideoSample extends StatefulWidget {
-
   final String pageTitle;
   final String topname;
 
-  TextTranscriptVideoSample({required this.pageTitle, required this.topname });
-
+  TextTranscriptVideoSample({required this.pageTitle, required this.topname});
 
   @override
-  State<StatefulWidget> createState() => new TextTranscriptVideoState(pageTitle: pageTitle, topname: topname);
+  State<StatefulWidget> createState() =>
+      new TextTranscriptVideoState(pageTitle: pageTitle, topname: topname);
 }
 
 class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
-
   final String pageTitle;
   final String topname;
 
-  TextTranscriptVideoState({required this.pageTitle, required this.topname });
+  TextTranscriptVideoState({required this.pageTitle, required this.topname});
 
   late VideoPlayerController _controller;
   late VideoPlayerController _beController;
 
-  final String ruleDescription = 'Prerecorded and all web based video files MUST come with an adjacent or easily reachable full text alternative describing the important visual details OR an audio description track'
-      '. For bad example descriptions won''t available.';
+  final String ruleDescription =
+      'Prerecorded and all web based video files MUST come with an adjacent or easily reachable full text alternative describing the important visual details OR an audio description track'
+      '. For bad example descriptions won'
+      't available.';
 
   @override
   void initState() {
     super.initState();
     _controller = VideoPlayerController.asset('assets/Videos/121bGEVideo.mp4');
-    _beController = VideoPlayerController.asset('assets/Videos/121bBEVideo.mp4');
+    _beController =
+        VideoPlayerController.asset('assets/Videos/121bBEVideo.mp4');
     _controller.initialize().then((_) => setState(() {}));
     _beController.initialize().then((_) => setState(() {}));
   }
@@ -48,8 +49,7 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
     // TODO: implement build
     return Scaffold(
         appBar: new AppBarExtension(
-            navdata: TopBarData(
-                title: pageTitle, enableBack: true)),
+            navdata: TopBarData(title: pageTitle, enableBack: true)),
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
@@ -65,11 +65,9 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                     Text(ruleDescription),
                   ],
                 ),
-                padding:
-                EdgeInsets.all(15),
+                padding: EdgeInsets.all(15),
                 alignment: Alignment.centerLeft,
               ),
-
               Container(
                 child: Column(
                   children: [
@@ -77,32 +75,38 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                       padding: EdgeInsets.only(left: 15),
                       alignment: Alignment.topLeft,
                       child: Semantics(
-                        child: Text('Good Example', style: TextStyle(
-                            fontWeight: FontWeight.bold
-                        ),),
+                        child: Text(
+                          'Good Example',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         header: true,
                       ),
                     ),
-                    SizedBox(height: 10,),
-                    AspectRatio(aspectRatio: _controller.value.aspectRatio,
+                    SizedBox(
+                      height: 10,
+                    ),
+                    AspectRatio(
+                      aspectRatio: _controller.value.aspectRatio,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: <Widget>[
                           VideoPlayer(_controller),
-                          VideoProgressIndicator(_controller, allowScrubbing: true),
+                          VideoProgressIndicator(_controller,
+                              allowScrubbing: true),
                         ],
                       ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MaterialButton(
+                        ElevatedButton(
                           onPressed: () {
                             _controller.play();
                           },
                           child: Text('Play'),
                         ),
-                        MaterialButton(
+                        SizedBox(width: 25,),
+                        ElevatedButton(
                           onPressed: () {
                             _controller.pause();
                           },
@@ -110,37 +114,45 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Container(
                       padding: EdgeInsets.only(left: 15),
                       child: Semantics(
-                        child: Text('Bad Example', style: TextStyle(
-                            fontWeight: FontWeight.bold
-                        ),),
+                        child: Text(
+                          'Bad Example',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
                         header: true,
                       ),
                       alignment: Alignment.topLeft,
                     ),
-                    SizedBox(height: 15,),
-                    AspectRatio(aspectRatio: _beController.value.aspectRatio,
+                    SizedBox(
+                      height: 15,
+                    ),
+                    AspectRatio(
+                      aspectRatio: _beController.value.aspectRatio,
                       child: Stack(
                         alignment: Alignment.bottomCenter,
                         children: <Widget>[
                           VideoPlayer(_beController),
-                          VideoProgressIndicator(_beController, allowScrubbing: true),
+                          VideoProgressIndicator(_beController,
+                              allowScrubbing: true),
                         ],
                       ),
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        MaterialButton(
+                        ElevatedButton(
                           onPressed: () {
                             _beController.play();
                           },
                           child: Text('Play'),
                         ),
-                        MaterialButton(
+                        SizedBox(width: 25,),
+                        ElevatedButton(
                           onPressed: () {
                             _beController.pause();
                           },
@@ -153,7 +165,6 @@ class TextTranscriptVideoState extends State<TextTranscriptVideoSample> {
               ),
             ],
           ),
-        )
-    );
+        ));
   }
 }

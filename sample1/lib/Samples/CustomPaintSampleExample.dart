@@ -100,6 +100,41 @@ class PaintWidgetState extends State<PaintWidget> {
   }
 }
 
+class KeyPathPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    Paint lineDrawer = Paint()
+      ..color = Colors.blue
+      ..strokeWidth = 8.0;
+
+    Path path = Path()
+// Moves to starting point
+      ..moveTo(50, 50)
+    //draw lines passing through xc, yc to end at x,y
+      ..quadraticBezierTo(77, 370, 50, 750)
+      ..quadraticBezierTo(100, 775, 150, 750)
+      ..quadraticBezierTo(110, 440, 75, 50);
+    //close shape from last point
+    path.close();
+    canvas.drawPath(path, lineDrawer);
+
+    Path path2 = Path()
+// Moves to starting point
+      ..moveTo(250, 50)
+    //draw lines passing through xc, yc to end at x,y
+      ..quadraticBezierTo(280, 350, 270, 675)
+      ..quadraticBezierTo(290, 750, 350, 750)
+      ..quadraticBezierTo(365, 710, 345, 600)
+      ..quadraticBezierTo(320, 450, 270, 50);
+    //close shape from last point
+    path2.close();
+    canvas.drawPath(path2, lineDrawer);
+  }
+
+  @override
+  bool shouldRepaint(CustomPainter oldDelegate) => true;
+}
+
 
 class BackgroundDrawLinePainter extends CustomPainter {
   Offset startPoint;

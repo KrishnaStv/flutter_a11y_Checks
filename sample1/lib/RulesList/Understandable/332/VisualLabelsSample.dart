@@ -1,9 +1,7 @@
 import 'package:sample1/importFiles.dart';
 
 class VisualLabelsSample extends StatelessWidget {
-
-  final String ruleDescription =
-      ' Sufficient labels for form field '
+  final String ruleDescription = ' Sufficient labels for form field '
       'elements MUST be provided for all'
       ' users (sighted and non-sighted).';
 
@@ -12,7 +10,8 @@ class VisualLabelsSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.VisibleLabels.pageTitle, enableBack: true)),
+          navdata:
+              TopBarData(title: SCs.VisibleLabels.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -25,7 +24,9 @@ class VisualLabelsSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.VisibleLabels.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -34,7 +35,7 @@ class VisualLabelsSample extends StatelessWidget {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(
@@ -44,10 +45,16 @@ class VisualLabelsSample extends StatelessWidget {
                     Text('The sample below uses'
                         ' an explicitly visible label associated with each form field.\n '
                         'MUST need to add a Visible label for any input data.'),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text('User Name',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
+                      child: Text(
+                        'User Name',
+                        style: TextStyle(
+                            fontWeight: FontWeight.normal, fontSize: 15),
+                      ),
                     ),
                     TextField(
                       maxLines: 1,
@@ -58,27 +65,32 @@ class VisualLabelsSample extends StatelessWidget {
                         hintText: "Enter User Name",
                       ),
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text('Date of Birth',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
+                      child: Text(
+                        'Date of Birth',
+                        style: TextStyle(
+                            fontWeight: FontWeight.normal, fontSize: 15),
+                      ),
                     ),
                     Row(
                       children: [
-                      Text('Date'),
-                       Container(
-                         height: 50.0,
-                         width: 60.0,
-                         child: TextField(
-                             maxLines: 1,
-                             minLines: 1,
-                           decoration: InputDecoration(
-                             border: OutlineInputBorder(),
-                             hintText: ' DD',
-                             isDense: true,
-                           )
-                         ),
-                       ),
+                        Text('Date'),
+                        Container(
+                          height: 50.0,
+                          width: 60.0,
+                          child: TextField(
+                              maxLines: 1,
+                              minLines: 1,
+                              decoration: InputDecoration(
+                                border: OutlineInputBorder(),
+                                hintText: ' DD',
+                                isDense: true,
+                              )),
+                        ),
                         Text('Month'),
                         Container(
                           height: 50.0,
@@ -90,8 +102,7 @@ class VisualLabelsSample extends StatelessWidget {
                                 border: OutlineInputBorder(),
                                 hintText: ' MM',
                                 isDense: true,
-                              )
-                          ),
+                              )),
                         ),
                         Text('Year'),
                         Container(
@@ -104,19 +115,22 @@ class VisualLabelsSample extends StatelessWidget {
                                 border: OutlineInputBorder(),
                                 hintText: ' YY',
                                 isDense: true,
-                              )
-                          ),
+                              )),
                         ),
                       ],
                     ),
-                   SizedBox(height: 20,),
+                    SizedBox(
+                      height: 20,
+                    ),
                     Row(
                       children: [
                         Semantics(
                           label: 'Phone Number',
                           child: Image.asset('assets/images/phone-call.png'),
                         ),
-                        SizedBox(width: 15,),
+                        SizedBox(
+                          width: 15,
+                        ),
                         Container(
                           width: 250.0,
                           child: TextField(
@@ -126,8 +140,7 @@ class VisualLabelsSample extends StatelessWidget {
                                 border: OutlineInputBorder(),
                                 hintText: ' Enter Phone Number',
                                 isDense: true,
-                              )
-                          ),
+                              )),
                         ),
                       ],
                     )
@@ -135,10 +148,12 @@ class VisualLabelsSample extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 25,),
+            SizedBox(
+              height: 25,
+            ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(
@@ -148,7 +163,9 @@ class VisualLabelsSample extends StatelessWidget {
                     Text('The sample below fails to use an explicitly '
                         'visible label for both group form fields '
                         'and Username fields.'),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     TextField(
                       maxLines: 1,
                       minLines: 1,
@@ -158,10 +175,14 @@ class VisualLabelsSample extends StatelessWidget {
                         hintText: "Enter User Name",
                       ),
                     ),
-                    SizedBox(height: 15,),
+                    SizedBox(
+                      height: 15,
+                    ),
                     Row(
                       children: [
-                        SizedBox(width: 25,),
+                        SizedBox(
+                          width: 25,
+                        ),
                         Container(
                           height: 50.0,
                           width: 60.0,
@@ -172,10 +193,11 @@ class VisualLabelsSample extends StatelessWidget {
                                 border: OutlineInputBorder(),
                                 hintText: ' DD',
                                 isDense: true,
-                              )
-                          ),
+                              )),
                         ),
-                        SizedBox(width: 25,),
+                        SizedBox(
+                          width: 25,
+                        ),
                         Container(
                           height: 50.0,
                           width: 60.0,
@@ -186,10 +208,11 @@ class VisualLabelsSample extends StatelessWidget {
                                 border: OutlineInputBorder(),
                                 hintText: ' MM',
                                 isDense: true,
-                              )
-                          ),
+                              )),
                         ),
-                        SizedBox(width: 25,),
+                        SizedBox(
+                          width: 25,
+                        ),
                         Container(
                           height: 50.0,
                           width: 60.0,
@@ -200,8 +223,7 @@ class VisualLabelsSample extends StatelessWidget {
                                 border: OutlineInputBorder(),
                                 hintText: ' YY',
                                 isDense: true,
-                              )
-                          ),
+                              )),
                         ),
                       ],
                     ),

@@ -19,8 +19,8 @@ class ConsistentIdentificationSample extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata:
-              TopBarData(title: SCs.ConsistentIdentification.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.ConsistentIdentification.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -33,7 +33,9 @@ class ConsistentIdentificationSample extends StatelessWidget {
                       HeaderSemanticWithText(SCs.ConsistentIdentification.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -41,7 +43,7 @@ class ConsistentIdentificationSample extends StatelessWidget {
               alignment: Alignment.centerLeft,
             ),
             Container(
-              padding: EdgeInsets.only(left: 15,right: 15),
+              padding: EdgeInsets.only(left: 15, right: 15),
               child: Column(
                 children: [
                   Container(
@@ -125,61 +127,71 @@ class ConsistentIdentificationSample extends StatelessWidget {
               height: 25,
             ),
             Container(
-                 padding: EdgeInsets.only(left: 15,right: 15),
-                 child: Column(
-                   children: [
-                     Container(
-                       alignment: Alignment.topLeft,
-                       child: HeaderSemanticWithText('Bad Example'),
-                     ),
-                     Text('The sample below takes the above scenarios '
-                         'and shows how labels can be inconsistent '
-                         'when used on different screens.'),
-                     SizedBox(height: 15,),
-                     Container(
-                       height: 55,
-                       color: Colors.blueAccent,
-                       child:
-                           Row(
-                             children: [
-                               SizedBox(width: 25,),
-                               Semantics(
-                                 button: true,
-                                 label: 'Hamburger Menu',
-                                 child: Semantics(
-                                   child: IconButton(
-                                     icon: Image.asset('assets/images/menu.png'),
-                                     onPressed: () {},
-                                   ),
-                                   excludeSemantics: true,
-                                 ),
-                               ),
-                               SizedBox(width: 25,),
-                               Semantics(
-                                 header: true,
-                                 child:  Text('Disaster Management',
-                                     style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white) ),
-                               ),
-                             ],
-                           )
-                     ),
-                     SizedBox(height: 10,),
-                     Container(
-                       alignment: Alignment.topLeft,
-                       child: Text('Contact Number'),
-                     ),
-                     Semantics(
-                       textField:true,
-                       child: TextField(
-                         decoration: InputDecoration(
-                           hintText: "999 999 9999",
-                         ),
-                       ),
-                     ),
-                   ],
-                 ),
-               ),
-            SizedBox(height: 45,),
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Bad Example'),
+                  ),
+                  Text('The sample below takes the above scenarios '
+                      'and shows how labels can be inconsistent '
+                      'when used on different screens.'),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                      height: 55,
+                      color: Colors.blueAccent,
+                      child: Row(
+                        children: [
+                          SizedBox(
+                            width: 25,
+                          ),
+                          Semantics(
+                            button: true,
+                            label: 'Hamburger Menu',
+                            child: Semantics(
+                              child: IconButton(
+                                icon: Image.asset('assets/images/menu.png'),
+                                onPressed: () {},
+                              ),
+                              excludeSemantics: true,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 25,
+                          ),
+                          Semantics(
+                            header: true,
+                            child: Text('Disaster Management',
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.white)),
+                          ),
+                        ],
+                      )),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text('Contact Number'),
+                  ),
+                  Semantics(
+                    textField: true,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: "999 999 9999",
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

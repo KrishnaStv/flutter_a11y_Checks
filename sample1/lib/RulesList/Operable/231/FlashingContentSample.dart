@@ -98,23 +98,23 @@ class FlashingContentSampleState extends State<FlashingContentSample> {
                   SizedBox(
                     height: 10,
                   ),
-                 Semantics(
-                   label: 'Offers of Month',
-                   child:  getImageFromPath('assets/images/imagesoftext.png'),
-                 ),
+                  Semantics(
+                    label: 'Offers of Month',
+                    child: getImageFromPath('assets/images/imagesoftext.png'),
+                  ),
                 ],
               ),
             ),
             SizedBox(
-              height: 25,
+              height: 20,
             ),
             Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.only(left: 15, right: 15),
               child: Column(
                 children: [
                   Container(
                     alignment: Alignment.topLeft,
-                    child: HeaderSemanticWithText('  Bad Example'),
+                    child: HeaderSemanticWithText('Bad Example'),
                   ),
                   Text('The sample below uses programmatic animation over a '
                       'label to change the visibility to give a flashing effect.'
@@ -124,6 +124,7 @@ class FlashingContentSampleState extends State<FlashingContentSample> {
                     height: 10,
                   ),
                   Semantics(
+                    image: true,
                     child: Container(
                       height: 90,
                       width: 280,

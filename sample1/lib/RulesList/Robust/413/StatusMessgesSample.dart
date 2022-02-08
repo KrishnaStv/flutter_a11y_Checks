@@ -64,7 +64,8 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.StatusMessages.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.StatusMessages.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -85,7 +86,7 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 alignment: Alignment.topLeft,
                 child: HeaderSemanticWithText('Good Example: For any status '
                     'messages or response messages convey that information '
@@ -93,83 +94,93 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
               ),
             ),
             Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    Text('Login Form - After success response from the server'
-                        ' VoiceOver MUST have to inform the user. /n '
-                        'For the login form field, After submitting'
-                        ' the button, we are informing the user that'
-                        ' \'Loading\'. \n'
-                        'Once the API request is successful, we are '
-                        'representing on toast message to the user, '
-                        'we are announcing that message to the user '
-                        'via VoiceOver.'),
-                    SizedBox(
-                      height: 15,
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Text('Login Form - After success response from the server'
+                      ' VoiceOver MUST have to inform the user. /n '
+                      'For the login form field, After submitting'
+                      ' the button, we are informing the user that'
+                      ' \'Loading\'. \n'
+                      'Once the API request is successful, we are '
+                      'representing on toast message to the user, '
+                      'we are announcing that message to the user '
+                      'via VoiceOver.'),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Entre Mobile Number',
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal, fontSize: 15),
                     ),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Entre Mobile Number',
-                        style: TextStyle(
-                            fontWeight: FontWeight.normal, fontSize: 15),
-                      ),
+                  ),
+                  TextField(
+                    controller: _controller,
+                    maxLines: 1,
+                    minLines: 1,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(),
+                      hintText: '',
                     ),
-                    TextField(
-                      controller: _controller,
-                      obscureText: true,
-                      maxLines: 1,
-                      minLines: 1,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        border: OutlineInputBorder(),
-                        hintText: '',
-                      ),
-                      onChanged: (text) => setState(() => _text),
+                    onChanged: (text) => setState(() => _text),
+                  ),
+                  isToShowGEMobileRegistration
+                      ? Text(registrationStatus ?? '')
+                      : new Container(),
+                  Semantics(
+                    label: 'Good Example Submit',
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          if (_controller.value.text.isEmpty) {
+                            Future.delayed(Duration(milliseconds: 300), () {
+                              SemanticsService.announce(
+                                  "Blank Mobile Number", TextDirection.ltr);
+                            });
+                          } else {
+                            Future.delayed(Duration(milliseconds: 300), () {
+                              SemanticsService.announce(
+                                  "Registration Successful", TextDirection.ltr);
+                            });
+                          }
+                          isToShowGEMobileRegistration =
+                              !isToShowGEMobileRegistration;
+                        });
+                      },
+                      child: Text('SUBMIT'),
                     ),
-                    isToShowGEMobileRegistration ? Text(registrationStatus ?? '') : new Container(),
-                   Semantics(
-                     label: 'Good Example Submit',
-                     child:  ElevatedButton(
-                       onPressed: () {
-                         setState(() {
-                           if(_controller.value.text.isEmpty) {
-                             Future.delayed(Duration(milliseconds: 300), () {
-                               SemanticsService.announce("Blank Mobile Number", TextDirection.ltr);
-                             });
-                           } else {
-                             Future.delayed(Duration(milliseconds: 300), () {
-                               SemanticsService.announce("Registration Successful", TextDirection.ltr);
-                             });
-                           }
-                           isToShowGEMobileRegistration = !isToShowGEMobileRegistration;
-                         });
-                       },
-                       child: Text('SUBMIT'),
-                     ),
-                   ),
-                    Text('VoiceOver will announce as \'Registration Successful\''),
-                    SizedBox(height: 15,),
-                    Container(
-                      child:Column(
-                        children: [
-                          Row(
-                            children: [
-                              HeaderSemanticWithText('Code Snippet'),
-                            ],
+                  ),
+                  Text(
+                      'VoiceOver will announce as \'Registration Successful\''),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            HeaderSemanticWithText('Code Snippet'),
+                          ],
+                        ),
+                        Container(
+                          color: Colors.black,
+                          child: Text(
+                            geCodeSnippet1,
+                            style: TextStyle(color: Colors.white),
                           ),
-                          Container(
-                            color: Colors.black,
-                            child: Text(geCodeSnippet1, style: TextStyle(color: Colors.white),),
-                          ),
-                        ],
-                      ),
-                      alignment: Alignment.center,
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                    alignment: Alignment.center,
+                  ),
+                ],
               ),
+            ),
             Divider(),
             Container(
               padding: EdgeInsets.all(10),
@@ -181,7 +192,9 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                   SizedBox(
                     height: 15,
                   ),
-                  isToShowGEShoppingcart ? Text('Shopping Cart, 2 items') : new Container(),
+                  isToShowGEShoppingcart
+                      ? Text('Shopping Cart, 2 items')
+                      : new Container(),
                   Semantics(
                     label: 'Good Example Add to Cart',
                     child: ElevatedButton(
@@ -189,10 +202,13 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                         setState(() {
                           isToShowGEShoppingcart = !isToShowGEShoppingcart;
                           Future.delayed(Duration(milliseconds: 300), () {
-                            SemanticsService.announce("Shopping Cart, 2 items", TextDirection.ltr);
+                            SemanticsService.announce(
+                                "Shopping Cart, 2 items", TextDirection.ltr);
                           });
                         });
-                      },child: Text('ADD TO CART'),),
+                      },
+                      child: Text('ADD TO CART'),
+                    ),
                   ),
                   Text('VoiceOver will announce as \'Shopping Cart, 2 items\''),
                   Divider(),
@@ -207,8 +223,7 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                     'information to sight/vision disability user '),
               ),
             ),
-            Semantics(
-              child: Container(
+             Container(
                 padding: EdgeInsets.all(10),
                 child: Column(
                   children: [
@@ -227,7 +242,6 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                     ),
                     TextField(
                       controller: _controller,
-                      obscureText: true,
                       maxLines: 1,
                       minLines: 1,
                       decoration: InputDecoration(
@@ -237,18 +251,21 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                       ),
                       onChanged: (text) => setState(() => _text),
                     ),
-                    isToShowBEMobileRegistration ? Text(registrationStatus ?? '') : new Container(),
-                   Semantics(
-                     label: 'Bad Example Submit',
-                     child:
-                   ElevatedButton(
-                     onPressed: () {
-                       setState(() {
-                         isToShowBEMobileRegistration = !isToShowBEMobileRegistration;
-                       });
-                     },
-                     child: Text('SUBMIT'),
-                   ),),
+                    isToShowBEMobileRegistration
+                        ? Text(registrationStatus ?? '')
+                        : new Container(),
+                    Semantics(
+                      label: 'Bad Example Submit',
+                      child: ElevatedButton(
+                        onPressed: () {
+                          setState(() {
+                            isToShowBEMobileRegistration =
+                                !isToShowBEMobileRegistration;
+                          });
+                        },
+                        child: Text('SUBMIT'),
+                      ),
+                    ),
                     SizedBox(
                       height: 5,
                     ),
@@ -262,15 +279,20 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                           SizedBox(
                             height: 15,
                           ),
-                          isToShowBEShoppingcart ? Text('Shopping Cart, 2 items') : new Container(),
+                          isToShowBEShoppingcart
+                              ? Text('Shopping Cart, 2 items')
+                              : new Container(),
                           Semantics(
                             label: 'Bad Example Add to cart',
                             child: ElevatedButton(
                               onPressed: () {
                                 setState(() {
-                                  isToShowBEShoppingcart = !isToShowBEShoppingcart;
+                                  isToShowBEShoppingcart =
+                                      !isToShowBEShoppingcart;
                                 });
-                              },child: Text('ADD TO CART'),),
+                              },
+                              child: Text('ADD TO CART'),
+                            ),
                           ),
                         ],
                       ),
@@ -278,7 +300,7 @@ class StatusMessagesSampleState extends State<StatusMessagesSample> {
                   ],
                 ),
               ),
-            ),
+            SizedBox(height: 75,),
           ],
         ),
       ),

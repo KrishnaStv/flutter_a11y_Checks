@@ -35,6 +35,8 @@ dependencies:
   geolocator: any
   flutter_rating_bar: ^4.0.0
   motion_sensors: ^0.1.0
+  shake: ^2.0.0
+  tilt_action: ^0.1.0
 
 dev_dependencies:
   flutter_test:

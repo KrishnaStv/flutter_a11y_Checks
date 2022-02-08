@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:sample1/importFiles.dart';
 
 class AudioControlSample extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -12,7 +11,6 @@ class AudioControlSample extends StatefulWidget {
 }
 
 class AudioControlSampleState extends State<AudioControlSample> {
-
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
   bool isPlaying = false;
@@ -37,7 +35,7 @@ class AudioControlSampleState extends State<AudioControlSample> {
 
   void pauseAudio() {
     setState(() {
-      if(isPlaying) {
+      if (isPlaying) {
         isPlaying = false;
         advancedPlayer.pause();
       } else {
@@ -52,7 +50,8 @@ class AudioControlSampleState extends State<AudioControlSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.AudioControl.pageTitle, enableBack: true)),
+          navdata:
+              TopBarData(title: SCs.AudioControl.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -71,30 +70,41 @@ class AudioControlSampleState extends State<AudioControlSample> {
               padding: EdgeInsets.all(15),
               alignment: Alignment.centerLeft,
             ),
-            SizedBox(height: 5,),
+            SizedBox(
+              height: 5,
+            ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                   Container(
-                       alignment: Alignment.topLeft,
-                       child:  HeaderSemanticWithText('Good Example:'),
-                   ),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText('Good Example:'),
+                    ),
                     Text('The sample below adds a button to pause '
                         'or resume the audio that plays automatically.')
                   ],
-                )
+                )),
+            SizedBox(
+              height: 10,
             ),
-            SizedBox(height: 10,),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text('Our Fresh Audio Compilation'),
-                SizedBox(width: 15,),
-                ElevatedButton(onPressed: () {
-                  pauseAudio();
-                }, child: Text(isPlaying ? 'Pause' : 'Play', style: TextStyle(fontSize: 12),),),
+                SizedBox(
+                  width: 15,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    pauseAudio();
+                  },
+                  child: Text(
+                    isPlaying ? 'Pause' : 'Play',
+                    style: TextStyle(fontSize: 12),
+                  ),
+                ),
               ],
             ),
           ],

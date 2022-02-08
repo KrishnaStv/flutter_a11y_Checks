@@ -2,7 +2,6 @@ import 'package:sample1/importFiles.dart';
 import 'dart:async';
 
 class PauseStopHideContentSample extends StatefulWidget {
-
   @override
   State<StatefulWidget> createState() {
     // TODO: implement createState
@@ -11,7 +10,6 @@ class PauseStopHideContentSample extends StatefulWidget {
 }
 
 class PauseStopHideContentState extends State<PauseStopHideContentSample> {
-
   final String ruleDescription =
       'Automatically moving, blinking, or scrolling content '
       'that lasts longer than 5 seconds MUST be able to be paused, '
@@ -26,25 +24,26 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
   late Timer _badTimer;
   var _badStart = 2;
 
-  List imagesArray = ['assets/images/1.png',
+  List imagesArray = [
+    'assets/images/1.png',
     'assets/images/2.png',
-    'assets/images/3.png'];
+    'assets/images/3.png'
+  ];
   late AssetImage _imageToShow;
   late AssetImage _badImageToShow;
-
 
   void pauseTimer() {
     _timer.cancel();
   }
 
   void startTimer() {
-    _start = imagesArray.length-1;
+    _start = imagesArray.length - 1;
     const oneSec = const Duration(seconds: 1);
     _timer = new Timer.periodic(
       oneSec,
-          (Timer timer) {
+      (Timer timer) {
         if (_start == 0) {
-          _start = imagesArray.length-1;
+          _start = imagesArray.length - 1;
           // setState(() {
           //   timer.cancel();
           // });
@@ -59,13 +58,13 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
   }
 
   void startBadTimer() {
-    _badStart = imagesArray.length-1;
+    _badStart = imagesArray.length - 1;
     const oneSec = const Duration(seconds: 1);
     _badTimer = new Timer.periodic(
       oneSec,
-          (Timer timer) {
+      (Timer timer) {
         if (_badStart == 0) {
-          _badStart = imagesArray.length-1;
+          _badStart = imagesArray.length - 1;
           // setState(() {
           //   timer.cancel();
           // });
@@ -88,7 +87,7 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
     return imageObj;
   }
 
-  initState(){
+  initState() {
     _imageToShow = AssetImage(imagesArray[0]);
     _badImageToShow = AssetImage(imagesArray[0]);
     startTimer();
@@ -105,11 +104,11 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
 
   @override
   Widget build(BuildContext context) {
-
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.PauseStopHide.pageTitle, enableBack: true)),
+          navdata:
+              TopBarData(title: SCs.PauseStopHide.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -129,40 +128,40 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
               alignment: Alignment.centerLeft,
             ),
             Semantics(
-              child:
-              Container(
-                padding: EdgeInsets.only(left: 15),
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('Good Example: Provides a button to control play/pause of the image-slider.'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Good Example: Provides a button to control play/pause of the image-slider.'),
+                    ),
                     Text('The sample below uses a native ViewFlipper'
                         ' with multiple ImageViews to present a slider. '
                         'ViewFlipper by default comes with a good set of '
                         'functions to autostart, stop, start a flipper.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Semantics(
                       child: Image(
                         image: _imageToShow,
                         fit: BoxFit.cover,
                       ),
-                      label: 'Birds Animation',
+                      label: 'good Example Birds Animation',
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Semantics(
                           child: ElevatedButton(
-                            child: isAnimationPause ? Text("Play") : Text("Pause"),
+                            child:
+                                isAnimationPause ? Text("Play") : Text("Pause"),
                             onPressed: () {
                               setState(() {
                                 isAnimationPause = !isAnimationPause;
-                                if(isAnimationPause == true) {
+                                if (isAnimationPause == true) {
                                   pauseTimer();
                                 } else {
                                   startTimer();
@@ -179,32 +178,34 @@ class PauseStopHideContentState extends State<PauseStopHideContentSample> {
             ),
             Divider(),
             Semantics(
-              child:
-              Container(
-                alignment: Alignment.topLeft,
-                child: HeaderSemanticWithText('   Bad Example: No option to adjust or extend time limit.'),
-              ),
-            ),
-            Semantics(
               child: Container(
-                padding: EdgeInsets.all(10),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Bad Example: No option to adjust or extend time limit.'),
+                    ),
                     Text('The sample below does not warn or allow users'
                         ' to extend/adjust the timing of the session time-outs.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Semantics(
                       child: Image(
                         image: _badImageToShow,
                         fit: BoxFit.cover,
                       ),
-                      label: 'Birds Animation',
+                      label: 'Bad Example Birds Animation',
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 45,),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

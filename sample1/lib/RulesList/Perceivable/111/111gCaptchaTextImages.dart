@@ -24,7 +24,7 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
       'child: Container( \n child: ImageWidget'
       'excludeSemantics: true,';
   final String beRuleDescription = 'When focused on the ImageView,'
-      ' because an accessibilityLabel attribute '
+      ' because an semantics Labels attribute '
       'is not assigned, VoiceOver will announce'
       ' as trait value only \'image\'. No alternative way for '
       'captcha like Audio clip.';
@@ -74,7 +74,6 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
       excludeSemantics: true,
     );
 
-
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
@@ -101,12 +100,15 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
             Semantics(
               child: Container(
                   padding: EdgeInsets.only(left: 15, right: 15),
-                  alignment: Alignment.topLeft,
                   child: Column(
                     children: [
-                      HeaderSemanticWithText('Good Example: CAPTCHA image with'
-                          ' captcha hint as accessibility description and audio '
-                          'clip as another alternative'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Good Example: CAPTCHA image with'
+                            ' captcha hint as accessibility description and audio '
+                            'clip as another alternative'),
+                      ),
                       Text(geRuleDescription),
                     ],
                   )),
@@ -143,15 +145,16 @@ class AltTextCaptchaImagesState extends State<AltTextCaptchaImages> {
               ],
             ),
             Divider(),
-
             Semantics(
               child: Container(
                   padding: EdgeInsets.only(left: 15, right: 15),
-                  alignment: Alignment.topLeft,
                   child: Column(
                     children: [
-                      HeaderSemanticWithText(
-                          'Bad Example: ImageView without accessibility description'),
+                      Container(
+                        alignment: Alignment.topLeft,
+                        child: HeaderSemanticWithText(
+                            'Bad Example: ImageView without accessibility description'),
+                      ),
                       Text(beRuleDescription),
                     ],
                   )),

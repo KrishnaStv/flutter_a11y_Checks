@@ -16,6 +16,7 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
       'suggestions MUST be provided in text for fixing '
       'the input in a timely and accessible manner before'
       ' the data is submitted to the server.';
+
   var _text = '';
   var _beText = '';
 
@@ -54,7 +55,8 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.ErrorSuggestions.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.ErrorSuggestions.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -67,7 +69,9 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
                       HeaderSemanticWithText(SCs.ErrorSuggestions.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -76,7 +80,7 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(
@@ -129,7 +133,7 @@ class ErrorSuggestionSampleState extends State<ErrorSuggestionSample> {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(

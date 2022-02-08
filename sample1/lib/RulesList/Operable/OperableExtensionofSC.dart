@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sample1/RulesList/Operable/211/CustomGesturesSample.dart';
 import 'package:sample1/RulesList/Operable/211/KeyboardNavigationSample.dart';
+import 'package:sample1/RulesList/Operable/212/KeyboardTrapExample.dart';
 import 'package:sample1/RulesList/Operable/221/TimeAdjustableSample.dart';
 import 'package:sample1/RulesList/Operable/222/AutomaticallyUpdatingContentSample.dart';
 import 'package:sample1/RulesList/Operable/222/PauseStopHideContentSample.dart';
@@ -11,6 +12,7 @@ import 'package:sample1/RulesList/Operable/246/DescriptiveLabelsSample.dart';
 import 'package:sample1/RulesList/Operable/251/251PointerGestures.dart';
 import 'package:sample1/RulesList/Operable/252/252PointerCancellation.dart';
 import 'package:sample1/RulesList/Operable/253/LabelinNameSample.dart';
+import 'package:sample1/RulesList/Operable/254/MotionActuationSample.dart';
 import 'package:sample1/importFiles.dart';
 
 class KeyboardNavigationSampleButton extends StatelessWidget {
@@ -318,6 +320,52 @@ class PointerCancellationSampleButton extends StatelessWidget {
       children: [
         SizedBox(width: 5,),
         TextReturnSCLabelWidget(checkPoint: SCs.PointerCancellation.name,),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+//MotionActuationSample
+class MotionActuationSampleButton extends StatelessWidget {
+
+  String identifier = SCs.MotionActuation.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return MotionActuationSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.MotionActuation.name,),
+        Spacer(),
+        RightArrowImageWidget(),
+      ],
+    ),);
+  }
+}
+
+//KeyboardTrapSample
+class KeyboardTrapSampleButton extends StatelessWidget {
+
+  String identifier = SCs.KeyboardTrap.identifier;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialButton(onPressed: () {
+      Navigator.push(context, MaterialPageRoute(builder: (context) {
+        return KeyboardTrapSample();
+      })
+      );
+    }, child: Row(
+      children: [
+        SizedBox(width: 5,),
+        TextReturnSCLabelWidget(checkPoint: SCs.KeyboardTrap.name,),
         Spacer(),
         RightArrowImageWidget(),
       ],

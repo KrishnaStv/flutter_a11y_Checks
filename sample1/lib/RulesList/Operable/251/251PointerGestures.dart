@@ -1,3 +1,4 @@
+import 'package:sample1/RulesList/Operable/251/GoogleMapsSample.dart';
 import 'package:sample1/importFiles.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -15,7 +16,7 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
       'pointer can be operated with single-pointer actions.'
       ' Path-based or multi-point gestures are not required '
       'to operate any functionality. Exceptions exist.';
-  CameraPosition _initialPosition = CameraPosition(target: LatLng(0.0,0.0));
+  CameraPosition _initialPosition = CameraPosition(target: LatLng(0.0, 0.0));
   late GoogleMapController _mapController;
   var currentVolume = 4;
 
@@ -27,7 +28,7 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
             title: Text('Alert'),
             content: Text(content),
             actions: [
-              TextButton(
+              ElevatedButton(
                   onPressed: () {
                     Navigator.of(dragContext).pop();
                   },
@@ -79,79 +80,18 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                 ],
               ),
             ),
-            SizedBox(height: 10,),
-            Container(
-              width: 300,
-              height: 400,
-              child:  Stack(
-                children: [
-                  Semantics(
-                    child: GoogleMap(initialCameraPosition: _initialPosition,
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
-                      mapType: MapType.normal,
-                      zoomGesturesEnabled: true,
-                      zoomControlsEnabled: true,
-                      onMapCreated: (GoogleMapController controller) {
-                        _mapController = controller;
-                      },),
-                    label: 'Good Example MapView',
-                  ),
-                  SafeArea(
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 10.0),
-                        child:  Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            ClipOval(
-                              child: Material(
-                                color: Colors.black,
-                                child: Semantics(
-                                  child: InkWell(
-                                    splashColor: Colors.black,
-                                    child: SizedBox(
-                                      width: 45, height: 45,
-                                      child: Icon(Icons.add,color: Colors.white,),
-                                    ),
-                                    onTap: () {
-                                      _mapController.animateCamera(
-                                        CameraUpdate.zoomIn(),
-                                      );
-                                    },
-                                  ),
-                                  label: 'Zoom in to map',
-                                  button: true,
-                                ),
-                              ),
-                            ),
-                            SizedBox(height: 10,),
-                            ClipOval(
-                              child: Material(
-                                color: Colors.black,
-                                child: Semantics(
-                                  child: InkWell(
-                                    splashColor: Colors.black,
-                                    child: SizedBox(
-                                      width: 45, height: 45,
-                                      child: Icon(Icons.remove,color: Colors.white,),
-                                    ),
-                                    onTap: () {
-                                      _mapController.animateCamera(
-                                        CameraUpdate.zoomOut(),
-                                      );
-                                    },
-                                  ),
-                                  label: 'Zoom out map',
-                                  button: true,
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      )
-                  ),
-                ],
-              ),
+            SizedBox(
+              height: 10,
+            ),
+            ElevatedButton(
+              child: const Text("Good Example - Google Map"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return GoogleMapsSample(
+                    isforBadExample: false,
+                  );
+                }));
+              },
             ),
             SizedBox(
               height: 25,
@@ -171,25 +111,25 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                 if (details.delta.dx > sensitivity) {
                   setState(() {
                     currentVolume += 1;
-                    if(currentVolume >100) {
+                    if (currentVolume > 100) {
                       currentVolume = 100;
                     }
                   });
                 }
                 // Swiping in left direction.
                 if (details.delta.dx < -sensitivity) {
-                 setState(() {
-                   currentVolume -= 1;
-                   if(currentVolume < 0){
-                     currentVolume = 0;
-                   }
-                 });
+                  setState(() {
+                    currentVolume -= 1;
+                    if (currentVolume < 0) {
+                      currentVolume = 0;
+                    }
+                  });
                 }
               },
               child: Container(
                 width: 300,
                 height: 150,
-                color:  Colors.black12,
+                color: Colors.black12,
                 child: Column(
                   children: [
                     SizedBox(
@@ -199,7 +139,9 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                       child: Column(
                         children: [
                           Text('Swipe left and right to adjust the volume'),
-                          SizedBox(height: 15,),
+                          SizedBox(
+                            height: 15,
+                          ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
@@ -210,8 +152,12 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                                     child: InkWell(
                                       splashColor: Colors.black,
                                       child: SizedBox(
-                                        width: 45, height: 45,
-                                        child: Icon(Icons.remove,color: Colors.white,),
+                                        width: 45,
+                                        height: 45,
+                                        child: Icon(
+                                          Icons.remove,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                       onTap: () {
                                         setState(() {
@@ -232,8 +178,12 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                                     child: InkWell(
                                       splashColor: Colors.black,
                                       child: SizedBox(
-                                        width: 45, height: 45,
-                                        child: Icon(Icons.add,color: Colors.white,),
+                                        width: 45,
+                                        height: 45,
+                                        child: Icon(
+                                          Icons.add,
+                                          color: Colors.white,
+                                        ),
                                       ),
                                       onTap: () {
                                         setState(() {
@@ -251,18 +201,27 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10,),
-                    OutlinedButton( style: ButtonStyle(
-                      shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
+                    SizedBox(
+                      height: 10,
                     ),
-                        onPressed: (){
-                      buildShowDialog(context, 'Volume is set successfully');
-                    }, child: Text('Set Volume'))
+                    ElevatedButton(
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                              RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(30.0))),
+                        ),
+                        onPressed: () {
+                          buildShowDialog(
+                              context, 'Volume is set successfully');
+                        },
+                        child: Text('Set Volume'))
                   ],
                 ),
               ),
             ),
-           SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
               padding: EdgeInsets.only(left: 15, right: 15),
               child: Column(
@@ -276,26 +235,18 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                 ],
               ),
             ),
-            SizedBox(height: 15,),
-            Container(
-              width: 300,
-              height: 400,
-              child:  Stack(
-                children: [
-                  Semantics(
-                    child: GoogleMap(initialCameraPosition: _initialPosition,
-                      myLocationEnabled: true,
-                      myLocationButtonEnabled: true,
-                      mapType: MapType.normal,
-                      zoomGesturesEnabled: true,
-                      zoomControlsEnabled: true,
-                      onMapCreated: (GoogleMapController controller) {
-                        _mapController = controller;
-                      },),
-                    label: 'Bad Example Mapview',
-                  ),
-                ],
-              ),
+            SizedBox(
+              height: 15,
+            ),
+            ElevatedButton(
+              child: const Text("Bad Example - Google Map"),
+              onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return GoogleMapsSample(
+                    isforBadExample: true,
+                  );
+                }));
+              },
             ),
             SizedBox(
               height: 25,
@@ -312,7 +263,7 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                 if (details.delta.dx > sensitivity) {
                   setState(() {
                     currentVolume += 1;
-                    if(currentVolume >100) {
+                    if (currentVolume > 100) {
                       currentVolume = 100;
                     }
                   });
@@ -321,7 +272,7 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                 if (details.delta.dx < -sensitivity) {
                   setState(() {
                     currentVolume -= 1;
-                    if(currentVolume < 0){
+                    if (currentVolume < 0) {
                       currentVolume = 0;
                     }
                   });
@@ -337,7 +288,7 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                     Container(
                       width: 300,
                       height: 150,
-                      color:  Colors.black12,
+                      color: Colors.black12,
                       child: Column(
                         children: [
                           SizedBox(
@@ -347,15 +298,25 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                           SizedBox(
                             height: 15,
                           ),
-                          SizedBox(height: 5,),
-                          Text(currentVolume.toString()),
-                          SizedBox(height: 10,),
-                          OutlinedButton( style: ButtonStyle(
-                            shape: MaterialStateProperty.all(RoundedRectangleBorder(borderRadius: BorderRadius.circular(30.0))),
+                          SizedBox(
+                            height: 5,
                           ),
-                              onPressed: (){
-                                buildShowDialog(context, 'Volume is set successfully');
-                              }, child: Text('Set Volume'))
+                          Text(currentVolume.toString()),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          ElevatedButton(
+                              style: ButtonStyle(
+                                shape: MaterialStateProperty.all(
+                                    RoundedRectangleBorder(
+                                        borderRadius:
+                                            BorderRadius.circular(30.0))),
+                              ),
+                              onPressed: () {
+                                buildShowDialog(
+                                    context, 'Volume is set successfully');
+                              },
+                              child: Text('Set Volume'))
                         ],
                       ),
                     ),
@@ -363,7 +324,9 @@ class PointerGesturesSampleState extends State<PointerGesturesSample> {
                 ),
               ),
             ),
-            SizedBox(height: 45,),
+            SizedBox(
+              height: 45,
+            ),
           ],
         ),
       ),

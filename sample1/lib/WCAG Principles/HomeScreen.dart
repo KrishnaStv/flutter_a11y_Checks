@@ -16,9 +16,10 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-        appBar: new AppBarExtension(
-        navdata: TopBarData(
-        title: 'WCAG 2.1 GUIDELINES', enableBack: false)),
+        appBar: AppBar(
+          title: Text('WCAG 2.1 GUIDELINES'),
+          centerTitle: true,
+        ),
     body: ListView(
       padding: EdgeInsets.all(8),
       children: [

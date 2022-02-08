@@ -1,17 +1,19 @@
 import 'package:sample1/importFiles.dart';
 
 class KeyboardNavigationSample extends StatelessWidget {
-
   final String ruleDescription =
       'All the elements/components on the screen and their functionalities '
       'MUST be available for screen reader users too as for a normal user.';
-final String becodeSnippet = '\n Semantics( \n child: widgetObject \n excludeSemantics: true \n)';
+  final String becodeSnippet =
+      '\n Semantics( \n child: widgetObject \n excludeSemantics: true \n)';
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.KayboardNavigation.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.KayboardNavigation.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -24,7 +26,9 @@ final String becodeSnippet = '\n Semantics( \n child: widgetObject \n excludeSem
                       HeaderSemanticWithText(SCs.KayboardNavigation.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -32,110 +36,117 @@ final String becodeSnippet = '\n Semantics( \n child: widgetObject \n excludeSem
               alignment: Alignment.centerLeft,
             ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 alignment: Alignment.topLeft,
                 child: Column(
                   children: [
-                    HeaderSemanticWithText('Good Example: Making sure controls'
-                        ' and functionalities are available for '
-                        'a VoiceOver and screen reader users.'),
+                    Container(
+                      alignment: Alignment.topLeft,
+                      child: HeaderSemanticWithText(
+                          'Good Example: Making sure controls'
+                          ' and functionalities are available for '
+                          'a VoiceOver and screen reader users.'),
+                    ),
                     Text('By default for all widgets excludeSemantics is false,'
                         ' if we want to disable any widget for VoiceOver we can enable it.'),
                     Text(' For the below example, all UIElements '
                         'are accessible for VoiceOver.'),
                   ],
-                )
-            ),
+                )),
             Container(
-                padding: EdgeInsets.all(10),
-                child: Column(
-                  children: [
-                    SizedBox(height: 15,),
-                   Container(
-                     alignment: Alignment.topLeft,
-                     child: Text('Email Id'),
-                   ),
-                    TextField(
-                      decoration: InputDecoration(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text('Email Id'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
                         hintText: "Enter Email Id",
-                        hintStyle: TextStyle(fontWeight: FontWeight.bold)
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Semantics(
-                          child: ElevatedButton(
-                            child: const Text("UnSubscribe"),
-                            onPressed: () {
-                            },
-                          ),
+                        hintStyle: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Semantics(
+                        child: ElevatedButton(
+                          child: const Text("UnSubscribe"),
+                          onPressed: () {},
                         ),
-                        SizedBox(width: 25,),
-                        Semantics(
-                          child: ElevatedButton(
-                            child: const Text("Subscribe"),
-                            onPressed: () {
-                            },
-                          ),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
+                      ),
+                      SizedBox(
+                        width: 25,
+                      ),
+                      Semantics(
+                        child: ElevatedButton(
+                          child: const Text("Subscribe"),
+                          onPressed: () {},
+                        ),
+                      )
+                    ],
+                  ),
+                ],
               ),
-            SizedBox(height: 25,),
-            Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                alignment: Alignment.topLeft,
-                child: Column(
-                  children: [
-                    HeaderSemanticWithText('Bad Example: Controls and'
-                        ' functionality not available when VoiceOver is on.'),
-                    Text('For the below example,'
-                        ' UnSubscribe, is enabled Subscribe is'
-                        ' not accessible for VoiceOver.'),
-                  ],
-                )
             ),
-           Container(
-                padding: EdgeInsets.all(10),
+            SizedBox(
+              height: 25,
+            ),
+            Container(
+                padding: EdgeInsets.only(left: 15, right: 15),
+                alignment: Alignment.topLeft,
                 child: Column(
                   children: [
                     Container(
                       alignment: Alignment.topLeft,
-                      child: Text('Email Id'),
+                      child: HeaderSemanticWithText('Bad Example: Controls and'
+                          ' functionality not available when VoiceOver is on.'),
                     ),
-                    TextField(
-                      decoration: InputDecoration(
-                          hintText: "Enter Email Id",
-                          hintStyle: TextStyle(fontWeight: FontWeight.bold)
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Semantics(
-                          child: ElevatedButton(
-                            child: const Text("UnSubscribe"),
-                            onPressed: () {
-                            },
-                          ),
-                        ),
-                        SizedBox(width: 25,),
-                        Semantics(
-                          child: ElevatedButton(
-                            child: const Text("Subscribe"),
-                            onPressed: () {
-                            },
-                          ),
-                          excludeSemantics: true,
-                        )
-                      ],
-                    ),
+                    Text('For the below example,'
+                        ' UnSubscribe, is enabled Subscribe is'
+                        ' not accessible for VoiceOver.'),
                   ],
-                ),
+                )),
+            Container(
+              padding: EdgeInsets.all(10),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text('Email Id'),
+                  ),
+                  TextField(
+                    decoration: InputDecoration(
+                        hintText: "Enter Email Id",
+                        hintStyle: TextStyle(fontWeight: FontWeight.bold)),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Semantics(
+                        child: ElevatedButton(
+                          child: const Text("UnSubscribe"),
+                          onPressed: () {},
+                        ),
+                      ),
+                      SizedBox(
+                        width: 25,
+                      ),
+                      Semantics(
+                        child: ElevatedButton(
+                          child: const Text("Subscribe"),
+                          onPressed: () {},
+                        ),
+                        excludeSemantics: true,
+                      )
+                    ],
+                  ),
+                ],
               ),
+            ),
             CodeSinppetWidget(codeSnippet: becodeSnippet),
           ],
         ),

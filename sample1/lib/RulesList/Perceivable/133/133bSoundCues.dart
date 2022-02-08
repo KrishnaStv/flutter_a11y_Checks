@@ -1,5 +1,6 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:sample1/importFiles.dart';
+import 'package:flutter/semantics.dart';
 
 class SoundCuesSample extends StatefulWidget {
   @override
@@ -10,7 +11,6 @@ class SoundCuesSample extends StatefulWidget {
 }
 
 class _SoundCuesGEState extends State<SoundCuesSample> {
-
   AudioCache audioCache = AudioCache();
   AudioPlayer advancedPlayer = AudioPlayer();
 
@@ -28,15 +28,19 @@ class _SoundCuesGEState extends State<SoundCuesSample> {
   }
 
   Container updateContainerSelection() {
-    if(selectedOption == 1) {
+    if (selectedOption == 1) {
       return Container(
-        child: Text('Wrong Option, try again',
-          style: TextStyle(color: Colors.red),),
+        child: Text(
+          'Wrong Option, try again',
+          style: TextStyle(color: Colors.red),
+        ),
       );
     } else {
       return Container(
-        child: Text('Right Option',
-          style: TextStyle(color: Colors.green),),
+        child: Text(
+          'Right Option',
+          style: TextStyle(color: Colors.green),
+        ),
       );
     }
   }
@@ -52,7 +56,8 @@ class _SoundCuesGEState extends State<SoundCuesSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: 'Sound Cues', enableBack: true)),
+          navdata:
+              TopBarData(title: SCs.SoundCues.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -62,7 +67,7 @@ class _SoundCuesGEState extends State<SoundCuesSample> {
                 children: [
                   Row(
                     children: [
-                      HeaderSemanticWithText('Description'),
+                      HeaderSemanticWithText(SCs.SoundCues.name),
                     ],
                   ),
                   Text(ruleDescription),
@@ -72,52 +77,86 @@ class _SoundCuesGEState extends State<SoundCuesSample> {
               alignment: Alignment.centerLeft,
             ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 alignment: Alignment.topLeft,
                 child: Column(
                   children: [
                     HeaderSemanticWithText('Good Example: Using proper '
                         'instructions more than just sound cues.'),
                   ],
-                )
+                )),
+            SizedBox(
+              height: 20,
             ),
-            SizedBox(height: 20,),
             Text('Choose an option to move forward'),
             visibleStatusLabel ? updateContainerSelection() : new Container(),
-            ElevatedButton(onPressed: () {
-              updateOption(1);
-              visibleStatusLabel = true;
-              playAudio();
-            }, child: Text('Option One', style: TextStyle(fontSize: 12),),),
-            ElevatedButton(onPressed: () {
-              updateOption(2);
-              visibleStatusLabel = true;
-              playAudio();
-
-            }, child: Text('Option Two', style: TextStyle(fontSize: 12),),),
-            SizedBox(height: 30,),
+            ElevatedButton(
+              onPressed: () {
+                updateOption(1);
+                visibleStatusLabel = true;
+                playAudio();
+                Future.delayed(Duration(milliseconds: 300), () {
+                  SemanticsService.announce(
+                      "Wrong Option, try again", TextDirection.ltr);
+                });
+              },
+              child: Text(
+                'Option One',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                updateOption(2);
+                visibleStatusLabel = true;
+                playAudio();
+                Future.delayed(Duration(milliseconds: 300), () {
+                  SemanticsService.announce(
+                      "Right Option", TextDirection.ltr);
+                });
+              },
+              child: Text(
+                'Option Two',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 alignment: Alignment.topLeft,
                 child: Column(
                   children: [
                     HeaderSemanticWithText('Bad Example: Using just sound '
                         'cues and no alternative methods.'),
                   ],
-                )
+                )),
+            SizedBox(
+              height: 20,
             ),
-            SizedBox(height: 20,),
             Text('Choose an option to move forward'),
-            ElevatedButton(onPressed: () {
-              playAudio();
-            }, child: Text('Option One', style: TextStyle(fontSize: 12),),),
-            ElevatedButton(onPressed: () {
-              playAudio();
-            }, child: Text('Option Two', style: TextStyle(fontSize: 12),),)
+            ElevatedButton(
+              onPressed: () {
+                playAudio();
+              },
+              child: Text(
+                'Option One',
+                style: TextStyle(fontSize: 12),
+              ),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                playAudio();
+              },
+              child: Text(
+                'Option Two',
+                style: TextStyle(fontSize: 12),
+              ),
+            )
           ],
         ),
       ),
     );
   }
-
 }

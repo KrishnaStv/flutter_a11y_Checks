@@ -24,7 +24,8 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
     // TODO: implement build
     return Scaffold(
       appBar: new AppBarExtension(
-          navdata: TopBarData(title: SCs.RequiredFormFields.pageTitle, enableBack: true)),
+          navdata: TopBarData(
+              title: SCs.RequiredFormFields.pageTitle, enableBack: true)),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -37,7 +38,9 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
                       HeaderSemanticWithText(SCs.RequiredFormFields.name),
                     ],
                   ),
-                  SizedBox(height: 5,),
+                  SizedBox(
+                    height: 5,
+                  ),
                   Text(ruleDescription),
                 ],
               ),
@@ -46,7 +49,7 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
             ),
             Semantics(
               child: Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
+                padding: EdgeInsets.only(left: 15, right: 15),
                 child: Column(
                   children: [
                     Container(
@@ -57,134 +60,161 @@ class RequiredFormFieldsSampleState extends State<RequiredFormFieldsSample> {
                         ' for the mandatory fields. The instruction is '
                         'provided as part of the associated visible label'
                         ' for the input fields.'),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Form(
                       key: _formKey,
-                      child:Column(
-                      children: [
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: Text('Full Name(required)',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
-                        ),
-                        TextFormField(
-                          obscureText: true,
-                          maxLines: 1,
-                          minLines: 1,
-                          decoration: InputDecoration(
-                              isDense: true,
-                              border: OutlineInputBorder(),
-                              hintText: 'Enter Full Name'
+                      child: Column(
+                        children: [
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              'Full Name(required)',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.normal, fontSize: 15),
+                            ),
                           ),
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return ''
-                                  'Enter valid name';
-                            } else {
-                              debugPrint('Value is $value');
-                            }
-                          },
-                        ),
-                        SizedBox(height: 15,),
-                        Container(
-                          alignment: Alignment.topLeft,
-                          child: Text('Email Id(required)',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
-                        ),
-                        TextFormField(
-                          obscureText: true,
-                          maxLines: 1,
-                          minLines: 1,
-                          decoration: InputDecoration(
-                              isDense: true,
-                              border: OutlineInputBorder(),
-                              hintText: 'Enter Email Id'
+                          TextFormField(
+                            obscureText: true,
+                            maxLines: 1,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                                isDense: true,
+                                border: OutlineInputBorder(),
+                                hintText: 'Enter Full Name'),
+                            validator: (String? value) {
+                              if (value == null || value.isEmpty) {
+                                return ''
+                                    'Enter valid name';
+                              } else {
+                                debugPrint('Value is $value');
+                              }
+                            },
                           ),
-                          validator: (String? value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Enter valid Email Id';
-                            } else {
-                              debugPrint('Value is $value');
-                            }
-                          },
-                        ),
-                        ElevatedButton (
-                          onPressed: () {
-                            debugPrint('Clicked');
-                            if(_formKey.currentState!.validate()) {
-
-                            }
-                          },
-                          child: Text('SUBSCRIBE'),
-                        ),
-                      ],
-                    ),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Container(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              'Email Id(required)',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.normal, fontSize: 15),
+                            ),
+                          ),
+                          TextFormField(
+                            obscureText: true,
+                            maxLines: 1,
+                            minLines: 1,
+                            decoration: InputDecoration(
+                                isDense: true,
+                                border: OutlineInputBorder(),
+                                hintText: 'Enter Email Id'),
+                            validator: (String? value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Enter valid Email Id';
+                              } else {
+                                debugPrint('Value is $value');
+                              }
+                            },
+                          ),
+                          ElevatedButton(
+                            onPressed: () {
+                              debugPrint('Clicked');
+                              if (_formKey.currentState!.validate()) {}
+                            },
+                            child: Text('SUBSCRIBE'),
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
             ),
-            SizedBox(height: 15,),
-             Container(
-                padding: EdgeInsets.only(left: 15,right: 15),
-                child: Column(
-                  children: [
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: HeaderSemanticWithText('Bad Example'),
+            SizedBox(
+              height: 15,
+            ),
+            Container(
+              padding: EdgeInsets.only(left: 15, right: 15),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: HeaderSemanticWithText('Bad Example'),
+                  ),
+                  Text('The sample below misses the additional '
+                      'information as it\'s required data input.'),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  isToshowError
+                      ? Text(
+                          'Below form cannot be submitted please check',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100, color: Colors.red),
+                        )
+                      : new Container(),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Full Name',
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal, fontSize: 15),
                     ),
-                    Text('The sample below misses the additional '
-                        'information as it\'s required data input.'),
-                    SizedBox(height: 15,),
-                    isToshowError ? Text('Below form cannot be submitted please check',
-                      style: TextStyle(fontWeight: FontWeight.w100, color: Colors.red),) : new Container(),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Text('Full Name',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
+                  ),
+                  TextField(
+                    maxLines: 1,
+                    minLines: 1,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(),
+                      hintText: "Enter Full Name",
                     ),
-                    TextField(
-                      maxLines: 1,
-                      minLines: 1,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        border: OutlineInputBorder(),
-                        hintText: "Enter Full Name",
-                      ),
-                      onChanged: (value) {
-                          isBENameExist = value.isEmpty;
-                      },
+                    onChanged: (value) {
+                      isBENameExist = value.isEmpty;
+                    },
+                  ),
+                  SizedBox(
+                    height: 15,
+                  ),
+                  Container(
+                    alignment: Alignment.topLeft,
+                    child: Text(
+                      'Email Id',
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal, fontSize: 15),
                     ),
-                    SizedBox(height: 15,),
-                    Container(
-                      alignment: Alignment.topLeft,
-                      child: Text('Email Id',style: TextStyle(fontWeight: FontWeight.normal, fontSize: 15),),
+                  ),
+                  TextField(
+                    maxLines: 1,
+                    minLines: 1,
+                    decoration: InputDecoration(
+                      isDense: true,
+                      border: OutlineInputBorder(),
+                      hintText: "Enter Email Id",
                     ),
-                    TextField(
-                      maxLines: 1,
-                      minLines: 1,
-                      decoration: InputDecoration(
-                        isDense: true,
-                        border: OutlineInputBorder(),
-                        hintText: "Enter Email Id",
-                      ),
-                      onChanged: (value) {
-                        isBEIdExist = value.isEmpty;
-                      },
-                    ),
-                    ElevatedButton (
-                      onPressed: () {
-                        debugPrint('Clicked');
-                        if(_badformKey.currentState!.validate()) {
-                          setState(() {
-                            if(isBEIdExist == false && isBENameExist == false){
-                              isToshowError = !isToshowError;
-                            }
-                          });
-                        }
-                      },
-                      child: Text('SUBSCRIBE'),
-                    ),
-                  ],
-                ),
+                    onChanged: (value) {
+                      isBEIdExist = value.isEmpty;
+                    },
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      debugPrint('Clicked');
+                      if (_badformKey.currentState!.validate()) {
+                        setState(() {
+                          if (isBEIdExist == false && isBENameExist == false) {
+                            isToshowError = !isToshowError;
+                          }
+                        });
+                      }
+                    },
+                    child: Text('SUBSCRIBE'),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       ),
