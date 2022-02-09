@@ -1,5 +1,6 @@
 import 'package:sample1/importFiles.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'dart:io' show Platform;
 
 class GoogleMapsSample extends StatefulWidget {
 
@@ -16,13 +17,23 @@ class GoogleMapsSample extends StatefulWidget {
 
 class GoogleMapsSampleState extends State<GoogleMapsSample> {
 
-  final bool isforBadExample;
+   bool isforBadExample;
 
   GoogleMapsSampleState({required this.isforBadExample});
 
 
   CameraPosition _initialPosition = CameraPosition(target: LatLng(0.0,0.0));
   late GoogleMapController _mapController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    // if (Platform.isAndroid) {
+    //   isforBadExample = true;
+    // }
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +50,7 @@ class GoogleMapsSampleState extends State<GoogleMapsSample> {
               myLocationButtonEnabled: true,
               mapType: MapType.normal,
               zoomGesturesEnabled: true,
-              zoomControlsEnabled: true,
+              zoomControlsEnabled: false,
               onMapCreated: (GoogleMapController controller) {
                 _mapController = controller;
               },

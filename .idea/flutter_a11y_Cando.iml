@@ -55,6 +55,36 @@
       <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/motion_sensors/example/.pub" />
       <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/motion_sensors/example/.dart_tool" />
       <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/motion_sensors/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/path_provider_ios/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/path_provider_ios/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/path_provider_ios/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/url_launcher_ios/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/url_launcher_ios/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/url_launcher_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/url_launcher_ios/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/url_launcher_ios/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/url_launcher_ios/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/video_player_avfoundation/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/video_player_avfoundation/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/video_player_avfoundation/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors_plus/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors_plus/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors_plus/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors_plus/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors_plus/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/sensors_plus/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/video_player_avfoundation/example/.pub" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/video_player_avfoundation/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/video_player_avfoundation/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/path_provider_ios/example/.dart_tool" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/path_provider_ios/example/build" />
+      <excludeFolder url="file://$MODULE_DIR$/sample1/ios/.symlinks/plugins/path_provider_ios/example/.pub" />
     </content>
     <orderEntry type="jdk" jdkName="Android API 31 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
